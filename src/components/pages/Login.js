@@ -33,26 +33,10 @@ class Login extends React.Component {
     this.setState({ errors });
 
     if (isEmpty(errors)) {
-      this.sendDataToNetlify();
+      const data = { workerId: this.props.workerId, email: this.props.email };
+      sendDataToNetlify("login", data);
       this.props.showPage(2);
     }
-  };
-
-  encode(data) {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  }
-
-  sendDataToNetlify = () => {
-    const data = { workerId: this.props.workerId, email: this.props.email };
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: this.encode({ "form-name": "login", ...data })
-    })
-      .then(() => alert("Success!"))
-      .catch(error => alert(error));
   };
 
   toggleTerms = () => {
@@ -64,7 +48,7 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <h1>Cornell University Expectations Study 8</h1>
+        <h1>Cornell University Expectations Study 9</h1>
         {/* TODO: Add honeypot for anti-spam? */}
         <form
           name="login"
