@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import "./App.css";
-import Login from "./components/pages/Login";
-import Background from "./components/pages/Background";
-import Tournament from "./components/pages/Tournament";
-import TournamentInstructions from "./components/pages/TournamentInstructions";
-import Thanks from "./components/pages/Thanks";
+import "./index.css";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap-theme.css";
+import Login from "../components/pages/Login";
+import Background from "../components/pages/Background";
+import Tournament from "../components/pages/Tournament";
+import TournamentInstructions from "../components/pages/TournamentInstructions";
+import Thanks from "../components/pages/Thanks";
 
-class App extends Component {
+class IndexPage extends Component {
   state = {
     page: 1,
     workerId: "",
@@ -108,4 +110,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default IndexPage;
