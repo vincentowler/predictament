@@ -38,12 +38,18 @@ class Login extends React.Component {
     }
   };
 
+  encode(data) {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  }
+
   sendDataToNetlify = () => {
     const data = { workerId: this.props.workerId, email: this.props.email };
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "login", ...data })
+      body: this.encode({ "form-name": "login", ...data })
     })
       .then(() => alert("Success!"))
       .catch(error => alert(error));
@@ -58,7 +64,7 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <h1>Cornell University Expectations Study 7</h1>
+        <h1>Cornell University Expectations Study 8</h1>
         {/* TODO: Add honeypot for anti-spam? */}
         <form
           name="login"
