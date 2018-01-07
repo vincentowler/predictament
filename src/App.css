@@ -1,0 +1,19 @@
+div.center {
+  width: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.control-label--required::after {
+  display: inline-block;
+  content: "*";
+  color: red;
+  margin-left: 4px;
+}
+
+.token-wrapper {
+  background-color: rgb(241, 241, 241);
+  padding: 10px;
+  border: solid 1px gray;
+}
