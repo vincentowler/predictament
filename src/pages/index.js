@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/css/bootstrap-theme.css";
 import Login from "../components/pages/Login";
 import Background from "../components/pages/Background";
 import Tournament from "../components/pages/Tournament";
