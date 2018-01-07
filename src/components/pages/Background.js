@@ -105,14 +105,19 @@ class Background extends Component {
     if (isEmpty(errors)) {
       sendDataToNetlify("background", {
         race: this.props.background.race,
-        age: this.props.backround.age
+        age: this.props.background.age
       });
       this.props.showPage(3);
     }
   };
 
   render() {
-    const { background, onChange } = this.props;
+    const {
+      background,
+      onChange,
+      earningsOptions,
+      satisfactionOptions
+    } = this.props;
     const { errors } = this.state;
     return (
       <div>
