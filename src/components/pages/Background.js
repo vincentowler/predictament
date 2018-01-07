@@ -125,7 +125,12 @@ class Background extends Component {
     const { errors } = this.state;
     return (
       <div>
-        <form method="post" data-netlify="true" onSubmit={this.handleSubmit}>
+        <form
+          method="post"
+          name="background"
+          data-netlify="true"
+          onSubmit={this.handleSubmit}
+        >
           <h2>Background</h2>
           <ol>
             <li>
