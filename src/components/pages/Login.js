@@ -46,14 +46,9 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <h1>Cornell University Expectations Study 2</h1>
+        <h1>Cornell University Expectations Study 3</h1>
         {/* TODO: Add honeypot for anti-spam? */}
-        <form
-          onSubmit={this.handleSubmit}
-          name="login"
-          netlify
-          netlify-honeypot="bot-field"
-        >
+        <form onSubmit={this.handleSubmit} name="login" netlify>
           {/* TODO: Can I look this up to validate? */}
           <TextInput
             label="MTurk Worker ID"
