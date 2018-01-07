@@ -19,7 +19,7 @@ class Login extends React.Component {
   };
 
   handleSubmit = e => {
-    e.preventDefault();
+    // e.preventDefault();
     const errors = {};
 
     if (!this.props.workerId) {
