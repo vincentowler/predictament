@@ -83,7 +83,7 @@ class IndexPage extends Component {
             showPage={this.showPage}
           />
         )}
-        {page === 2 && (
+        {page === 1 && (
           <Background
             background={background}
             onChange={this.handleBackgroundChange}
