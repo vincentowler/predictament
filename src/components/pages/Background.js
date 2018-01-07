@@ -104,24 +104,15 @@ class Background extends Component {
 
     if (isEmpty(errors)) {
       sendDataToNetlify("background", {
-        race: this.props.race,
-        age: this.props.age
+        race: this.props.background.race,
+        age: this.props.backround.age
       });
       this.props.showPage(3);
     }
   };
 
   render() {
-    const {
-      background,
-      race,
-      ethnicity,
-      education,
-      gender,
-      satisfactionOptions,
-      earningsOptions,
-      onChange
-    } = this.props;
+    const { background, onChange } = this.props;
     const { errors } = this.state;
     return (
       <div>
@@ -146,7 +137,7 @@ class Background extends Component {
             </li>
             <li>
               <RadioButtonList
-                value={race}
+                value={background.race}
                 label="What is your race?"
                 name="race"
                 options={[
@@ -161,7 +152,7 @@ class Background extends Component {
             </li>
             <li>
               <RadioButtonList
-                value={ethnicity}
+                value={background.ethnicity}
                 label="What is your ethnicity?"
                 name="ethnicity"
                 options={[
@@ -174,7 +165,7 @@ class Background extends Component {
             </li>
             <li>
               <RadioButtonList
-                value={gender}
+                value={background.gender}
                 label="What is your gender?"
                 name="gender"
                 options={[
@@ -187,7 +178,7 @@ class Background extends Component {
             </li>
             <li>
               <RadioButtonList
-                value={education}
+                value={background.education}
                 label="What is your highest level of education completed?"
                 name="education"
                 options={[
