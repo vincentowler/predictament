@@ -46,7 +46,7 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <h1>Cornell University Expectations Study</h1>
+        <h1>Cornell University Expectations Study?</h1>
         {/* Add honeypot for anti-spam? */}
         <form
           onSubmit={this.handleSubmit}
