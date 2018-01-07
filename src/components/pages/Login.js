@@ -19,7 +19,7 @@ class Login extends React.Component {
   };
 
   handleSubmit = e => {
-    // e.preventDefault();
+    e.preventDefault();
     const errors = {};
 
     if (!this.props.workerId) {
@@ -33,8 +33,20 @@ class Login extends React.Component {
     this.setState({ errors });
 
     if (isEmpty(errors)) {
+      sendDataToNetlify();
       this.props.showPage(2);
     }
+  };
+
+  sendDataToNetlify = () => {
+    const data = { workerId: this.props.workerId, email: this.props.email };
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "login", ...data })
+    })
+      .then(() => alert("Success!"))
+      .catch(error => alert(error));
   };
 
   toggleTerms = () => {
@@ -48,7 +60,12 @@ class Login extends React.Component {
       <div>
         <h1>Cornell University Expectations Study 5</h1>
         {/* TODO: Add honeypot for anti-spam? */}
-        <form name="login" data-netlify="true">
+        <form
+          name="login"
+          onSubmit={this.handleSubmit}
+          method="post"
+          data-netlify="true"
+        >
           {/* TODO: Can I look this up to validate? */}
           <TextInput
             label="MTurk Worker ID"
