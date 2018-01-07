@@ -47,15 +47,14 @@ class Login extends React.Component {
     return (
       <div>
         <h1>Cornell University Expectations Study?</h1>
-        {/* Add honeypot for anti-spam? */}
+        {/* TODO: Add honeypot for anti-spam? */}
         <form
           onSubmit={this.handleSubmit}
           name="login"
           netlify
           netlify-honeypot="bot-field"
         >
-          <input type="hidden" name="form-name" value="login" />
-          {/* Can I validate these or look them up */}
+          {/* TODO: Can I look this up to validate? */}
           <TextInput
             label="MTurk Worker ID"
             name="workerId"
