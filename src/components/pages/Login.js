@@ -47,7 +47,7 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <h1>Cornell University Expectations Study 9</h1>
+        <h1>Cornell University Expectations Study 1</h1>
         {/* TODO: Add honeypot for anti-spam? */}
         <form
           name="login"
