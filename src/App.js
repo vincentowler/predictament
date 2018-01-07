@@ -8,7 +8,7 @@ import Thanks from "./components/pages/Thanks";
 
 class App extends Component {
   state = {
-    page: 2,
+    page: 1,
     workerId: "",
     email: "",
     acceptedTerms: false,
