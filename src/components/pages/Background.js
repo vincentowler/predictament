@@ -5,6 +5,7 @@ import SelectInput from "../SelectInput";
 import RadioButtonList from "../RadioButtonList";
 import Button from "react-bootstrap/lib/Button";
 import { isEmpty } from "../../utils/objectUtils";
+import { sendDataToNetlify } from "../../utils/netlify";
 
 class Background extends Component {
   static propTypes = {
@@ -102,6 +103,10 @@ class Background extends Component {
     this.setState({ errors });
 
     if (isEmpty(errors)) {
+      sendDataToNetlify("background", {
+        race: this.props.race,
+        age: this.props.age
+      });
       this.props.showPage(3);
     }
   };
