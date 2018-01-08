@@ -3,18 +3,24 @@ import PropTypes from "prop-types";
 import Table from "react-bootstrap/lib/Table";
 import Badge from "react-bootstrap/lib/Badge";
 
-const ItemList = ({ xAxis, tokensLeft, data, onRemoveClick, onAddClick }) => (
+const ItemList = ({
+  topic,
+  tokensLeft,
+  options,
+  onRemoveClick,
+  onAddClick
+}) => (
   <div>
     <Table condensed hover>
       <thead>
         <tr>
-          <th>{xAxis}</th>
+          <th>{topic}</th>
           <th>Tokens</th>
           <th />
         </tr>
       </thead>
       <tbody>
-        {data.map(item => {
+        {options.map(item => {
           return (
             <tr key={item.label}>
               <td>{item.label}</td>
@@ -48,9 +54,9 @@ const ItemList = ({ xAxis, tokensLeft, data, onRemoveClick, onAddClick }) => (
 );
 
 ItemList.propTypes = {
-  xAxis: PropTypes.string.isRequired,
+  topic: PropTypes.string.isRequired,
   tokensLeft: PropTypes.number.isRequired,
-  data: PropTypes.array.isRequired,
+  options: PropTypes.array.isRequired,
   onAddClick: PropTypes.func.isRequired,
   onRemoveClick: PropTypes.func.isRequired
 };
