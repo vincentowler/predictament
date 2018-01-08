@@ -6,6 +6,7 @@ import TextInput from "../TextInput";
 import { sendDataToNetlify } from "../../utils/netlify";
 import { tournamentScenarios, profiles } from "../../data";
 import BackgroundForm from "../BackgroundForm";
+import LoginForm from "../LoginForm";
 
 // for now, just hard coding to first scenario and profile.
 const initialScenario = tournamentScenarios[0];
@@ -150,7 +151,13 @@ class Tournament extends React.Component {
           </div>
         </div>
         {/* These fields are rendered, but hidden so Netlify will save them upon form submission. */}
-        <LoginForm visible={false} {...this.props} />
+        <LoginForm
+          errors={{}}
+          acceptedTerms={true}
+          visible={false}
+          onChange={() => {}}
+          {...this.props}
+        />
         <BackgroundForm
           visible={false}
           {...this.props}
