@@ -5,6 +5,7 @@ import Button from "react-bootstrap/lib/Button";
 import TextInput from "../TextInput";
 import { sendDataToNetlify } from "../../utils/netlify";
 import { tournamentScenarios, profiles } from "../../data";
+import BackgroundForm from "../BackgroundForm";
 
 // for now, just hard coding to first scenario and profile.
 const initialScenario = tournamentScenarios[0];
@@ -148,6 +149,8 @@ class Tournament extends React.Component {
             </Button>
           </div>
         </div>
+        {/* These fields are rendered, but hidden so Netlify will save them upon form submission. */}
+        <BackgroundForm {...this.props} onChange={() => {}} errors={{}} />
       </form>
     );
   }
