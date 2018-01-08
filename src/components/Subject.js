@@ -2,15 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import Table from "react-bootstrap/lib/Table";
 
-function Subject({ attributes }) {
+function Subject({ profile }) {
   return (
     <Table condensed hover>
       <tbody>
-        {Object.keys(attributes).map(key => {
+        {Object.keys(profile).map(key => {
           return (
             <tr key={key}>
               <td>{key}</td>
-              <td>{attributes[key]}</td>
+              <td>{profile[key]}</td>
             </tr>
           );
         })}
@@ -20,7 +20,7 @@ function Subject({ attributes }) {
 }
 
 Subject.propTypes = {
-  attributes: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired
 };
 
 export default Subject;
