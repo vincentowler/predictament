@@ -34,6 +34,10 @@ class Login extends React.Component {
     this.setState({ errors });
 
     if (isEmpty(errors)) {
+      sendDataToNetlify("login", {
+        workerId: this.props.workerId,
+        email: this.props.email
+      });
       this.props.showPage(2);
     }
   };
