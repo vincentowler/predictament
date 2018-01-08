@@ -74,25 +74,28 @@ class IndexPage extends Component {
     } = this.state;
     return (
       <div className="App center">
+        {page === 1 && (
+          <Login
+            onChange={this.handleChange}
+            workerId={workerId}
+            email={email}
+            acceptedTerms={acceptedTerms}
+            showPage={this.showPage}
+          />
+        )}
+        {page === 2 && (
+          <Background
+            background={background}
+            onChange={this.handleBackgroundChange}
+            showPage={this.showPage}
+            earningsOptions={earningsOptions}
+            satisfactionOptions={satisfactionOptions}
+          />
+        )}
+        {page === 3 && <TournamentInstructions showPage={this.showPage} />}
+
         {/* NOTE: Using CSS instead of conditional rendering since 
         DOM elements must exist on load for Netlify to save them to their forms. */}
-        <Login
-          visible={page === 1}
-          onChange={this.handleChange}
-          workerId={workerId}
-          email={email}
-          acceptedTerms={acceptedTerms}
-          showPage={this.showPage}
-        />
-        <Background
-          visible={page === 2}
-          background={background}
-          onChange={this.handleBackgroundChange}
-          showPage={this.showPage}
-          earningsOptions={earningsOptions}
-          satisfactionOptions={satisfactionOptions}
-        />
-        {page === 3 && <TournamentInstructions showPage={this.showPage} />}
         <Tournament
           visible={page == 4}
           workerId={workerId}

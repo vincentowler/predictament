@@ -10,7 +10,6 @@ import { validateLogin } from "../../utils/validation";
 
 class Login extends React.Component {
   static propTypes = {
-    visible: PropTypes.bool,
     workerId: PropTypes.string,
     email: PropTypes.string.isRequired,
     acceptedTerms: PropTypes.bool.isRequired,

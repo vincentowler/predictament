@@ -154,12 +154,12 @@ class Tournament extends React.Component {
         <LoginForm
           errors={{}}
           acceptedTerms={true}
-          visible={false}
+          className="hidden"
           onChange={() => {}}
           {...this.props}
         />
         <BackgroundForm
-          visible={false}
+          className="hidden"
           {...this.props}
           onChange={() => {}}
           errors={{}}
