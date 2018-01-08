@@ -13,14 +13,20 @@ const SelectInput = ({
   helpBlock,
   onChange,
   displayLabel,
-  placeholder
+  placeholder,
+  value
 }) => (
   <FormGroup
     controlId={id}
     validationState={error && error.length > 0 ? "error" : null}
   >
     {displayLabel && <ControlLabel>{label}</ControlLabel>}
-    <FormControl onChange={onChange} name={name} componentClass="select">
+    <FormControl
+      onChange={onChange}
+      value={value}
+      name={name}
+      componentClass="select"
+    >
       <option value="">{placeholder}</option>
       {options.map(option => (
         <option key={option.value} value={option.value}>
