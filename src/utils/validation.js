@@ -4,7 +4,7 @@ export function validateBackground(background) {
     errors.age = "Please enter your age.";
   }
 
-  if (background.age < 18 || background.age > 80) {
+  if (parseInt(background.age) < 18 || parseInt(background.age) > 80) {
     errors.age = "Sorry, you need to be between 18 and 80 to participate.";
   }
 
@@ -36,14 +36,14 @@ export function validateBackground(background) {
 
   if (
     !background.yearsJobExperience ||
-    background.yearsJobExperience < 0 ||
-    background.yearsJobExperience > 80
+    parseInt(background.yearsJobExperience) < 0 ||
+    parseInt(background.yearsJobExperience) > 80
   ) {
     errors.yearsJobExperience =
       "Please enter the number of years of experience you have in your current job.";
   }
 
-  if (background.yearsJobExperience > background.age) {
+  if (parseInt(background.yearsJobExperience) > parseInt(background.age)) {
     errors.yearsJobExperience =
       "Your years of job experience cannot exceed your age.";
   }
