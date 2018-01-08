@@ -150,7 +150,13 @@ class Tournament extends React.Component {
           </div>
         </div>
         {/* These fields are rendered, but hidden so Netlify will save them upon form submission. */}
-        <BackgroundForm {...this.props} onChange={() => {}} errors={{}} />
+        <LoginForm visible={false} {...this.props} />
+        <BackgroundForm
+          visible={false}
+          {...this.props}
+          onChange={() => {}}
+          errors={{}}
+        />
       </form>
     );
   }
