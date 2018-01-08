@@ -123,6 +123,8 @@ class Tournament extends React.Component {
 
           {/* hidden since merely for Netlify form */}
           <TextInput
+            id="tournamentWagerDistribution"
+            onChange={() => {}}
             name="wagerDistribution"
             value={this.wagerDistribution()}
             className="hidden"
