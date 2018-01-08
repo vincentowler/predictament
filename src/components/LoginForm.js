@@ -13,9 +13,10 @@ const LoginForm = ({
   showTerms,
   acceptedTerms,
   toggleTerms,
-  errors
+  errors,
+  visible
 }) => (
-  <div>
+  <div className={visible ? null : "hidden"}>
     {/* TODO: Can I look this up to validate? */}
     <TextInput
       label="MTurk Worker ID"

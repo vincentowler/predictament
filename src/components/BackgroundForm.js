@@ -13,7 +13,7 @@ const BackgroundForm = ({
   errors,
   visible
 }) => (
-  <div className={visible ? "" : "hidden"}>
+  <div className={visible ? null : "hidden"}>
     <ol>
       <li>
         <TextInput
@@ -219,5 +219,9 @@ const BackgroundForm = ({
     </div>
   </div>
 );
+
+BackgroundForm.defaultProps = {
+  visible: true
+};
 
 export default BackgroundForm;
