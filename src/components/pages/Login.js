@@ -43,7 +43,8 @@ class Login extends React.Component {
     }
   };
 
-  toggleTerms = () => {
+  toggleTerms = e => {
+    e.preventDefault();
     this.setState(state => {
       return { showTerms: !state.showTerms };
     });
