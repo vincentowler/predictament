@@ -13,7 +13,6 @@ class Background extends Component {
     background: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
     showPage: PropTypes.func.isRequired,
-    visible: PropTypes.bool.isRequired,
     earningsOptions: PropTypes.array.isRequired,
     satisfactionOptions: PropTypes.array.isRequired
   };
@@ -33,10 +32,7 @@ class Background extends Component {
 
   render() {
     return (
-      <form
-        onSubmit={this.handleSubmit}
-        className={this.props.visible ? null : "hidden"}
-      >
+      <form onSubmit={this.handleSubmit}>
         <h2>Background</h2>
         <BackgroundForm {...this.props} errors={this.state.errors} />
       </form>

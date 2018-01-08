@@ -6,7 +6,6 @@ import Button from "react-bootstrap/lib/Button";
 import Checkbox from "react-bootstrap/lib/Checkbox";
 
 const LoginForm = ({
-  visible,
   handleSubmit,
   workerId,
   email,
@@ -16,7 +15,7 @@ const LoginForm = ({
   toggleTerms,
   errors
 }) => (
-  <div className={visible ? "" : "hidden"}>
+  <div>
     {/* TODO: Can I look this up to validate? */}
     <TextInput
       label="MTurk Worker ID"
