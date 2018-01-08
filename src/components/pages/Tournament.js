@@ -69,7 +69,7 @@ class Tournament extends React.Component {
         email: this.props.email,
         ...this.props.background,
         scenarioId: this.state.scenario.id,
-        wagerDistribution: wagerDistribution(),
+        wagerDistribution: this.wagerDistribution(),
         bonusQuestion: this.state.bonusQuestionValue
       });
       this.props.showPage(5);
@@ -121,9 +121,11 @@ class Tournament extends React.Component {
           />
           <p>You have {tokensLeft} tokens left.</p>
 
+          {/* hidden since merely for Netlify form */}
           <TextInput
             name="wagerDistribution"
             value={this.wagerDistribution()}
+            className="hidden"
           />
 
           {!wagerSubmitted && (
