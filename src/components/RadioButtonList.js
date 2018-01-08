@@ -3,7 +3,14 @@ import PropTypes from "prop-types";
 import FormGroup from "react-bootstrap/lib/FormGroup";
 import Radio from "react-bootstrap/lib/Radio";
 
-const RadioButtonList = ({ label, onChange, options, name, error }) => (
+const RadioButtonList = ({
+  label,
+  onChange,
+  options,
+  name,
+  error,
+  selectedValue
+}) => (
   <div
     style={{ paddingBottom: 20 }}
     className={error ? "field has-error" : "field"}
@@ -13,7 +20,13 @@ const RadioButtonList = ({ label, onChange, options, name, error }) => (
     <FormGroup>
       {options.map(({ label, value }) => {
         return (
-          <Radio onChange={onChange} key={value} name={name} value={value}>
+          <Radio
+            onChange={onChange}
+            checked={value === selectedValue}
+            key={value}
+            name={name}
+            value={value}
+          >
             {label}
           </Radio>
         );
@@ -28,6 +41,7 @@ RadioButtonList.propTypes = {
   name: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
   onChange: PropTypes.func.isRequired,
+  selectedValue: PropTypes.string.isRequired,
   error: PropTypes.string
 };
 
