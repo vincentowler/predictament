@@ -93,7 +93,14 @@ class IndexPage extends Component {
           />
         )}
         {page === 3 && <TournamentInstructions showPage={this.showPage} />}
-        {page === 4 && <Tournament showPage={this.showPage} />}
+        {page === 4 && (
+          <Tournament
+            workerId={workerId}
+            email={email}
+            background={background}
+            showPage={this.showPage}
+          />
+        )}
         {page === 5 && <Thanks email={email} />}
         {/* TODO: Display progress bar? State # of steps? */}
         <footer>
