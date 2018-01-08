@@ -65,13 +65,12 @@ class Tournament extends React.Component {
     if (this.state.wagerSubmitted) {
       sendDataToNetlify("tournament", {
         workerId: this.props.workerId,
+        acceptedTerms: true,
         email: this.props.email,
         ...this.props.background,
         scenarioId: this.state.scenario.id,
-        wagerDistribution: this.state.options
-          .map(option => option.tokens)
-          .join(","),
-        bonusQuestionValue: this.state.bonusQuestionValue
+        wagerDistribution: wagerDistribution(),
+        bonusQuestion: this.state.bonusQuestionValue
       });
       this.props.showPage(5);
     } else {
@@ -82,6 +81,10 @@ class Tournament extends React.Component {
   handleBonusChange = e => {
     this.setState({ bonusQuestionValue: e.target.value });
   };
+
+  wagerDistribution() {
+    return this.state.options.map(option => option.tokens).join(",");
+  }
 
   render() {
     const tokensLeft = this.getTokensLeft();
@@ -117,6 +120,11 @@ class Tournament extends React.Component {
             onRemoveClick={this.handleRemoveClick}
           />
           <p>You have {tokensLeft} tokens left.</p>
+
+          <TextInput
+            name="wagerDistribution"
+            value={this.wagerDistribution()}
+          />
 
           {!wagerSubmitted && (
             <Button
