@@ -17,6 +17,10 @@ class Background extends Component {
     satisfactionOptions: PropTypes.array.isRequired
   };
 
+  defaultProps = {
+    visible: true
+  };
+
   state = {
     errors: {}
   };
@@ -32,7 +36,10 @@ class Background extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form
+        onSubmit={this.handleSubmit}
+        className={this.props.visible ? null : "hidden"}
+      >
         <h2>Background</h2>
         <BackgroundForm {...this.props} errors={this.state.errors} />
       </form>
