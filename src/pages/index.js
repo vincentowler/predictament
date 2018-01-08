@@ -74,16 +74,15 @@ class IndexPage extends Component {
     } = this.state;
     return (
       <div className="App center">
-        {page === 1 && (
-          <Login
-            onChange={this.handleChange}
-            workerId={workerId}
-            email={email}
-            acceptedTerms={acceptedTerms}
-            showPage={this.showPage}
-          />
-        )}
-        {page === 1 && (
+        <Login
+          visible={page === 1}
+          onChange={this.handleChange}
+          workerId={workerId}
+          email={email}
+          acceptedTerms={acceptedTerms}
+          showPage={this.showPage}
+        />
+        {page === 2 && (
           <Background
             background={background}
             onChange={this.handleBackgroundChange}
