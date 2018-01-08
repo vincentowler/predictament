@@ -80,3 +80,16 @@ export function validateBackground(background) {
 
   return errors;
 }
+
+export function validateLogin(workerId, acceptedTerms) {
+  const errors = {};
+
+  if (!workerId) {
+    errors.workerId = "Please enter your MTurk Worker ID.";
+  }
+
+  if (!acceptedTerms) {
+    errors.acceptedTerms = "Please accept the terms to continue.";
+  }
+  return errors;
+}
