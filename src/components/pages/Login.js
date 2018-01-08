@@ -42,7 +42,7 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <h1>Cornell University Expectations Study!!</h1>
+        <h1>Cornell University Expectations Study</h1>
         <form name="login" onSubmit={this.handleSubmit} method="post">
           <LoginForm
             toggleTerms={this.toggleTerms}
