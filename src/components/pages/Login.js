@@ -9,6 +9,7 @@ import { sendDataToNetlify } from "../../utils/netlify";
 
 class Login extends React.Component {
   static propTypes = {
+    visible: PropTypes.bool,
     workerId: PropTypes.string,
     email: PropTypes.string.isRequired,
     acceptedTerms: PropTypes.bool.isRequired
@@ -50,8 +51,8 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Cornell University Expectations Study 2</h1>
+      <div className={this.props.visible ? "" : "hidden"}>
+        <h1>Cornell University Expectations Study</h1>
         {/* TODO: Add honeypot for anti-spam? */}
         <form
           name="login"
