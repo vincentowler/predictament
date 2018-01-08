@@ -10,9 +10,10 @@ const BackgroundForm = ({
   onChange,
   earningsOptions,
   satisfactionOptions,
-  errors
+  errors,
+  visible
 }) => (
-  <div>
+  <div className={visible ? "" : "hidden"}>
     <ol>
       <li>
         <TextInput
