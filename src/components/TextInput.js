@@ -16,6 +16,7 @@ const TextInput = ({
   helpBlock,
   placeholder,
   required,
+  className,
   error
 }) => {
   const labelClass = required ? "control-label--required" : "";
@@ -23,6 +24,7 @@ const TextInput = ({
   return (
     <FormGroup
       controlId={id}
+      className={className}
       validationState={error && error.length > 0 ? "error" : null}
     >
       {displayLabel && (
