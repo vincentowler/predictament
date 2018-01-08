@@ -99,6 +99,8 @@ class IndexPage extends Component {
           email={email}
           background={background}
           showPage={this.showPage}
+          earningsOptions={earningsOptions}
+          satisfactionOptions={satisfactionOptions}
         />
         {page === 5 && <Thanks email={email} />}
         {/* TODO: Display progress bar? State # of steps? */}
