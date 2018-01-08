@@ -91,13 +91,13 @@ const LoginForm = ({
   </div>
 );
 
-Login.propTypes = {
+LoginForm.propTypes = {
   visible: PropTypes.bool,
-  workerId: PropTypes.string,
+  workerId: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  acceptedTerms: PropTypes.bool.isRequired,
-  showTerms: PropTypes.bool.isRequired,
-  toggleTerms: PropTypes.func.isRequired
+  acceptedTerms: PropTypes.bool,
+  showTerms: PropTypes.bool,
+  toggleTerms: PropTypes.func
 };
 
-export default Login;
+export default LoginForm;
