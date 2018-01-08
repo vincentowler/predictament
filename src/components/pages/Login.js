@@ -13,7 +13,8 @@ class Login extends React.Component {
     visible: PropTypes.bool,
     workerId: PropTypes.string,
     email: PropTypes.string.isRequired,
-    acceptedTerms: PropTypes.bool.isRequired
+    acceptedTerms: PropTypes.bool.isRequired,
+    onChange: PropTypes.func.isRequired
   };
 
   state = {
@@ -43,7 +44,11 @@ class Login extends React.Component {
       <div>
         <h1>Cornell University Expectations Study!!</h1>
         <form name="login" onSubmit={this.handleSubmit} method="post">
-          <LoginForm {...this.props} />
+          <LoginForm
+            toggleTerms={this.toggleTerms}
+            {...this.props}
+            {...this.state}
+          />
         </form>
       </div>
     );
