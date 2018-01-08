@@ -53,7 +53,7 @@ class Login extends React.Component {
   render() {
     return (
       <div className={this.props.visible ? "" : "hidden"}>
-        <h1>Cornell University Expectations Study899</h1>
+        <h1>Cornell University Expectations Study</h1>
         {/* TODO: Add honeypot for anti-spam? */}
         <form
           name="login"
