@@ -100,4 +100,8 @@ LoginForm.propTypes = {
   toggleTerms: PropTypes.func
 };
 
+LoginForm.defaultProps = {
+  visible: true
+};
+
 export default LoginForm;
