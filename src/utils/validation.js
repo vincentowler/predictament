@@ -25,6 +25,7 @@ export function validateBackground(background) {
   }
 
   // TODO: Should this only be allowed to be a number?
+  // Depends on IRB policy. May have to switch to ranges.
   if (!background.income) {
     errors.income = "Please enter your annual income.";
   }
@@ -48,7 +49,6 @@ export function validateBackground(background) {
       "Your years of job experience cannot exceed your age.";
   }
 
-  // TODO: Require entering three?
   if (!background.earningsDesiredData1) {
     errors.earningsDesiredData1 = "Please enter the most important factor.";
   }
@@ -63,7 +63,6 @@ export function validateBackground(background) {
       "Please enter the third most important factor.";
   }
 
-  // TODO: Require entering three?
   if (!background.satisfactionDesiredData1) {
     errors.satisfactionDesiredData1 = "Please enter the most important factor.";
   }
