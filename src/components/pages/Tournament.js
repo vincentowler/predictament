@@ -89,17 +89,19 @@ class Tournament extends React.Component {
     }
   };
 
-  showNextProfile() {
-    this.setState(state => ({
-      profileNumber: state.profileNumber + 1,
-      profile: profiles[state.profileNumber],
-      bonusQuestionValue: "",
-      options: state.options.map(option => {
-        return { label: option, tokens: 0 };
-      })
-    }));
+  showNextProfile = () => {
+    this.setState(state => {
+      return {
+        profileNumber: state.profileNumber + 1,
+        profile: profiles[state.profileNumber],
+        bonusQuestionValue: "",
+        options: state.options.map(option => {
+          return { label: option.label, tokens: 0 };
+        })
+      };
+    });
     window.scrollTo(0, 0);
-  }
+  };
 
   handleBonusChange = e => {
     this.setState({ bonusQuestionValue: e.target.value });
