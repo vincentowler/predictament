@@ -11,9 +11,11 @@ const BackgroundForm = ({
   earningsOptions,
   satisfactionOptions,
   errors,
+  errorsExist,
   visible
 }) => (
   <div className={visible ? null : "hidden"}>
+    {errorsExist && <p>Please correct the errors below.</p>}
     <ol>
       <li>
         <TextInput
