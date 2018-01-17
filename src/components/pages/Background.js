@@ -27,6 +27,8 @@ class Background extends Component {
     this.setState({ errors });
     if (isEmpty(errors)) {
       this.props.showPage(3);
+    } else {
+      window.scrollTo(0, 0);
     }
   };
 
@@ -34,7 +36,11 @@ class Background extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <h2>Background</h2>
-        <BackgroundForm {...this.props} errors={this.state.errors} />
+        <BackgroundForm
+          {...this.props}
+          errors={this.state.errors}
+          errorsExist={!isEmpty(this.state.errors)}
+        />
       </form>
     );
   }
