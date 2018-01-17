@@ -11,7 +11,7 @@ function Profile({ profile }) {
             <tr
               key={key}
               className={
-                key === "ProfileId" || key === "profileNumber" ? "hidden" : ""
+                key === "profileId" || key === "profileNumber" ? "hidden" : ""
               }
             >
               <td>{key}</td>
