@@ -1,20 +1,15 @@
 import React from "react";
-import Subject from "../Subject";
-import ItemList from "../ItemList";
-import Button from "react-bootstrap/lib/Button";
-import TextInput from "../TextInput";
 import { sendDataToNetlify } from "../../utils/netlify";
 import { tournamentScenarios, profiles } from "../../data";
-import BackgroundForm from "../BackgroundForm";
-import LoginForm from "../LoginForm";
+import TournamentForm from "../TournamentForm";
 
-// for now, just hard coding to first scenario and profile.
+// for now, just hard coding to first scenario.
 const initialScenario = tournamentScenarios[0];
-const profile = profiles[0];
 
 class Tournament extends React.Component {
   state = {
-    profile: profile,
+    profileNumber: 1,
+    profile: profiles[0],
     scenario: initialScenario,
     options: initialScenario.options.map(option => {
       return { label: option, tokens: 0 };
@@ -62,21 +57,49 @@ class Tournament extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    if (this.state.wagerSubmitted) {
+
+    const {
+      wagerSubmitted,
+      profile,
+      scenario,
+      bonusQuestionValue,
+      profileNumber
+    } = this.state;
+
+    if (wagerSubmitted) {
       sendDataToNetlify("tournament", {
         workerId: this.props.workerId,
         acceptedTerms: true,
         email: this.props.email,
         ...this.props.background,
-        scenarioId: this.state.scenario.id,
+        profileId: profile.profileId,
+        scenarioId: scenario.scenarioId,
         wagerDistribution: this.wagerDistribution(),
-        bonusQuestion: this.state.bonusQuestionValue
+        bonusQuestion: bonusQuestionValue
       });
-      this.props.showPage(5);
+
+      // Show next profile if another exists. Otherwise, redirect to thanks page.
+      if (profiles[profileNumber]) {
+        this.showNextProfile();
+      } else {
+        this.props.showPage(5);
+      }
     } else {
       this.setState({ wagerSubmitted: true });
     }
   };
+
+  showNextProfile() {
+    this.setState(state => ({
+      profileNumber: state.profileNumber + 1,
+      profile: profiles[state.profileNumber],
+      bonusQuestionValue: "",
+      options: state.options.map(option => {
+        return { label: option, tokens: 0 };
+      })
+    }));
+    window.scrollTo(0, 0);
+  }
 
   handleBonusChange = e => {
     this.setState({ bonusQuestionValue: e.target.value });
@@ -87,7 +110,6 @@ class Tournament extends React.Component {
   }
 
   render() {
-    const tokensLeft = this.getTokensLeft();
     const {
       topic,
       profile,
@@ -97,86 +119,24 @@ class Tournament extends React.Component {
       wagerSubmitted
     } = this.state;
     return (
-      <form
-        className={this.props.visible ? "" : "hidden"}
-        name="tournament"
+      <TournamentForm
+        topic={topic}
+        maxTokens={this.MAX_TOKENS}
+        tokensLeft={this.getTokensLeft()}
+        background={this.props.background}
+        profile={{ ...profile, profileNumber: this.state.profileNumber }}
+        numProfiles={profiles.length}
+        scenario={scenario}
+        options={options}
+        bonusQuestionValue={bonusQuestionValue}
+        wagerSubmitted={wagerSubmitted}
+        wagerDistribution={this.wagerDistribution()}
+        onAddClick={this.handleAddClick}
+        onRemoveClick={this.handleRemoveClick}
+        onBonusChange={this.handleBonusChange}
         onSubmit={this.handleSubmit}
-        method="post"
-        data-netlify="true"
-      >
-        <h2>What is this person's income?</h2>
-        <p>
-          Click the -/+ signs below to place wagers on this person's income.
-        </p>
-        <p>You have {this.MAX_TOKENS} tokens to assign.</p>
-        <div className="token-wrapper">
-          <h3>Profile</h3>
-          <Subject profile={profile} />
-          <ItemList
-            topic={scenario.topic}
-            options={options}
-            tokensLeft={tokensLeft}
-            onAddClick={this.handleAddClick}
-            onRemoveClick={this.handleRemoveClick}
-          />
-          <p>You have {tokensLeft} tokens left.</p>
-
-          {/* hidden since merely for Netlify form */}
-          <TextInput
-            id="tournamentWagerDistribution"
-            onChange={() => {}}
-            name="wagerDistribution"
-            value={this.wagerDistribution()}
-            className="hidden"
-          />
-
-          {!wagerSubmitted && (
-            <Button
-              className="btn btn-primary center-block"
-              bsSize="lg"
-              type="submit"
-              disabled={this.getTokensLeft() > 0}
-              title={`You must assign all ${
-                this.MAX_TOKENS
-              } tokens to continue.`}
-            >
-              Continue
-            </Button>
-          )}
-
-          {/* Must use CSS to hide so Netflify can see the form field */}
-          <div className={wagerSubmitted ? null : "hidden"}>
-            <TextInput
-              id="bonusQuestion"
-              name="bonusQuestion"
-              onChange={this.handleBonusChange}
-              label={`For an additional bonus, ${scenario.bonusQuestion}`}
-              value={bonusQuestionValue}
-            />
-            <Button
-              className="btn btn-primary center-block"
-              bsSize="lg"
-              type="submit"
-            >
-              Save Wager
-            </Button>
-          </div>
-        </div>
-        {/* These fields are rendered, but hidden so Netlify will save them upon form submission. */}
-        <LoginForm
-          errors={{}}
-          acceptedTerms={true}
-          {...this.props}
-          visible={false}
-          onChange={() => {}}
-        />
-        <BackgroundForm
-          {...this.props}
-          visible={false}
-          onChange={() => {}}
-          errors={{}}
-        />
-      </form>
+        {...this.props}
+      />
     );
   }
 }
