@@ -1,7 +1,7 @@
 import React from "react";
+import TournamentForm from "../TournamentForm";
 import { sendDataToNetlify } from "../../utils/netlify";
 import { scenarios, profiles } from "../../data";
-import TournamentForm from "../TournamentForm";
 
 class Tournament extends React.Component {
   state = {
@@ -20,14 +20,14 @@ class Tournament extends React.Component {
     this.setState({ wagerSubmitted: false });
   }
 
-  getTokensLeft() {
+  getTokensLeft = () => {
     return (
-      this.scenario.totalTokens -
+      this.state.scenario.totalTokens -
       this.state.options
         .map(option => option.tokens)
         .reduce((acc, curr) => acc + curr)
     );
-  }
+  };
 
   handleAddClick = (item, event) => {
     event.preventDefault();
@@ -112,6 +112,7 @@ class Tournament extends React.Component {
     const {
       topic,
       profile,
+      profileNumber,
       scenario,
       options,
       bonusQuestionValue,
@@ -122,7 +123,7 @@ class Tournament extends React.Component {
         topic={topic}
         tokensLeft={this.getTokensLeft()}
         background={this.props.background}
-        profile={{ ...profile, profileNumber: this.state.profileNumber }}
+        profile={{ ...profile, profileNumber }}
         numProfiles={profiles.length}
         scenario={scenario}
         options={options}
