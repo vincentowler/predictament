@@ -10,7 +10,6 @@ import Tournament from "./pages/Tournament";
 const TournamentForm = props => {
   const {
     visible,
-    maxTokens,
     scenario,
     profile,
     numProfiles,
@@ -35,7 +34,7 @@ const TournamentForm = props => {
     >
       <h2>What is this person's income?</h2>
       <p>Click the -/+ signs below to place wagers on this person's income.</p>
-      <p>You have {maxTokens} tokens to assign.</p>
+      <p>You have {scenario.totalTokens} tokens to assign.</p>
       <div className="token-wrapper">
         <h3>
           Profile ({profile.profileNumber} of {numProfiles})
@@ -56,7 +55,9 @@ const TournamentForm = props => {
             bsSize="lg"
             type="submit"
             disabled={tokensLeft > 0}
-            title={`You must assign all ${maxTokens} tokens to continue.`}
+            title={`You must assign all ${
+              scenario.totalTokens
+            } tokens to continue.`}
           >
             Continue
           </Button>
@@ -99,7 +100,7 @@ const TournamentForm = props => {
         id="scenarioId"
         onChange={() => {}}
         name="scenarioId"
-        value={scenarioId}
+        value={scenario.scenarioId}
         className="hidden"
       />
       <LoginForm
