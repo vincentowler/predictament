@@ -3,6 +3,7 @@ import { sendDataToNetlify } from "../../utils/netlify";
 import { tournamentScenarios, profiles } from "../../data";
 import TournamentForm from "../TournamentForm";
 
+// TODO: How do we handle different scenarios
 // for now, just hard coding to first scenario.
 const initialScenario = tournamentScenarios[0];
 
@@ -127,6 +128,7 @@ class Tournament extends React.Component {
         maxTokens={this.MAX_TOKENS}
         tokensLeft={this.getTokensLeft()}
         background={this.props.background}
+        scenarioId={initialScenario.scenarioId}
         profile={{ ...profile, profileNumber: this.state.profileNumber }}
         numProfiles={profiles.length}
         scenario={scenario}
