@@ -8,6 +8,7 @@ Prediction tournament app for economic research at Cornell Univsersity
 * Components and styling: [React Bootstrap](https://react-bootstrap.github.io)
 * Database: [Netlify Forms](https://app.netlify.com/sites/predictament-dev/forms) - **Note:** Data is only written to forms when hosted on Netlify. Data is **not** written to Netlify forms when the app is run locally.
 * Hosting: Netlify
+  // TODO: Set up prod environment and tie to the domain name.
   * Prod environment TBD
   * [Test environment](https://predictament-dev.netlify.com/)
 
