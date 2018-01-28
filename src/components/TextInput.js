@@ -48,7 +48,7 @@ TextInput.propTypes = {
   required: PropTypes.bool,
   displayLabel: PropTypes.bool,
   name: PropTypes.string.isRequired,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   placeholder: PropTypes.string,
   error: PropTypes.string,
   onChange: PropTypes.func.isRequired,
