@@ -50,15 +50,6 @@ const TournamentForm = props => {
         />
         <p>You have {tokensLeft} tokens left.</p>
 
-        {/* hidden since merely for Netlify form */}
-        <TextInput
-          id="tournamentWagerDistribution"
-          onChange={() => {}}
-          name="wagerDistribution"
-          value={wagerDistribution}
-          className="hidden"
-        />
-
         {!wagerSubmitted && (
           <Button
             className="btn btn-primary center-block"
@@ -89,7 +80,28 @@ const TournamentForm = props => {
           </Button>
         </div>
       </div>
-      {/* These fields are rendered, but hidden so Netlify will save them upon form submission. */}
+      {/* All the fields below are rendered, but hidden so Netlify will save them upon form submission. */}
+      <TextInput
+        id="tournamentWagerDistribution"
+        onChange={() => {}}
+        name="wagerDistribution"
+        value={wagerDistribution}
+        className="hidden"
+      />
+      <TextInput
+        id="profileId"
+        onChange={() => {}}
+        name="profileId"
+        value={profile.profileId}
+        className="hidden"
+      />
+      <TextInput
+        id="scenarioId"
+        onChange={() => {}}
+        name="scenarioId"
+        value={scenarioId}
+        className="hidden"
+      />
       <LoginForm
         errors={{}}
         acceptedTerms={true}
