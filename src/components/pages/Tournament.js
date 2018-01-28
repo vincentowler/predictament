@@ -1,25 +1,20 @@
 import React from "react";
 import { sendDataToNetlify } from "../../utils/netlify";
-import { tournamentScenarios, profiles } from "../../data";
+import { scenarios, profiles } from "../../data";
 import TournamentForm from "../TournamentForm";
-
-// TODO: How do we handle different scenarios
-// for now, just hard coding to first scenario.
-const initialScenario = tournamentScenarios[0];
 
 class Tournament extends React.Component {
   state = {
     profileNumber: 1,
     profile: profiles[0],
-    scenario: initialScenario,
-    options: initialScenario.options.map(option => {
+    // TODO: How do we handle different scenarios? For now, just hard coding to first scenario.
+    scenario: scenarios[0],
+    options: scenarios[0].options.map(option => {
       return { label: option, tokens: 0 };
     }),
     bonusQuestionValue: "",
     wagerSubmitted: false
   };
-
-  MAX_TOKENS = 3;
 
   componentDidMount() {
     this.setState({ wagerSubmitted: false });
@@ -27,7 +22,7 @@ class Tournament extends React.Component {
 
   getTokensLeft() {
     return (
-      this.MAX_TOKENS -
+      this.scenario.totalTokens -
       this.state.options
         .map(option => option.tokens)
         .reduce((acc, curr) => acc + curr)
@@ -125,10 +120,8 @@ class Tournament extends React.Component {
     return (
       <TournamentForm
         topic={topic}
-        maxTokens={this.MAX_TOKENS}
         tokensLeft={this.getTokensLeft()}
         background={this.props.background}
-        scenarioId={initialScenario.scenarioId}
         profile={{ ...profile, profileNumber: this.state.profileNumber }}
         numProfiles={profiles.length}
         scenario={scenario}
