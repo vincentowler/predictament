@@ -95,6 +95,7 @@ class Tournament extends React.Component {
         profileNumber: state.profileNumber + 1,
         profile: profiles[state.profileNumber],
         bonusQuestionValue: "",
+        wagerSubmitted: false,
         options: state.options.map(option => {
           return { label: option.label, tokens: 0 };
         })
