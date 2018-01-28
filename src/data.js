@@ -16,26 +16,26 @@ export const tournamentScenarios = [
 export const profiles = [
   {
     profileId: 1,
-    Age: 42,
-    Weight: "200 pounds",
-    Race: "White",
-    Industry: "Software",
-    Education: "Masters"
+    age: 42,
+    weight: "200 pounds",
+    race: "White",
+    industry: "Software",
+    education: "Masters"
   },
   {
     profileId: 2,
-    Age: 22,
-    Weight: "150 pounds",
-    Race: "Black",
-    Industry: "Architecture",
-    Education: "Doctorate"
+    age: 22,
+    weight: "150 pounds",
+    race: "Black",
+    industry: "Architecture",
+    education: "Doctorate"
   },
   {
     profileId: 3,
-    Age: 32,
-    Weight: "170 pounds",
-    Race: "Asian",
-    Industry: "Mechanical Engineering",
-    Education: "High School"
+    age: 32,
+    weight: "170 pounds",
+    race: "Asian",
+    industry: "Mechanical Engineering",
+    education: "High School"
   }
 ];
