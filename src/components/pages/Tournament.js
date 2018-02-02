@@ -63,7 +63,7 @@ class Tournament extends React.Component {
     } = this.state;
 
     if (wagerSubmitted) {
-      sendDataToNetlify("tournament", {
+      const data = {
         workerId: this.props.workerId,
         acceptedTerms: true,
         email: this.props.email,
@@ -72,7 +72,9 @@ class Tournament extends React.Component {
         scenarioId: scenario.scenarioId,
         wagerDistribution: this.wagerDistribution(),
         bonusQuestion: bonusQuestionValue
-      });
+      };
+
+      sendDataToNetlify("tournament", data);
 
       // Show next profile if another exists. Otherwise, redirect to thanks page.
       if (profiles[profileNumber]) {
