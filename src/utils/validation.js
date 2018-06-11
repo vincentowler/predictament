@@ -26,8 +26,10 @@ export function validateBackground(background) {
 
   // TODO: Should this only be allowed to be a number?
   // Depends on IRB policy. May have to switch to ranges.
+  // leave as is for now per Jeff.
   if (!background.income) {
-    errors.income = "Please enter your annual income.";
+    errors.income =
+      "Please enter your annual income in dollars, rounded to the nearest thousand dollars.";
   }
 
   // TODO: Should these be dropdowns? Single input?
