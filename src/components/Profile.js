@@ -7,6 +7,11 @@ function Profile({ profile }) {
     <Table condensed hover>
       <tbody>
         {Object.keys(profile).map(key => {
+          {
+            /* This only exists for customizing the button label on some profiles 
+            so don't display as part of profile. */
+          }
+          if (key === "saveWagerButtonLabel") return null;
           return (
             <tr
               key={key}

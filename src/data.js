@@ -22,6 +22,15 @@ export const profiles = [
     age: 42,
     weight: "200 pounds",
     race: "White",
+    saveWagerButtonLabel: "Save wager to see more info"
+  },
+  // Note how this is the same person as above, but with more info provided.
+  // The saveWagerButtonLabel property is an override. If it's not provided, the default label will be utilized for that profile.
+  {
+    profileId: 11,
+    age: 42,
+    weight: "200 pounds",
+    race: "White",
     industry: "Software",
     education: "Masters"
   },

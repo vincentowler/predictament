@@ -77,7 +77,9 @@ const TournamentForm = props => {
             bsSize="lg"
             type="submit"
           >
-            Save Wager
+            {/* The saveWagerButtonLabel property is an optional override that can be provided in data.js. 
+            If it's not provided, the default label will be utilized for that profile. */}
+            {profile.saveWagerButtonLabel || "Save Wager"}
           </Button>
         </div>
       </div>
