@@ -62,7 +62,7 @@ class IndexPage extends Component {
     this.setState({ page: number });
   };
 
-  render() {
+  getPage() {
     const {
       page,
       email,
@@ -72,9 +72,10 @@ class IndexPage extends Component {
       earningsOptions,
       satisfactionOptions
     } = this.state;
-    return (
-      <div className="App center">
-        {page === 1 && (
+
+    switch (page) {
+      case 1:
+        return (
           <Login
             onChange={this.handleChange}
             workerId={workerId}
@@ -82,8 +83,9 @@ class IndexPage extends Component {
             acceptedTerms={acceptedTerms}
             showPage={this.showPage}
           />
-        )}
-        {page === 2 && (
+        );
+      case 2:
+        return (
           <Background
             background={background}
             onChange={this.handleBackgroundChange}
@@ -91,21 +93,37 @@ class IndexPage extends Component {
             earningsOptions={earningsOptions}
             satisfactionOptions={satisfactionOptions}
           />
-        )}
-        {page === 3 && <TournamentInstructions showPage={this.showPage} />}
+        );
+      case 3:
+        return <TournamentInstructions showPage={this.showPage} />;
+      case 4:
+        {
+          /* NOTE: Using CSS instead of conditional rendering since 
+        DOM elements must exist on load for Netlify to save them to their forms. */
+        }
+        return (
+          <Tournament
+            visible={page == 4}
+            workerId={workerId}
+            email={email}
+            background={background}
+            showPage={this.showPage}
+            earningsOptions={earningsOptions}
+            satisfactionOptions={satisfactionOptions}
+          />
+        );
+      case 5:
+        return <Thanks email={email} />;
+      default:
+        throw new Error("Unknown page passed: " + this.state.page);
+    }
+  }
 
-        {/* NOTE: Using CSS instead of conditional rendering since 
-        DOM elements must exist on load for Netlify to save them to their forms. */}
-        <Tournament
-          visible={page == 4}
-          workerId={workerId}
-          email={email}
-          background={background}
-          showPage={this.showPage}
-          earningsOptions={earningsOptions}
-          satisfactionOptions={satisfactionOptions}
-        />
-        {page === 5 && <Thanks email={email} />}
+  render() {
+    return (
+      <div className="App center">
+        {this.getPage()}
+
         {/* TODO: Display progress bar? State # of steps? */}
         <footer>
           <hr />&copy; 2018 Cornell University
