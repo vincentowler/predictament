@@ -86,7 +86,7 @@ const BackgroundForm = ({
       </li>
       <li>
         <TextInput
-          label="What is your total annual income?"
+          label="What is your total annual income in dollars, rounded to the nearest thousand?"
           id="income"
           name="income"
           type="text"
@@ -210,7 +210,7 @@ const BackgroundForm = ({
       </li>
     </ol>
     <div>
-      {/* // TODO: Provide a previous button too? */}
+      {/* // TODO: Provide a previous button too? Nope for now per Jeff. */}
       <Button
         className="btn btn-primary center-block"
         bsSize="lg"
