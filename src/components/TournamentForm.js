@@ -5,7 +5,6 @@ import ItemList from "./ItemList";
 import Profile from "./Profile";
 import BackgroundForm from "./BackgroundForm";
 import LoginForm from "./LoginForm";
-import Tournament from "./pages/Tournament";
 
 const TournamentForm = props => {
   const {
