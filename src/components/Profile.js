@@ -12,6 +12,11 @@ function Profile({ profile }) {
             so don't display as part of profile. */
           }
           if (key === "saveWagerButtonLabel") return null;
+          {
+            /* Since we want to send profileId and profileNumber to Netflify,
+          we need to place them in the DOM, which is why we're styling them hidden 
+          instead of supressing rendering altogether. */
+          }
           return (
             <tr
               key={key}
