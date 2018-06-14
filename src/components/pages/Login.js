@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { sendDataToNetlify } from "../../utils/netlify";
 import TextInput from "../TextInput";
 import Modal from "react-bootstrap/lib/Modal";
 import Button from "react-bootstrap/lib/Button";
@@ -27,6 +28,13 @@ class Login extends React.Component {
     this.setState({ errors });
 
     if (isEmpty(errors)) {
+      const data = {
+        workerId: this.props.workerId,
+        acceptedTerms: true,
+        email: this.props.email
+      };
+
+      sendDataToNetlify(data);
       this.props.showPage(2);
     }
   };
@@ -42,7 +50,12 @@ class Login extends React.Component {
     return (
       <div>
         <h1>Cornell University Expectations Study</h1>
-        <form name="login" onSubmit={this.handleSubmit} method="post">
+        <form
+          name="tournament"
+          method="post"
+          data-netlify="true"
+          onSubmit={this.handleSubmit}
+        >
           <LoginForm
             toggleTerms={this.toggleTerms}
             {...this.props}
