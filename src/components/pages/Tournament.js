@@ -74,6 +74,7 @@ class Tournament extends React.Component {
         bonusQuestion: bonusQuestionValue
       };
 
+      console.log(data);
       debugger;
 
       sendDataToNetlify("tournament", data);
