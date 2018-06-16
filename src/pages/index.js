@@ -92,6 +92,9 @@ class IndexPage extends Component {
             showPage={this.showPage}
             earningsOptions={earningsOptions}
             satisfactionOptions={satisfactionOptions}
+            workerId={workerId}
+            email={email}
+            acceptedTerms={acceptedTerms}
           />
         );
       case 3:
