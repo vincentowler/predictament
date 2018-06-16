@@ -12,7 +12,6 @@ const TournamentForm = props => {
     scenario,
     profile,
     numProfiles,
-    background,
     options,
     wagerSubmitted,
     tokensLeft,
