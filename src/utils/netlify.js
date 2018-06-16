@@ -8,8 +8,7 @@ function encode(data) {
 // Send data to Netlify to store in their form feature
 // More info at https://www.netlify.com/docs/form-handling/
 // Example: https://github.com/imorente/gatsby-netlify-form-example
-export function sendDataToNetlify(data) {
-  const formName = "tournament"; // TODO: Fork this based on URL (write to test-tournament from test.predictament.com)
+export function sendDataToNetlify(formName, data) {
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },

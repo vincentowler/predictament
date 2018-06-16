@@ -74,7 +74,7 @@ class Tournament extends React.Component {
         bonusQuestion: bonusQuestionValue
       };
 
-      sendDataToNetlify(data);
+      sendDataToNetlify("tournament", data);
 
       // Show next profile if another exists. Otherwise, redirect to thanks page.
       if (profiles[profileNumber]) {

@@ -35,7 +35,7 @@ class Background extends Component {
       };
       debugger;
 
-      sendDataToNetlify(data);
+      sendDataToNetlify("background", data);
       this.props.showPage(3);
     } else {
       window.scrollTo(0, 0);
@@ -46,7 +46,7 @@ class Background extends Component {
     return (
       <form
         method="post"
-        name="tournament"
+        name="background"
         data-netlify="true"
         onSubmit={this.handleSubmit}
       >

@@ -31,7 +31,7 @@ class Login extends React.Component {
         complete: "N"
       };
 
-      sendDataToNetlify(data);
+      sendDataToNetlify("login", data);
       this.props.showPage(2);
     }
   };
@@ -48,7 +48,7 @@ class Login extends React.Component {
       <div>
         <h1>Cornell University Expectations Study</h1>
         <form
-          name="tournament"
+          name="login"
           method="post"
           data-netlify="true"
           onSubmit={this.handleSubmit}
