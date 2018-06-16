@@ -91,9 +91,9 @@ const LoginForm = ({
       <input
         type="text"
         className="hidden"
-        id="incomplete"
-        name="incomplete"
-        value="Y"
+        id="complete"
+        name="complete"
+        value="N"
         readOnly
       />
     </div>

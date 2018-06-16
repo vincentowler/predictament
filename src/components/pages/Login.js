@@ -28,7 +28,7 @@ class Login extends React.Component {
         workerId: this.props.workerId,
         acceptedTerms: true,
         email: this.props.email,
-        incomplete: "Y"
+        complete: "N"
       };
 
       sendDataToNetlify(data);
