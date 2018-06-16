@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import TextInput from "../TextInput";
-import SelectInput from "../SelectInput";
-import RadioButtonList from "../RadioButtonList";
-import Button from "react-bootstrap/lib/Button";
 import { isEmpty } from "../../utils/objectUtils";
 import { validateBackground } from "../../utils/validation";
 import BackgroundForm from "../BackgroundForm";
+import { sendDataToNetlify } from "../../utils/netlify";
+import LoginForm from "../LoginForm";
 
 class Background extends Component {
   static propTypes = {
@@ -14,7 +12,9 @@ class Background extends Component {
     onChange: PropTypes.func.isRequired,
     showPage: PropTypes.func.isRequired,
     earningsOptions: PropTypes.array.isRequired,
-    satisfactionOptions: PropTypes.array.isRequired
+    satisfactionOptions: PropTypes.array.isRequired,
+    workerId: PropTypes.number.isRequired,
+    email: PropTypes.string.isRequired
   };
 
   state = {
@@ -26,6 +26,14 @@ class Background extends Component {
     const errors = validateBackground(this.props.background);
     this.setState({ errors });
     if (isEmpty(errors)) {
+      const data = {
+        workerId: this.props.workerId,
+        acceptedTerms: true,
+        email: this.props.email,
+        ...this.props.background
+      };
+
+      sendDataToNetlify(data);
       this.props.showPage(3);
     } else {
       window.scrollTo(0, 0);
@@ -34,12 +42,20 @@ class Background extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form method="post" data-netlify="true" onSubmit={this.handleSubmit}>
         <h2>Background</h2>
         <BackgroundForm
           {...this.props}
           errors={this.state.errors}
           errorsExist={!isEmpty(this.state.errors)}
+        />
+        {/* Only here so the data will be sent to Netlify */}
+        <LoginForm
+          errors={{}}
+          acceptedTerms={true}
+          {...this.props}
+          visible={false}
+          onChange={() => {}}
         />
       </form>
     );
