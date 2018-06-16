@@ -52,6 +52,7 @@ class Login extends React.Component {
           method="post"
           data-netlify="true"
           onSubmit={this.handleSubmit}
+          action="/"
         >
           <LoginForm
             toggleTerms={this.toggleTerms}
