@@ -33,6 +33,7 @@ class Background extends Component {
         email: this.props.email,
         ...this.props.background
       };
+      debugger;
 
       sendDataToNetlify(data);
       this.props.showPage(3);
@@ -43,7 +44,12 @@ class Background extends Component {
 
   render() {
     return (
-      <form method="post" data-netlify="true" onSubmit={this.handleSubmit}>
+      <form
+        method="post"
+        name="tournament"
+        data-netlify="true"
+        onSubmit={this.handleSubmit}
+      >
         <h2>Background</h2>
         <BackgroundForm
           {...this.props}
