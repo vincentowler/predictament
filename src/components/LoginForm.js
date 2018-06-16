@@ -77,15 +77,6 @@ const LoginForm = ({
             </Button>
           </Modal.Footer>
         </Modal>
-
-        {/* This field is necessary so we can send a bool to Netlify that is used to filter out incomplete records. */}
-        <input
-          type="checkbox"
-          style="hidden"
-          id="incomplete"
-          name="incomplete"
-          checked
-        />
       </div>
     </div>
     <div>
@@ -96,6 +87,15 @@ const LoginForm = ({
       >
         Begin
       </Button>
+      {/* This field is necessary so we can send a bool to Netlify that is used to filter out incomplete records. */}
+      <input
+        type="text"
+        className="hidden"
+        id="incomplete"
+        name="incomplete"
+        value="Y"
+        readOnly
+      />
     </div>
   </div>
 );
