@@ -29,11 +29,12 @@ class Background extends Component {
       const data = {
         workerId: this.props.workerId,
         acceptedTerms: true,
+        complete: "N",
         email: this.props.email,
         ...this.props.background
       };
 
-      // sendDataToNetlify(data);
+      sendDataToNetlify(data);
       this.props.showPage(3);
     } else {
       window.scrollTo(0, 0);
