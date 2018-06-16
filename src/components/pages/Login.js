@@ -31,7 +31,7 @@ class Login extends React.Component {
         complete: "N"
       };
 
-      sendDataToNetlify(data);
+      //sendDataToNetlify(data);
       this.props.showPage(2);
     }
   };
@@ -52,7 +52,6 @@ class Login extends React.Component {
           method="post"
           data-netlify="true"
           onSubmit={this.handleSubmit}
-          action="/"
         >
           <LoginForm
             toggleTerms={this.toggleTerms}
