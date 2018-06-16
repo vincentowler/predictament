@@ -13,7 +13,7 @@ class Background extends Component {
     showPage: PropTypes.func.isRequired,
     earningsOptions: PropTypes.array.isRequired,
     satisfactionOptions: PropTypes.array.isRequired,
-    workerId: PropTypes.number.isRequired,
+    workerId: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired
   };
 
