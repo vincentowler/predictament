@@ -31,7 +31,7 @@ class Login extends React.Component {
         complete: "N"
       };
 
-      // sendDataToNetlify("login", data);
+      sendDataToNetlify("login", data);
       this.props.showPage(2);
     }
   };

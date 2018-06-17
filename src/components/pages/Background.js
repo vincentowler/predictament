@@ -34,7 +34,7 @@ class Background extends Component {
         ...this.props.background
       };
 
-      //sendDataToNetlify("background", data);
+      sendDataToNetlify("background", data);
       this.props.showPage(3);
     } else {
       window.scrollTo(0, 0);
