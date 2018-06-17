@@ -86,6 +86,7 @@ const TournamentForm = props => {
         name="wagerDistribution"
         value={wagerDistribution}
         className="hidden"
+        label="Wager Distribution"
       />
       <TextInput
         id="profileId"
@@ -93,6 +94,7 @@ const TournamentForm = props => {
         name="profileId"
         value={profile.profileId}
         className="hidden"
+        label="Profile ID"
       />
       <TextInput
         id="scenarioId"
@@ -100,6 +102,7 @@ const TournamentForm = props => {
         name="scenarioId"
         value={scenario.scenarioId}
         className="hidden"
+        label="Scenario ID"
       />
     </form>
   );
