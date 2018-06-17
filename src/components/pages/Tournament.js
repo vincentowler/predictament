@@ -64,6 +64,7 @@ class Tournament extends React.Component {
 
     if (wagerSubmitted) {
       const data = {
+        userId: this.props.userId,
         profileId: profile.profileId,
         scenarioId: scenario.scenarioId,
         wagerDistribution: this.wagerDistribution(),
@@ -117,6 +118,7 @@ class Tournament extends React.Component {
     } = this.state;
     return (
       <TournamentForm
+        userId={this.props.userId}
         topic={topic}
         tokensLeft={this.getTokensLeft()}
         background={this.props.background}

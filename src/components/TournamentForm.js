@@ -8,6 +8,7 @@ const TournamentForm = props => {
   const {
     visible,
     scenario,
+    userId,
     profile,
     numProfiles,
     options,
@@ -103,6 +104,15 @@ const TournamentForm = props => {
         value={scenario.scenarioId}
         className="hidden"
         label="Scenario ID"
+      />
+
+      <TextInput
+        label="User ID"
+        name="userid"
+        id="userid"
+        value={userId}
+        onChange={() => {}}
+        className="hidden"
       />
     </form>
   );

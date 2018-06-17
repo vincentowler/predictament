@@ -1,7 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { isEmpty } from "../../utils/objectUtils";
-import { validateLogin } from "../../utils/validation";
 import TextInput from "../TextInput";
 import Modal from "react-bootstrap/lib/Modal";
 import Button from "react-bootstrap/lib/Button";
@@ -28,6 +26,7 @@ class Login extends React.Component {
 
   render() {
     const {
+      userId,
       workerId,
       errors,
       email,
@@ -57,6 +56,16 @@ class Login extends React.Component {
           onChange={onChange}
           helpBlock="Optional. Enter if you want a report with your results. No spam."
           error={errors.email}
+        />
+
+        {/* This is here so we can send it to Netlify */}
+        <TextInput
+          label="User ID"
+          name="userid"
+          id="userid"
+          value={userId}
+          onChange={() => {}}
+          className="hidden"
         />
 
         <div className={errors.acceptedTerms ? "field has-error" : "field"}>
