@@ -80,7 +80,7 @@ class Tournament extends React.Component {
 
         console.log(data);
 
-        sendDataToNetlify("tournament", data);
+        sendDataToNetlify("tournament2", data);
         this.props.showPage(5);
       }
     } else {
