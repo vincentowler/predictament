@@ -6,10 +6,14 @@ import Background from "../components/pages/Background";
 import Tournament from "../components/pages/Tournament";
 import TournamentInstructions from "../components/pages/TournamentInstructions";
 import Thanks from "../components/pages/Thanks";
+import { validateLogin, validateBackground } from "../utils/validation";
+import { isEmpty } from "../utils/objectUtils";
+import { sendDataToNetlify } from "../utils/netlify";
 
 class IndexPage extends Component {
   state = {
-    page: 1,
+    errors: {},
+    page: "login",
     workerId: "",
     email: "",
     acceptedTerms: false,
@@ -45,7 +49,7 @@ class IndexPage extends Component {
     ]
   };
 
-  handleChange = ({ target }) => {
+  handleLoginChange = ({ target }) => {
     const name = target.name;
     const value = target.type === "checkbox" ? target.checked : target.value;
     this.setState({ [name]: value });
@@ -58,14 +62,56 @@ class IndexPage extends Component {
     this.setState({ background });
   };
 
-  showPage = number => {
-    this.setState({ page: number });
+  showPage = page => {
+    this.setState({ page });
+    window.scrollTo(0, 0);
   };
 
-  getPage() {
+  handleLoginSubmit = () => {
+    const errors = validateLogin(this.state.workerId, this.state.acceptedTerms);
+    this.setState({ errors });
+
+    if (isEmpty(errors)) {
+      this.showPage("background");
+    }
+  };
+
+  handleBackgroundSubmit = () => {
+    const errors = validateBackground(this.state.background);
+    this.setState({ errors });
+
+    if (isEmpty(errors)) {
+      const user = {
+        workerId: this.state.workerId,
+        email: this.state.email,
+        ...this.state.background
+      };
+
+      sendDataToNetlify("user", user);
+      this.showPage("instructions");
+    }
+  };
+
+  handleUserSubmit = event => {
+    event.preventDefault();
+    switch (this.state.page) {
+      case "login":
+        this.handleLoginSubmit();
+        break;
+      case "background":
+        this.handleBackgroundSubmit();
+        break;
+      default:
+        alert("unknown page:" + this.state.page);
+        break;
+    }
+  };
+
+  render() {
     const {
       page,
       email,
+      errors,
       workerId,
       acceptedTerms,
       background,
@@ -73,59 +119,44 @@ class IndexPage extends Component {
       satisfactionOptions
     } = this.state;
 
-    switch (page) {
-      case 1:
-        return (
+    return (
+      <div className="App center">
+        <form
+          data-netlify="true"
+          name="user"
+          method="post"
+          onSubmit={this.handleUserSubmit}
+        >
           <Login
-            onChange={this.handleChange}
+            onChange={this.handleLoginChange}
             workerId={workerId}
+            errors={errors}
             email={email}
             acceptedTerms={acceptedTerms}
             showPage={this.showPage}
+            visible={page === "login"}
           />
-        );
-      case 2:
-        return (
           <Background
             background={background}
+            errors={errors}
             onChange={this.handleBackgroundChange}
             showPage={this.showPage}
             earningsOptions={earningsOptions}
             satisfactionOptions={satisfactionOptions}
-            workerId={workerId}
-            email={email}
+            visible={page === "background"}
           />
-        );
-      case 3:
-        return <TournamentInstructions showPage={this.showPage} />;
-      case 4:
-        {
-          /* NOTE: Using CSS instead of conditional rendering since 
-        DOM elements must exist on load for Netlify to save them to their forms. */
-        }
-        return (
-          <Tournament
-            visible={page == 4}
-            workerId={workerId}
-            email={email}
-            background={background}
-            showPage={this.showPage}
-            earningsOptions={earningsOptions}
-            satisfactionOptions={satisfactionOptions}
-          />
-        );
-      case 5:
-        return <Thanks email={email} />;
-      default:
-        throw new Error("Unknown page passed: " + this.state.page);
-    }
-  }
-
-  render() {
-    return (
-      <div className="App center">
-        {this.getPage()}
-
+        </form>
+        {page === "instructions" && (
+          <TournamentInstructions showPage={this.showPage} />
+        )}
+        <Tournament
+          visible={page === "tournament"}
+          background={background}
+          showPage={this.showPage}
+          earningsOptions={earningsOptions}
+          satisfactionOptions={satisfactionOptions}
+        />
+        {page === "thanks" && <Thanks email={email} />}
         {/* TODO: Display progress bar? State # of steps? */}
         <footer>
           <hr />&copy; 2018 Cornell University

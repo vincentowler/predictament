@@ -57,7 +57,7 @@ class TournamentInstructions extends React.Component {
           className="btn btn-primary center-block"
           bsSize="lg"
           type="submit"
-          onClick={() => showPage(4)}
+          onClick={() => showPage("tournament")}
         >
           Begin
         </Button>

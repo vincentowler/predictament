@@ -64,23 +64,18 @@ class Tournament extends React.Component {
 
     if (wagerSubmitted) {
       const data = {
-        workerId: this.props.workerId,
-        acceptedTerms: true,
-        email: this.props.email,
-        complete: "Y",
-        ...this.props.background,
         profileId: profile.profileId,
         scenarioId: scenario.scenarioId,
         wagerDistribution: this.wagerDistribution(),
         bonusQuestion: bonusQuestionValue
       };
 
-      sendDataToNetlify("tournament", data);
+      sendDataToNetlify("wager", data);
       // Show next profile if another exists. Otherwise, redirect to thanks page.
       if (profiles[profileNumber]) {
         this.showNextProfile();
       } else {
-        this.props.showPage(5);
+        this.props.showPage("thanks");
       }
     } else {
       this.setState({ wagerSubmitted: true });

@@ -3,8 +3,6 @@ import Button from "react-bootstrap/lib/Button";
 import TextInput from "./TextInput";
 import ItemList from "./ItemList";
 import Profile from "./Profile";
-import BackgroundForm from "./BackgroundForm";
-import LoginForm from "./LoginForm";
 
 const TournamentForm = props => {
   const {
@@ -25,7 +23,7 @@ const TournamentForm = props => {
   return (
     <form
       className={visible ? "" : "hidden"}
-      name="tournament"
+      name="wager"
       onSubmit={onSubmit}
       method="post"
       data-netlify="true"
@@ -102,19 +100,6 @@ const TournamentForm = props => {
         name="scenarioId"
         value={scenario.scenarioId}
         className="hidden"
-      />
-      <LoginForm
-        errors={{}}
-        acceptedTerms={true}
-        {...props}
-        visible={false}
-        onChange={() => {}}
-      />
-      <BackgroundForm
-        {...props}
-        visible={false}
-        onChange={() => {}}
-        errors={{}}
       />
     </form>
   );
