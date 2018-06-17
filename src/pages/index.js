@@ -70,7 +70,11 @@ class IndexPage extends Component {
   };
 
   handleLoginSubmit = () => {
-    const errors = validateLogin(this.state.workerId, this.state.acceptedTerms);
+    const errors = validateLogin(
+      this.state.workerId,
+      this.state.email,
+      this.state.acceptedTerms
+    );
     this.setState({ errors });
 
     if (isEmpty(errors)) {
