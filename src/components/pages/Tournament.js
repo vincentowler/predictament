@@ -68,9 +68,10 @@ class Tournament extends React.Component {
         this.showNextProfile();
       } else {
         const data = {
-          workerId: this.props.workerId,
+          workerId: "Your mom",
           acceptedTerms: true,
           email: this.props.email,
+          complete: "Y",
           ...this.props.background,
           profileId: profile.profileId,
           scenarioId: scenario.scenarioId,
