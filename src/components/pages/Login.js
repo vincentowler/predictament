@@ -39,6 +39,7 @@ class Login extends React.Component {
     return (
       <div className={visible ? null : "hidden"}>
         <h1>Cornell University Expectations Study</h1>
+        {errors.login && <p style={{ color: "#a94442" }}>{errors.login}</p>}
         {/* TODO: Can I look this up to validate? */}
         <TextInput
           label="MTurk Worker ID"
@@ -47,7 +48,6 @@ class Login extends React.Component {
           value={workerId}
           onChange={onChange}
           error={errors.workerId}
-          required
         />
         <TextInput
           label="Email address"
@@ -55,10 +55,9 @@ class Login extends React.Component {
           id="email"
           value={email}
           onChange={onChange}
-          helpBlock="Optional. Enter if you want a report with your results. No spam."
+          helpBlock="Don't worry. No spam. We'll send your results here."
           error={errors.email}
         />
-
         {/* This is here so we can send it to Netlify */}
         <TextInput
           label="User ID"
@@ -68,7 +67,6 @@ class Login extends React.Component {
           onChange={() => {}}
           className="hidden"
         />
-
         <div className={errors.acceptedTerms ? "field has-error" : "field"}>
           <Checkbox
             id="acceptedTerms"

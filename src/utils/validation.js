@@ -82,11 +82,12 @@ export function validateBackground(background) {
   return errors;
 }
 
-export function validateLogin(workerId, acceptedTerms) {
+export function validateLogin(workerId, email, acceptedTerms) {
   const errors = {};
 
-  if (!workerId) {
-    errors.workerId = "Please enter your MTurk Worker ID.";
+  if (!workerId && !email) {
+    errors.login =
+      "Please enter either your MTurk Worker ID or your email to continue.";
   }
 
   if (!acceptedTerms) {
