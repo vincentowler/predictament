@@ -7,6 +7,7 @@ import Checkbox from "react-bootstrap/lib/Checkbox";
 
 class Login extends React.Component {
   static propTypes = {
+    userId: PropTypes.string.isRequired,
     workerId: PropTypes.string,
     email: PropTypes.string.isRequired,
     acceptedTerms: PropTypes.bool.isRequired,
@@ -61,8 +62,8 @@ class Login extends React.Component {
         {/* This is here so we can send it to Netlify */}
         <TextInput
           label="User ID"
-          name="userid"
-          id="userid"
+          name="userId"
+          id="userId"
           value={userId}
           onChange={() => {}}
           className="hidden"
