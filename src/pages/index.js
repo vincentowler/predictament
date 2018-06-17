@@ -149,8 +149,6 @@ class IndexPage extends Component {
           />
           <Background
             background={background}
-            workerId={workerId}
-            email={email}
             errors={errors}
             onChange={this.handleBackgroundChange}
             showPage={this.showPage}
@@ -164,6 +162,8 @@ class IndexPage extends Component {
         )}
         <Tournament
           userId={userId}
+          workerId={workerId}
+          email={email}
           visible={page === "tournament"}
           background={background}
           showPage={this.showPage}
