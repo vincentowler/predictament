@@ -108,8 +108,8 @@ const TournamentForm = props => {
 
       <TextInput
         label="User ID"
-        name="userid"
-        id="userid"
+        name="userId"
+        id="userId"
         value={userId}
         onChange={() => {}}
         className="hidden"
