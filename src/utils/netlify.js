@@ -14,6 +14,6 @@ export function sendDataToNetlify(formName, data) {
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: encode({ "form-name": formName, ...data })
   })
-    .then(() => alert("Saved to Netlify. 👍"))
+    .then(() => console.log("saving " + formName, data))
     .catch(error => alert(error));
 }

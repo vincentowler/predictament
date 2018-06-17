@@ -88,14 +88,7 @@ const LoginForm = ({
         Begin
       </Button>
       {/* This field is necessary so we can send a bool to Netlify that is used to filter out incomplete records. */}
-      <input
-        type="text"
-        className="hidden"
-        id="complete"
-        name="complete"
-        value="N"
-        readOnly
-      />
+      <input type="text" className="hidden" id="complete" name="complete" />
     </div>
   </div>
 );
