@@ -9,9 +9,11 @@ import Thanks from "../components/pages/Thanks";
 import { validateLogin, validateBackground } from "../utils/validation";
 import { isEmpty } from "../utils/objectUtils";
 import { sendDataToNetlify } from "../utils/netlify";
+import { uuidv4 } from "../utils/uuid";
 
 class IndexPage extends Component {
   state = {
+    userId: uuidv4(),
     errors: {},
     page: "login",
     workerId: "",
@@ -82,6 +84,7 @@ class IndexPage extends Component {
 
     if (isEmpty(errors)) {
       const user = {
+        userId: this.state.userId,
         workerId: this.state.workerId,
         email: this.state.email,
         ...this.state.background
@@ -112,6 +115,7 @@ class IndexPage extends Component {
       page,
       email,
       errors,
+      userId,
       workerId,
       acceptedTerms,
       background,
@@ -130,6 +134,7 @@ class IndexPage extends Component {
           <Login
             onChange={this.handleLoginChange}
             workerId={workerId}
+            userId={userId}
             errors={errors}
             email={email}
             acceptedTerms={acceptedTerms}
@@ -150,6 +155,7 @@ class IndexPage extends Component {
           <TournamentInstructions showPage={this.showPage} />
         )}
         <Tournament
+          userId={userId}
           visible={page === "tournament"}
           background={background}
           showPage={this.showPage}
