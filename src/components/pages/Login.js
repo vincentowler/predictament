@@ -49,8 +49,8 @@ class Login extends React.Component {
         <h1>Cornell University Expectations Study</h1>
         <form
           name="login"
-          // method="post"
-          // data-netlify="true"
+          method="post"
+          data-netlify="true"
           onSubmit={this.handleSubmit}
         >
           <LoginForm

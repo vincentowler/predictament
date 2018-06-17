@@ -46,7 +46,7 @@ class Background extends Component {
       <form
         method="post"
         name="background"
-        // data-netlify="true"
+        data-netlify="true"
         onSubmit={this.handleSubmit}
       >
         <h2>Background</h2>
