@@ -92,6 +92,8 @@ class IndexPage extends Component {
 
       sendDataToNetlify("user", user);
       this.showPage("instructions");
+    } else {
+      window.scrollTo(0, 0);
     }
   };
 
