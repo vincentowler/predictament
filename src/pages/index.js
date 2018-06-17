@@ -9,11 +9,11 @@ import Thanks from "../components/pages/Thanks";
 import { validateLogin, validateBackground } from "../utils/validation";
 import { isEmpty } from "../utils/objectUtils";
 import { sendDataToNetlify } from "../utils/netlify";
-import { uuidv4 } from "../utils/uuid";
+import { generateUUID } from "../utils/uuid";
 
 class IndexPage extends Component {
   state = {
-    userId: uuidv4(),
+    userId: generateUUID(),
     errors: {},
     page: "login",
     workerId: "",
