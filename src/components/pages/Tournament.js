@@ -64,6 +64,8 @@ class Tournament extends React.Component {
 
     if (wagerSubmitted) {
       const data = {
+        workerId: this.props.workerId,
+        email: this.props.email,
         userId: this.props.userId,
         profileId: profile.profileId,
         scenarioId: scenario.scenarioId,
@@ -119,6 +121,8 @@ class Tournament extends React.Component {
     return (
       <TournamentForm
         userId={this.props.userId}
+        workerId={this.props.workerId}
+        email={this.props.email}
         topic={topic}
         tokensLeft={this.getTokensLeft()}
         background={this.props.background}
