@@ -4,6 +4,7 @@ import TextInput from "../TextInput";
 import SelectInput from "../SelectInput";
 import RadioButtonList from "../RadioButtonList";
 import Button from "react-bootstrap/lib/Button";
+import { isEmpty } from "../../utils/objectUtils";
 
 class Background extends Component {
   static propTypes = {
@@ -14,19 +15,60 @@ class Background extends Component {
     satisfactionOptions: PropTypes.array.isRequired
   };
 
+  // Filter out any options selected in the sibling dropdowns
+  // so the user can only select a given option once.
+  getFilteredEarningsOptions(optionNumber) {
+    let options = [...this.props.earningsOptions];
+    const { background } = this.props;
+    if (background.earningsDesiredData1 && optionNumber !== 1) {
+      options = options.filter(
+        o => o.value !== background.earningsDesiredData1
+      );
+    }
+    if (background.earningsDesiredData2 && optionNumber !== 2) {
+      options = options.filter(
+        o => o.value !== background.earningsDesiredData2
+      );
+    }
+    if (background.earningsDesiredData3 && optionNumber !== 3) {
+      options = options.filter(
+        o => o.value !== background.earningsDesiredData3
+      );
+    }
+    return options;
+  }
+
+  // Filter out any options selected in the sibling dropdowns
+  // so the user can only select a given option once.
+  getFilteredSatisfactionOptions(optionNumber) {
+    let options = [...this.props.earningsOptions];
+    const { background } = this.props;
+    if (background.satisfactionDesiredData1 && optionNumber !== 1) {
+      options = options.filter(
+        o => o.value !== background.satisfactionDesiredData1
+      );
+    }
+    if (background.satisfactionDesiredData2 && optionNumber !== 2) {
+      options = options.filter(
+        o => o.value !== background.satisfactionDesiredData2
+      );
+    }
+    if (background.satisfactionDesiredData3 && optionNumber !== 3) {
+      options = options.filter(
+        o => o.value !== background.satisfactionDesiredData3
+      );
+    }
+    return options;
+  }
+
   render() {
-    const {
-      background,
-      onChange,
-      earningsOptions,
-      satisfactionOptions,
-      errorsExist,
-      errors,
-      visible
-    } = this.props;
+    const { background, onChange, errorsExist, errors, visible } = this.props;
     return (
       <div className={visible ? null : "hidden"}>
         <h2>Background</h2>
+        {!isEmpty(errors) && (
+          <p style={{ color: "#a94442" }}>Please correct the errors below.</p>
+        )}
         <div>
           {errorsExist && <p>Please correct the errors below.</p>}
           <ol>
@@ -144,7 +186,7 @@ class Background extends Component {
                 </label>
                 <br />
                 <SelectInput
-                  options={earningsOptions}
+                  options={this.getFilteredEarningsOptions(1)}
                   displayLabel={false}
                   id="earningsDesiredData1"
                   name="earningsDesiredData1"
@@ -155,7 +197,7 @@ class Background extends Component {
                 />
                 <br />
                 <SelectInput
-                  options={earningsOptions}
+                  options={this.getFilteredEarningsOptions(2)}
                   displayLabel={false}
                   id="earningsDesiredData2"
                   name="earningsDesiredData2"
@@ -166,7 +208,7 @@ class Background extends Component {
                 />
                 <br />
                 <SelectInput
-                  options={earningsOptions}
+                  options={this.getFilteredEarningsOptions(3)}
                   displayLabel={false}
                   id="earningsDesiredData3"
                   name="earningsDesiredData3"
@@ -188,7 +230,7 @@ class Background extends Component {
               </label>
               <br />
               <SelectInput
-                options={satisfactionOptions}
+                options={this.getFilteredSatisfactionOptions(1)}
                 displayLabel={false}
                 id="satisfactionDesiredData1"
                 name="satisfactionDesiredData1"
@@ -199,7 +241,7 @@ class Background extends Component {
               />
               <br />
               <SelectInput
-                options={satisfactionOptions}
+                options={this.getFilteredSatisfactionOptions(2)}
                 displayLabel={false}
                 id="satisfactionDesiredData2"
                 name="satisfactionDesiredData2"
@@ -210,7 +252,7 @@ class Background extends Component {
               />
               <br />
               <SelectInput
-                options={satisfactionOptions}
+                options={this.getFilteredSatisfactionOptions(3)}
                 displayLabel={false}
                 id="satisfactionDesiredData3"
                 name="satisfactionDesiredData3"
