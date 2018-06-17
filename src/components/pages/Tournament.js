@@ -78,9 +78,7 @@ class Tournament extends React.Component {
           bonusQuestion: bonusQuestionValue
         };
 
-        console.log(data);
-
-        sendDataToNetlify("tournament2", data);
+        sendDataToNetlify("tournament", data);
         this.props.showPage(5);
       }
     } else {

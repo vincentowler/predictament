@@ -25,7 +25,7 @@ const TournamentForm = props => {
   return (
     <form
       className={visible ? "" : "hidden"}
-      name="tournament2"
+      name="tournament"
       onSubmit={onSubmit}
       method="post"
       data-netlify="true"
