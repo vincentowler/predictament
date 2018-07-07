@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/lib/Button";
 import TextInput from "./TextInput";
-import ItemList from "./ItemList";
+import Sliders from "./Sliders";
 import Profile from "./Profile";
 
 const TournamentForm = props => {
@@ -18,8 +18,7 @@ const TournamentForm = props => {
     tokensLeft,
     wagerDistribution,
     bonusQuestionValue,
-    onAddClick,
-    onRemoveClick,
+    onWagerChange,
     onBonusChange,
     onSubmit
   } = props;
@@ -32,21 +31,24 @@ const TournamentForm = props => {
       data-netlify="true"
     >
       <h2>What is this person's income?</h2>
-      <p>Click the -/+ signs below to place wagers on this person's income.</p>
+      <p>
+        Move the range sliders below to place wagers on this person's income.
+      </p>
       <p>You have {scenario.totalTokens} tokens to assign.</p>
       <div className="token-wrapper">
         <h3>
           Profile ({profile.profileNumber} of {numProfiles})
         </h3>
         <Profile profile={profile} />
-        <ItemList
-          topic={scenario.topic}
+        <Sliders
+          scenario={scenario}
           options={options}
           tokensLeft={tokensLeft}
-          onAddClick={onAddClick}
-          onRemoveClick={onRemoveClick}
+          onChange={onWagerChange}
         />
-        <p>You have {tokensLeft} tokens left.</p>
+        <p style={tokensLeft ? {} : { color: "red" }}>
+          You have {tokensLeft} tokens left.
+        </p>
 
         {!wagerSubmitted && (
           <Button
