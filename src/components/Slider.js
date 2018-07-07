@@ -1,20 +1,22 @@
 import React from "react";
 import "./Slider.css";
 
-const Slider = ({ max, label, value, onChange }) => (
-  <div>
-    <input
-      type="range"
-      className="slider"
-      onInput={onChange}
-      step="1"
-      orient="vertical"
-      min="0"
-      value={value}
-      max={max}
-    />
-    {label}
-  </div>
-);
+const Slider = ({ max, option, onChange }) => {
+  return (
+    <span>
+      <input
+        type="range"
+        className="slider"
+        onChange={event => onChange(event, option)}
+        step="1"
+        orient="vertical"
+        min="0"
+        value={option.tokens}
+        max={max}
+      />
+      {option.label}
+    </span>
+  );
+};
 
 export default Slider;
