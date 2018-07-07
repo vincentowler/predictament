@@ -5,14 +5,14 @@ export const scenarios = [
     options: ["$50,000", "$75,000", "$100,000", "$150,000", "$200,000"],
     bonusQuestion: "guess this person's exact income.",
     // TODO: Are total tokens tied to a scenario?
-    totalTokens: 3
+    totalTokens: 30
   },
   {
     scenarioId: 2,
     topic: "Education",
     options: ["High School", "Associates", "Bachelors", "Masters", "Doctorate"],
     bonusQuestion: "guess the high education received by this person.",
-    totalTokens: 3
+    totalTokens: 30
   }
 ];
 
