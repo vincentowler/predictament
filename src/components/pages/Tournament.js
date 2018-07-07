@@ -29,16 +29,13 @@ class Tournament extends React.Component {
     );
   };
 
-  handleAddClick = (item, event) => {
+  handleWagerChange = (event, item) => {
     event.preventDefault();
-    item.tokens++;
-    this.updateState(item);
-  };
-
-  handleRemoveClick = (item, event) => {
-    event.preventDefault();
-    item.tokens--;
-    this.updateState(item);
+    const outOfTokens = this.getTokensLeft() === 0;
+    const increasingWager = event.target.value > item.tokens;
+    if (outOfTokens && increasingWager) return; // Don't allow people to wager more tokens than the limit.
+    const updatedItem = { ...item, tokens: parseInt(event.target.value, 10) };
+    this.updateState(updatedItem);
   };
 
   updateState = item => {
@@ -133,8 +130,7 @@ class Tournament extends React.Component {
         bonusQuestionValue={bonusQuestionValue}
         wagerSubmitted={wagerSubmitted}
         wagerDistribution={this.wagerDistribution()}
-        onAddClick={this.handleAddClick}
-        onRemoveClick={this.handleRemoveClick}
+        onWagerChange={this.handleWagerChange}
         onBonusChange={this.handleBonusChange}
         onSubmit={this.handleSubmit}
         {...this.props}
