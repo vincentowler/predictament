@@ -37,7 +37,7 @@ const TournamentForm = props => {
       <p>You have {scenario.totalTokens} "confidence tokens" to assign.</p>
       <div className="token-wrapper">
         <h3>
-          Profile ({profile.profileNumber} of {numProfiles})
+          Worker Profile Information
         </h3>
         <Profile profile={profile} />
         <Sliders
