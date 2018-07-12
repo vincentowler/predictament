@@ -39,9 +39,10 @@ class TournamentInstructions extends React.Component {
             <Modal.Body>
               <p>
                 You will receive bonus points based on how close your best guess
-                is to their actual outcome, where you receive less and less the
-                further your guess is from the truth, where the bonus is equal
-                to the following “squared loss” formula:
+                is to the actual value of the outcome for the profile you are making 
+                predictions about, where you receive less and less the further your
+                guess is from the truth, where the bonus is equal to the following
+                “squared loss” formula:
                 <img src="/equation.png" alt="Bonus equation" />
               </p>{" "}
             </Modal.Body>
