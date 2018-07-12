@@ -34,7 +34,7 @@ const TournamentForm = props => {
       <p>
         Move the range sliders below to place wagers on this person's income.
       </p>
-      <p>You have {scenario.totalTokens} tokens to assign.</p>
+      <p>You have {scenario.totalTokens} "confidence tokens" to assign.</p>
       <div className="token-wrapper">
         <h3>
           Profile ({profile.profileNumber} of {numProfiles})
