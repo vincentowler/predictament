@@ -31,7 +31,7 @@ class Tournament extends React.Component {
 
   handleWagerChange = (event, item) => {
     event.preventDefault();
-    const outOfTokens = this.getTokensLeft() === 0;
+    const outOfTokens = this.getTokensLeft() < 1;
     const increasingWager = event.target.value > item.tokens;
     if (outOfTokens && increasingWager) return; // Don't allow people to wager more tokens than the limit.
     const updatedItem = { ...item, tokens: parseInt(event.target.value, 10) };
