@@ -54,9 +54,13 @@ const TournamentForm = props => {
             bsSize="lg"
             type="submit"
             disabled={tokensLeft !== 0}
-            title={`You must assign all ${
-              scenario.totalTokens
-            } tokens to continue.`}
+            title={
+              tokensLeft === 0
+                ? "Click to submit your wager"
+                : `You must assign exactly ${
+                    scenario.totalTokens
+                  } tokens to continue.`
+            }
           >
             Continue
           </Button>
