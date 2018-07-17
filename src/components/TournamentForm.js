@@ -36,9 +36,7 @@ const TournamentForm = props => {
       </p>
       <p>You have {scenario.totalTokens} "confidence tokens" to assign.</p>
       <div className="token-wrapper">
-        <h3>
-          Worker Profile Information
-        </h3>
+        <h3>Worker Profile Information</h3>
         <Profile profile={profile} />
         <Sliders
           scenario={scenario}
@@ -55,7 +53,7 @@ const TournamentForm = props => {
             className="btn btn-primary center-block"
             bsSize="lg"
             type="submit"
-            disabled={tokensLeft > 0}
+            disabled={tokensLeft !== 0}
             title={`You must assign all ${
               scenario.totalTokens
             } tokens to continue.`}
