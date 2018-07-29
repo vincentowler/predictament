@@ -2,16 +2,43 @@ export const scenarios = [
   {
     scenarioId: 1,
     topic: "Income",
-    options: ["$50,000", "$75,000", "$100,000", "$150,000", "$200,000"],
-    bonusQuestion: "Predict this person's yearly income based on the following profile information:",
+    options: [
+      "$50,000",
+      "$55,000",
+      "$60,000",
+      "$65,000",
+      "$70,000",
+      "$75,000",
+      "$80,000",
+      "$85,000",
+      "$90,000",
+      "$95,000",
+      "$100,000",
+      "$150,000",
+      "$200,000"
+    ],
+    bonusQuestion:
+      "Predict this person's yearly income based on the following profile information:",
     // TODO: Are total tokens tied to a scenario?
     totalTokens: 30
   },
   {
     scenarioId: 2,
     topic: "SubjectiveWellBeing",
-    options: ["0-10", "11-20", "21-30", "31-40", "41-50", "51-60", "61-70", "71-80", "81-90", "90-100"],
-    bonusQuestion: "Guess what this person reported as their overall well-being score on a scale from 0 (lowest well-being possible, extremely unhappy) to 100 (highest well-being possible, extremely happy).",
+    options: [
+      "0-10",
+      "11-20",
+      "21-30",
+      "31-40",
+      "41-50",
+      "51-60",
+      "61-70",
+      "71-80",
+      "81-90",
+      "90-100"
+    ],
+    bonusQuestion:
+      "Guess what this person reported as their overall well-being score on a scale from 0 (lowest well-being possible, extremely unhappy) to 100 (highest well-being possible, extremely happy).",
     totalTokens: 30
   }
 ];
@@ -20,7 +47,7 @@ export const profiles = [
   // Note how this is the same person as above, but with more info provided.
   // The saveWagerButtonLabel property is an override. If it's not provided, the default label will be utilized for that profile.
   // saveWagerButtonLabel: "Save wager to see more info" does this
-  // JEFF: I've adopted the convention of putting a 7 in front of the number 
+  // JEFF: I've adopted the convention of putting a 7 in front of the number
   //       of the original profile (71 represents the full-info version of 1), since we don't exceed 60 profiles.
   {
     profileId: 1,
@@ -75,7 +102,8 @@ export const profiles = [
   },
   {
     profileId: 27,
-    education: "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+    education:
+      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "Less than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
     gender: "Female",
@@ -84,7 +112,8 @@ export const profiles = [
   },
   {
     profileId: 727,
-    education: "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+    education:
+      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "Less than 10 years",
     race: "White",
     gender: "Female",
@@ -143,7 +172,8 @@ export const profiles = [
   },
   {
     profileId: 42,
-    education: "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+    education:
+      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "More than 10 years",
     race: "Black",
     gender: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -152,7 +182,8 @@ export const profiles = [
   },
   {
     profileId: 742,
-    education: "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+    education:
+      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "More than 10 years",
     race: "Black",
     gender: "Male",
@@ -160,7 +191,8 @@ export const profiles = [
   },
   {
     profileId: 53,
-    education: "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+    education:
+      "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "Less than 10 years",
     race: "White",
     gender: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -169,7 +201,8 @@ export const profiles = [
   },
   {
     profileId: 753,
-    education: "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+    education:
+      "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "Less than 10 years",
     race: "White",
     gender: "Male",
@@ -246,7 +279,8 @@ export const profiles = [
   },
   {
     profileId: 56,
-    education: "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+    education:
+      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "More than 10 years",
     race: "White",
     gender: "Male",
@@ -255,7 +289,8 @@ export const profiles = [
   },
   {
     profileId: 756,
-    education: "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+    education:
+      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "More than 10 years",
     race: "White",
     gender: "Male",
@@ -280,7 +315,8 @@ export const profiles = [
   },
   {
     profileId: 41,
-    education: "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+    education:
+      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "Less than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
     gender: "Male",
@@ -289,7 +325,8 @@ export const profiles = [
   },
   {
     profileId: 741,
-    education: "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+    education:
+      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "Less than 10 years",
     race: "Black",
     gender: "Male",
@@ -314,7 +351,8 @@ export const profiles = [
   },
   {
     profileId: 14,
-    education: "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+    education:
+      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "More than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
     gender: "Female",
@@ -323,7 +361,8 @@ export const profiles = [
   },
   {
     profileId: 714,
-    education: "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+    education:
+      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "More than 10 years",
     race: "Black",
     gender: "Female",
@@ -348,7 +387,8 @@ export const profiles = [
   },
   {
     profileId: 39,
-    education: "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+    education:
+      "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "Less than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
     gender: "Male",
@@ -357,7 +397,8 @@ export const profiles = [
   },
   {
     profileId: 739,
-    education: "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+    education:
+      "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "Less than 10 years",
     race: "Black",
     gender: "Male",
@@ -365,7 +406,8 @@ export const profiles = [
   },
   {
     profileId: 25,
-    education: "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+    education:
+      "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "Less than 10 years",
     race: "White",
     gender: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -374,7 +416,8 @@ export const profiles = [
   },
   {
     profileId: 725,
-    education: "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+    education:
+      "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "Less than 10 years",
     race: "White",
     gender: "Female",
@@ -382,7 +425,8 @@ export const profiles = [
   },
   {
     profileId: 40,
-    education: "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+    education:
+      "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "More than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
     gender: "Male",
@@ -391,7 +435,8 @@ export const profiles = [
   },
   {
     profileId: 740,
-    education: "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+    education:
+      "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "More than 10 years",
     race: "Black",
     gender: "Male",
@@ -416,7 +461,8 @@ export const profiles = [
   },
   {
     profileId: 28,
-    education: "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+    education:
+      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "More than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
     gender: "Female",
@@ -425,7 +471,8 @@ export const profiles = [
   },
   {
     profileId: 728,
-    education: "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+    education:
+      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "More than 10 years",
     race: "White",
     gender: "Female",
@@ -451,7 +498,8 @@ export const profiles = [
 
   {
     profileId: 13,
-    education: "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+    education:
+      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "Less than 10 years",
     race: "Black",
     gender: "Female",
@@ -460,7 +508,8 @@ export const profiles = [
   },
   {
     profileId: 713,
-    education: "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+    education:
+      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "Less than 10 years",
     race: "Black",
     gender: "Female",
@@ -655,7 +704,8 @@ export const profiles = [
   },
   {
     profileId: 12,
-    education: "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+    education:
+      "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "More than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
     gender: "Female",
@@ -664,7 +714,8 @@ export const profiles = [
   },
   {
     profileId: 712,
-    education: "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+    education:
+      "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "More than 10 years",
     race: "Black",
     gender: "Female",
@@ -672,7 +723,8 @@ export const profiles = [
   },
   {
     profileId: 55,
-    education: "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+    education:
+      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "Less than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
     gender: "Male",
@@ -681,7 +733,8 @@ export const profiles = [
   },
   {
     profileId: 755,
-    education: "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+    education:
+      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "Less than 10 years",
     race: "White",
     gender: "Male",
@@ -791,7 +844,8 @@ export const profiles = [
   },
   {
     profileId: 11,
-    education: "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+    education:
+      "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "Less than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
     gender: "Female",
@@ -800,7 +854,8 @@ export const profiles = [
   },
   {
     profileId: 711,
-    education: "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+    education:
+      "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "Less than 10 years",
     race: "Black",
     gender: "Female",
@@ -876,7 +931,8 @@ export const profiles = [
   },
   {
     profileId: 54,
-    education: "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+    education:
+      "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "More than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
     gender: "Male",
@@ -885,7 +941,8 @@ export const profiles = [
   },
   {
     profileId: 754,
-    education: "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+    education:
+      "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "More than 10 years",
     race: "White",
     gender: "Male",
@@ -961,7 +1018,8 @@ export const profiles = [
   },
   {
     profileId: 26,
-    education: "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+    education:
+      "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "More than 10 years",
     race: "White",
     gender: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -970,7 +1028,8 @@ export const profiles = [
   },
   {
     profileId: 726,
-    education: "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+    education:
+      "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "More than 10 years",
     race: "White",
     gender: "Female",
