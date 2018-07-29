@@ -38,6 +38,12 @@ const TournamentForm = props => {
       <div className="token-wrapper">
         <h3>Worker Profile Information</h3>
         <Profile profile={profile} />
+        <h3>{scenario.topic}</h3>
+        {options.length > 6 && (
+          <p>
+            <strong>Note</strong>: Scroll right to see all the options below.
+          </p>
+        )}
         <Sliders
           scenario={scenario}
           options={options}
