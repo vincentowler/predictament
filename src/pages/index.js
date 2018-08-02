@@ -130,7 +130,9 @@ class IndexPage extends Component {
     } = this.state;
 
     return (
-      <div className="App center">
+      <div
+        className={`App center ${page !== "tournament" ? "formPage" : null}`}
+      >
         <form
           data-netlify="true"
           name="user"
