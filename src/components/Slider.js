@@ -14,7 +14,9 @@ const Slider = ({ max, option, onChange }) => {
         value={option.tokens}
         max={max}
       />
-      {option.label}
+      <span style={{ color: option.tokens > 0 ? "green" : null }}>
+        {option.label}
+      </span>
     </span>
   );
 };
