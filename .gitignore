@@ -6,8 +6,10 @@ yarn-debug.log*
 yarn-error.log*
 .cache/
 
-# Gatsby Build directory
-public/
+# Gatsby Build files
+public/static
+public/index.html
+public/render-page.js.map
 
 # Runtime data
 pids
