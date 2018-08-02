@@ -3,6 +3,7 @@ import Button from "react-bootstrap/lib/Button";
 import TextInput from "./TextInput";
 import Sliders from "./Sliders";
 import Profile from "./Profile";
+import CoinStack from "./CoinStack";
 
 const TournamentForm = props => {
   const {
@@ -44,14 +45,17 @@ const TournamentForm = props => {
             <strong>Note</strong>: Scroll right to see all the options below.
           </p>
         )}
+        <div style={{ float: "left" }}>
+          <CoinStack coins={tokensLeft} />
+        </div>
         <Sliders
           scenario={scenario}
           options={options}
-          tokensLeft={tokensLeft}
           onChange={onWagerChange}
         />
+        <div style={{ clear: "both" }} />
         <p style={tokensLeft < 1 ? { color: "red" } : {}}>
-          You have {tokensLeft} tokens left.
+          {tokensLeft} tokens left.
         </p>
 
         {!wagerSubmitted && (
