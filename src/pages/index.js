@@ -10,10 +10,15 @@ import { validateLogin, validateBackground } from "../utils/validation";
 import { isEmpty } from "../utils/objectUtils";
 import { sendDataToNetlify } from "../utils/netlify";
 import { generateUUID } from "../utils/uuid";
+import { getQuerystring } from "../utils/querystring";
+import ErrorBoundary from "../components/ErrorBoundary";
+import { scenarios } from "../data";
+import PageNotFound from "../components/pages/PageNotFound";
 
 class IndexPage extends Component {
   state = {
     userId: generateUUID(),
+    scenario: null,
     errors: {},
     page: "login",
     workerId: "",
@@ -50,6 +55,22 @@ class IndexPage extends Component {
       { label: "Race", value: "Race" }
     ]
   };
+
+  componentDidMount() {
+    this.getScenario();
+  }
+
+  // Get the relevant scenario based on the querystring.
+  getScenario() {
+    const querystring = getQuerystring();
+    if (!querystring.scenarioId) return this.setState({ page: "notfound" });
+
+    const scenario = scenarios.find(s => {
+      return s.scenarioId === parseInt(querystring.scenarioId);
+    });
+    if (!scenario) return this.setState({ page: "notfound" });
+    this.setState({ scenario });
+  }
 
   handleLoginChange = ({ target }) => {
     const name = target.name;
@@ -123,6 +144,7 @@ class IndexPage extends Component {
       errors,
       userId,
       workerId,
+      scenario,
       acceptedTerms,
       background,
       earningsOptions,
@@ -130,59 +152,66 @@ class IndexPage extends Component {
     } = this.state;
 
     return (
-      <div
-        className={`App center ${page !== "tournament" ? "formPage" : null}`}
-      >
-        <form
-          data-netlify="true"
-          name="user"
-          method="post"
-          onSubmit={this.handleUserSubmit}
+      <ErrorBoundary>
+        <div
+          className={`App center ${page !== "tournament" ? "formPage" : null}`}
         >
-          <Login
-            onChange={this.handleLoginChange}
-            workerId={workerId}
-            userId={userId}
-            errors={errors}
-            email={email}
-            acceptedTerms={acceptedTerms}
-            showPage={this.showPage}
-            visible={page === "login"}
-          />
-          <Background
-            background={background}
-            errors={errors}
-            onChange={this.handleBackgroundChange}
-            showPage={this.showPage}
-            earningsOptions={earningsOptions}
-            satisfactionOptions={satisfactionOptions}
-            visible={page === "background"}
-          />
-        </form>
-        {page === "instructions" && (
-          <TournamentInstructions showPage={this.showPage} />
-        )}
-        <Tournament
-          userId={userId}
-          workerId={workerId}
-          email={email}
-          visible={page === "tournament"}
-          background={background}
-          showPage={this.showPage}
-          earningsOptions={earningsOptions}
-          satisfactionOptions={satisfactionOptions}
-        />
-        {page === "thanks" && <Thanks email={email} />}
-        {/* TODO: Display progress bar? State # of steps? */}
-        <footer>
-          <hr />&copy; 2018 Cornell University
-          <img
-            style={{ float: "right" }}
-            src="cornell-seal.png"
-            alt="Cornell Seal"
-          />
-        </footer>
-      </div>
+          <form
+            data-netlify="true"
+            name="user"
+            method="post"
+            onSubmit={this.handleUserSubmit}
+          >
+            <Login
+              onChange={this.handleLoginChange}
+              workerId={workerId}
+              userId={userId}
+              errors={errors}
+              email={email}
+              acceptedTerms={acceptedTerms}
+              showPage={this.showPage}
+              visible={page === "login"}
+            />
+            <Background
+              background={background}
+              errors={errors}
+              onChange={this.handleBackgroundChange}
+              showPage={this.showPage}
+              earningsOptions={earningsOptions}
+              satisfactionOptions={satisfactionOptions}
+              visible={page === "background"}
+            />
+          </form>
+          {page === "instructions" && (
+            <TournamentInstructions showPage={this.showPage} />
+          )}
+          {/* checking for scenario to avoid tournament crashing when a bogus URL lacking a valid scenarioId is requested. */}
+          {scenario && (
+            <Tournament
+              userId={userId}
+              scenario={scenario}
+              workerId={workerId}
+              email={email}
+              visible={page === "tournament"}
+              background={background}
+              showPage={this.showPage}
+              earningsOptions={earningsOptions}
+              satisfactionOptions={satisfactionOptions}
+            />
+          )}
+          {page === "thanks" && <Thanks email={email} />}
+          {/* TODO: Display progress bar? State # of steps? */}
+          {page === "notfound" && <PageNotFound />}
+          <footer>
+            <hr />&copy; 2018 Cornell University
+            <img
+              style={{ float: "right" }}
+              src="cornell-seal.png"
+              alt="Cornell Seal"
+            />
+          </footer>
+        </div>
+      </ErrorBoundary>
     );
   }
 }
