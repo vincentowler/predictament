@@ -13,7 +13,6 @@ const TournamentForm = props => {
     email,
     userId,
     profile,
-    numProfiles,
     options,
     wagerSubmitted,
     tokensLeft,
