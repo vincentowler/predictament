@@ -63,14 +63,21 @@ class IndexPage extends Component {
   // Get the relevant scenario based on the querystring.
   getScenario() {
     const querystring = getQuerystring();
-    if (!querystring.scenarioId) return this.setState({ page: "notfound" });
+    if (!querystring.scenarioId) return this.handleInvalidScenarioId();
 
     const scenario = scenarios.find(s => {
       return s.scenarioId === parseInt(querystring.scenarioId);
     });
-    if (!scenario) return this.setState({ page: "notfound" });
+    if (!scenario) return this.handleInvalidScenarioId();
     this.setState({ scenario });
   }
+
+  handleInvalidScenarioId = () => {
+    alert(
+      "You must provide a valid scenarioId in the URL querystring to begin."
+    );
+    return this.setState({ page: "notfound" });
+  };
 
   handleLoginChange = ({ target }) => {
     const name = target.name;
