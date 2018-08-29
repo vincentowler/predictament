@@ -46,12 +46,14 @@ class Login extends React.Component {
           name="workerId"
           id="workerId"
           value={workerId}
+          autocomplete="off"
           onChange={onChange}
           error={errors.workerId}
         />
         <TextInput
           label="Email address"
           name="email"
+          autocomplete="off"
           id="email"
           value={email}
           onChange={onChange}
