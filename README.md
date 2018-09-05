@@ -4,12 +4,11 @@ Prediction tournament app for economic research at Cornell Univsersity
 
 ## Quick Start for development
 
-```
-npm install
-npm start
-```
+The commands below will install dependencies and run the app on your local machine. Every time you hit save, the app will reload your changes in the browser automatically.
 
-This will install dependencies and run the app on your local machine. Every time you hit save, the app will reload your changes in the browser automatically.
+1. Install dependencies: `npm install`
+2. Start app: `npm start`
+3. Open `http://localhost:8000` and select the desired scenario
 
 ## Technologies
 
