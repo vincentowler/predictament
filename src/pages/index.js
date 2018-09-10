@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../utils/polyfills";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Login from "../components/pages/Login";
@@ -12,13 +13,14 @@ import { sendDataToNetlify } from "../utils/netlify";
 import { generateUUID } from "../utils/uuid";
 import { getQuerystring } from "../utils/querystring";
 import ErrorBoundary from "../components/ErrorBoundary";
-import { scenarios } from "../data";
+import { scenarios, profiles } from "../data";
 import PageNotFound from "../components/pages/PageNotFound";
 
 class IndexPage extends Component {
   state = {
     userId: generateUUID(),
     scenario: null,
+    profiles: [],
     errors: {},
     page: "login",
     workerId: "",
@@ -60,7 +62,7 @@ class IndexPage extends Component {
     this.getScenario();
   }
 
-  // Get the relevant scenario based on the querystring.
+  // Get the relevant scenario (and associated profiles) based on the querystring.
   getScenario() {
     const querystring = getQuerystring();
     if (!querystring.scenarioId) return this.handleInvalidScenarioId();
@@ -69,7 +71,16 @@ class IndexPage extends Component {
       return s.scenarioId === parseInt(querystring.scenarioId);
     });
     if (!scenario) return this.handleInvalidScenarioId();
-    this.setState({ scenario });
+    this.setState({
+      scenario,
+      profiles: this.getProfilesForScenario(scenario.scenarioId)
+    });
+  }
+
+  getProfilesForScenario(scenarioId) {
+    return profiles.filter(
+      p => p.scenarioIds && p.scenarioIds.includes(scenarioId)
+    );
   }
 
   handleInvalidScenarioId = () => {
@@ -152,6 +163,7 @@ class IndexPage extends Component {
       userId,
       workerId,
       scenario,
+      profiles,
       acceptedTerms,
       background,
       earningsOptions,
@@ -200,6 +212,7 @@ class IndexPage extends Component {
               workerId={workerId}
               email={email}
               visible={page === "tournament"}
+              profiles={profiles}
               background={background}
               showPage={this.showPage}
               earningsOptions={earningsOptions}

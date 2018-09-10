@@ -51,6 +51,7 @@ export const profiles = [
   //       of the original profile (71 represents the full-info version of 1), since we don't exceed 60 profiles.
   {
     profileId: 1,
+    scenarioIds: [1],
     education: "Less than High School",
     experience: "Less than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -60,6 +61,7 @@ export const profiles = [
   },
   {
     profileId: 71,
+    scenarioIds: [1],
     education: "Less than High School",
     experience: "Less than 10 years",
     race: "Black",
@@ -68,6 +70,7 @@ export const profiles = [
   },
   {
     profileId: 50,
+    scenarioIds: [1, 2],
     education: "Some College (2-yr. Associates Degree or less)",
     experience: "More than 10 years",
     race: "White",
@@ -77,6 +80,7 @@ export const profiles = [
   },
   {
     profileId: 750,
+    scenarioIds: [1, 2],
     education: "Some College (2-yr. Associates Degree or less)",
     experience: "More than 10 years",
     race: "White",
