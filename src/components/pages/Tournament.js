@@ -1,12 +1,11 @@
 import React from "react";
 import TournamentForm from "../TournamentForm";
 import { sendDataToNetlify } from "../../utils/netlify";
-import { profiles } from "../../data";
 
 class Tournament extends React.Component {
   state = {
     profileNumber: 1,
-    profile: profiles[0],
+    profile: this.props.profiles[0], // begin with the first profile passed.
     options: this.getOptions(),
     bonusQuestionValue: "",
     wagerSubmitted: false
@@ -56,7 +55,6 @@ class Tournament extends React.Component {
     const {
       wagerSubmitted,
       profile,
-      scenario,
       bonusQuestionValue,
       profileNumber
     } = this.state;
@@ -67,18 +65,16 @@ class Tournament extends React.Component {
         email: this.props.email,
         userId: this.props.userId,
         profileId: profile.profileId,
-        scenarioId: scenario.scenarioId,
+        scenarioId: this.props.scenario.scenarioId,
         wagerDistribution: this.wagerDistribution(),
         bonusQuestion: bonusQuestionValue
       };
 
       sendDataToNetlify("wager", data);
-      // Show next profile if another exists. Otherwise, redirect to thanks page.
-      if (profiles[profileNumber]) {
-        this.showNextProfile();
-      } else {
-        this.props.showPage("thanks");
-      }
+      const anotherProfileExists = this.props.profiles[profileNumber];
+      anotherProfileExists
+        ? this.showNextProfile()
+        : this.props.showPage("thanks");
     } else {
       this.setState({ wagerSubmitted: true });
     }
@@ -88,7 +84,7 @@ class Tournament extends React.Component {
     this.setState(state => {
       return {
         profileNumber: state.profileNumber + 1,
-        profile: profiles[state.profileNumber],
+        profile: this.props.profiles[state.profileNumber],
         bonusQuestionValue: "",
         wagerSubmitted: false,
         options: state.options.map(option => {
@@ -126,7 +122,7 @@ class Tournament extends React.Component {
         tokensLeft={this.getTokensLeft()}
         background={this.props.background}
         profile={{ ...profile, profileNumber }}
-        numProfiles={profiles.length}
+        numProfiles={this.props.profiles.length}
         scenario={scenario}
         options={options}
         bonusQuestionValue={bonusQuestionValue}
