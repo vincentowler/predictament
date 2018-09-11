@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../utils/polyfills";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.css";
+import Home from "../components/pages/Home";
 import Login from "../components/pages/Login";
 import Background from "../components/pages/Background";
 import Tournament from "../components/pages/Tournament";
@@ -23,7 +24,7 @@ class IndexPage extends Component {
     profiles: [],
     backgroundQuestionIds: [],
     errors: {},
-    page: "login",
+    page: "home",
     workerId: "",
     email: "",
     acceptedTerms: false,
@@ -63,16 +64,17 @@ class IndexPage extends Component {
     this.getScenario();
   }
 
-  // Get the relevant scenario (and associated profiles) based on the querystring.
+  // Get the relevant scenario (and associated profiles) based on the querystring (if provided).
   getScenario() {
     const querystring = getQuerystring();
-    if (!querystring.scenarioId) return this.handleInvalidScenarioId();
+    if (!querystring.scenarioId) return;
 
     const scenario = scenarios.find(s => {
       return s.scenarioId === parseInt(querystring.scenarioId);
     });
     if (!scenario) return this.handleInvalidScenarioId();
     this.setState({
+      page: "login", // when a scenarioId is provided, skip the home page and go straight to login.
       scenario,
       profiles: this.getProfilesForScenario(scenario.scenarioId),
       backgroundQuestionIds: this.getBackgroundQuestionsForScenario(
@@ -195,6 +197,7 @@ class IndexPage extends Component {
             method="post"
             onSubmit={this.handleUserSubmit}
           >
+            {page === "home" && <Home scenarios={scenarios} />}
             <Login
               onChange={this.handleLoginChange}
               workerId={workerId}
