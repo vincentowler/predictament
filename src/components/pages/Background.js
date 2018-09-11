@@ -63,7 +63,6 @@ class Background extends Component {
   }
 
   questionEnabled = questionId => {
-    console.log(this.props.backgroundQuestionIds);
     return this.props.backgroundQuestionIds.includes(questionId);
   };
 
