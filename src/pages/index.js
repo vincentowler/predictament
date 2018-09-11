@@ -13,7 +13,7 @@ import { sendDataToNetlify } from "../utils/netlify";
 import { generateUUID } from "../utils/uuid";
 import { getQuerystring } from "../utils/querystring";
 import ErrorBoundary from "../components/ErrorBoundary";
-import { scenarios, profiles } from "../data";
+import { scenarios, profiles, backgroundQuestions } from "../data";
 import PageNotFound from "../components/pages/PageNotFound";
 
 class IndexPage extends Component {
@@ -21,6 +21,7 @@ class IndexPage extends Component {
     userId: generateUUID(),
     scenario: null,
     profiles: [],
+    backgroundQuestionIds: [],
     errors: {},
     page: "login",
     workerId: "",
@@ -73,8 +74,17 @@ class IndexPage extends Component {
     if (!scenario) return this.handleInvalidScenarioId();
     this.setState({
       scenario,
-      profiles: this.getProfilesForScenario(scenario.scenarioId)
+      profiles: this.getProfilesForScenario(scenario.scenarioId),
+      backgroundQuestionIds: this.getBackgroundQuestionsForScenario(
+        scenario.scenarioId
+      )
     });
+  }
+
+  getBackgroundQuestionsForScenario(scenarioId) {
+    return backgroundQuestions
+      .filter(q => q.scenarioIds.includes(scenarioId))
+      .map(p => p.id);
   }
 
   getProfilesForScenario(scenarioId) {
@@ -122,7 +132,10 @@ class IndexPage extends Component {
   };
 
   handleBackgroundSubmit = () => {
-    const errors = validateBackground(this.state.background);
+    const errors = validateBackground(
+      this.state.background,
+      this.state.backgroundQuestionIds
+    );
     this.setState({ errors });
 
     if (isEmpty(errors)) {
@@ -164,6 +177,7 @@ class IndexPage extends Component {
       workerId,
       scenario,
       profiles,
+      backgroundQuestionIds,
       acceptedTerms,
       background,
       earningsOptions,
@@ -195,6 +209,7 @@ class IndexPage extends Component {
               background={background}
               errors={errors}
               onChange={this.handleBackgroundChange}
+              backgroundQuestionIds={backgroundQuestionIds}
               showPage={this.showPage}
               earningsOptions={earningsOptions}
               satisfactionOptions={satisfactionOptions}

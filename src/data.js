@@ -43,6 +43,19 @@ export const scenarios = [
   }
 ];
 
+export const backgroundQuestions = [
+  { id: 1, scenarioIds: [1, 2] },
+  { id: 2, scenarioIds: [1, 2] },
+  { id: 3, scenarioIds: [1, 2] },
+  { id: 4, scenarioIds: [1, 2] },
+  { id: 5, scenarioIds: [1, 2] },
+  { id: 6, scenarioIds: [1, 2] },
+  { id: 7, scenarioIds: [1, 2] },
+  { id: 8, scenarioIds: [1, 2] },
+  { id: 9, scenarioIds: [1, 2] },
+  { id: 10, scenarioIds: [1, 2] }
+];
+
 export const profiles = [
   // Note how this is the same person as above, but with more info provided.
   // The saveWagerButtonLabel property is an override. If it's not provided, the default label will be utilized for that profile.
