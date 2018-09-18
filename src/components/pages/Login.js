@@ -90,17 +90,32 @@ class Login extends React.Component {
           <div className="static-modal">
             <Modal show={showTerms}>
               <Modal.Header>
-                <Modal.Title>Terms and Conditions</Modal.Title>
+                <Modal.Title>Consent to Participate in an Online Research Study</Modal.Title>
               </Modal.Header>
 
               <Modal.Body>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
+            
+              <p><strong><h2>Project Title: Cornell Expectations Study</h2></strong></p>
+<p>We are asking you to participate in an academic not-for-profit research study. This form is designed to give you information about this study. We will describe this study to you and answer any of your questions.</p>
+ 
+
+<p>What the study is about: The purpose of this study is to learn about people’s expectations regarding education, the labor market, and quality of life.
+ 
+What we will ask you to do: This study involves responding to a background survey (5 minutes) participating making 30 predictions about anonymous workers in the labor force. This study should take about 30 minutes to complete.</p>
+ 
+<h4>Risks and discomfort:</h4> The primary risk associated with this study is a possible invasion of your privacy. Though every reasonable effort has been taken, confidentiality during actual Internet communication procedures cannot be guaranteed.
+ 
+<h4>Benefits:</h4> You may find participation in the prediction tournament a useful introspective exercise.  
+ 
+<h4>Compensation:</h4> You will receive $0.50 for completing the background survey and prediction tournament. You will also receive up to $0.05 for each of the 30 profiles you are asked to make predictions about, based on the accuracy of your predictions. You will receive at least $0.50 for completing the study and could earn up to $1.50 in bonus payments.
+ 
+<h4>Your information will be confidential:</h4> We will make every reasonable effort to keep your information private. We will not collect or share any identifying information about you including your name, phone number, email, or any other information that will make it possible to identify you. However, no guarantees can be made regarding the interception of data sent via the Internet by any third parties. 
+ 
+<h4>Taking part is voluntary:</h4> Taking part in this study is completely voluntary. You may skip any questions that you do not want to answer on the quiz or survey. If you choose to skip survey and quiz questions or discontinue the lecture, it will not affect your current or future relationship with Cornell University. If you decide to take part, you are free to withdraw at any time. However, you will only be compensated once you have fully completed the survey and prediction tournament questions.
+ 
+<h4>If you have questions:</h4> The researchers conducting this study is Jeffrey Swigert and Mike Lovenheim. Please direct any questions to Jeff Swigert at jms858@cornell.edu or 435-865-8239.
+
+If you have any questions or concerns regarding your rights as a subject in this study, you may contact the Institutional Review Board (IRB) at 607-255-5138 or access their website at http://www.irb.cornell.edu. You may also report your concerns or complaints anonymously through www.hotline.cornell.edu or by calling toll free at 1-866-293-3077. Ethicspoint is an independent organization that serves as a liaison between the University and the person bringing the complaint so that anonymity can be ensured.
               </Modal.Body>
 
               <Modal.Footer>
