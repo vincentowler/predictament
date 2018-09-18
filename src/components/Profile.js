@@ -12,6 +12,12 @@ function Profile({ profile }) {
             so don't display as part of profile. */
           }
           if (key === "saveWagerButtonLabel") return null;
+
+          {
+            /* This only exists for assigning profiles to scenarioIds, so don't display */
+          }
+          if (key === "scenarioIds") return null;
+
           {
             /* Since we want to send profileId and profileNumber to Netflify,
           we need to place them in the DOM, which is why we're styling them hidden 
