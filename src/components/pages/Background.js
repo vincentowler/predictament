@@ -69,7 +69,7 @@ class Background extends Component {
   render() {
     const { background, onChange, errorsExist, errors, visible } = this.props;
     return (
-      <div className={visible ? null : "hidden"}>
+      <div>
         <h2>Background</h2>
         {!isEmpty(errors) && (
           <p style={{ color: "#a94442" }}>Please correct the errors below.</p>
