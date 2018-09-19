@@ -12,7 +12,7 @@ export function sendDataToNetlify(formName, data) {
   // In non-prod environments, write to forms that begin with the word test to avoid polluting prod data.
   const envFormName =
     process.env.GATSBY_ENV === "production" ? formName : "test" + formName;
-  fetch("https://predictament.netlify.com", {
+  fetch("https://predictament.com", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: encode({ "form-name": envFormName, ...data })
