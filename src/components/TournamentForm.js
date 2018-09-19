@@ -4,6 +4,7 @@ import TextInput from "./TextInput";
 import Sliders from "./Sliders";
 import Profile from "./Profile";
 import CoinStack from "./CoinStack";
+import { formNames } from "../utils/netlify";
 
 const TournamentForm = props => {
   const {
@@ -25,7 +26,7 @@ const TournamentForm = props => {
   return (
     <form
       className={visible ? "" : "hidden"}
-      name="wager"
+      name={formNames.wager}
       onSubmit={onSubmit}
       method="post"
       data-netlify="true"
