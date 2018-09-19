@@ -62,7 +62,6 @@ class IndexPage extends Component {
 
   componentDidMount() {
     console.log("process.env.GATSBY_ENV", process.env.GATSBY_ENV);
-    // if (GATSBY_ENV) console.log("GATSBY_ENV", GATSBY_ENV);
     this.getScenario();
   }
 
