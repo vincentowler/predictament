@@ -2,7 +2,7 @@ import React from "react";
 
 const Home = ({ scenarios }) => (
   <div>
-    <h1>Cornell University Expectations Study - testing</h1>
+    <h1>Cornell University Expectations Study</h1>
 
     <p>Select a tournament.</p>
     <ul>
