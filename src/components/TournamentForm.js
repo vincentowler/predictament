@@ -31,6 +31,7 @@ const TournamentForm = props => {
       method="post"
       data-netlify="true"
     >
+      <input type="hidden" name="form-name" value={formNames.wager} />
       <h2>What is this person's income?</h2>
       <p>
         Move the range sliders below to place wagers on this person's income.
