@@ -221,7 +221,7 @@ class IndexPage extends Component {
               showPage={this.showPage}
               earningsOptions={earningsOptions}
               satisfactionOptions={satisfactionOptions}
-              visible={page === "login"}
+              visible={page === "background"}
             />
           </form>
           {page === "instructions" && (
