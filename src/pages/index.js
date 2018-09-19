@@ -146,7 +146,8 @@ class IndexPage extends Component {
         userId: this.state.userId,
         workerId: this.state.workerId,
         email: this.state.email,
-        ...this.state.background
+        income: this.state.background.income
+        //...this.state.background
       };
 
       sendDataToNetlify("user", user);
