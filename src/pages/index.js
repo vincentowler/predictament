@@ -201,7 +201,7 @@ class IndexPage extends Component {
             {process.env.GATSBY_ENV !== "production" && (
               <h2 style={{ backgroundColor: "yellow" }}>TESTING SITE</h2>
             )}
-
+            <input type="hidden" name="form-name" value="user" />
             {page === "home" && <Home scenarios={scenarios} />}
             <Login
               onChange={this.handleLoginChange}
@@ -221,7 +221,7 @@ class IndexPage extends Component {
               showPage={this.showPage}
               earningsOptions={earningsOptions}
               satisfactionOptions={satisfactionOptions}
-              visible={page === "background"}
+              visible={page === "login"}
             />
           </form>
           {page === "instructions" && (
