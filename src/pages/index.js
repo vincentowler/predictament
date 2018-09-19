@@ -145,7 +145,8 @@ class IndexPage extends Component {
         userId: this.state.userId,
         workerId: this.state.workerId,
         email: this.state.email,
-        ...this.state.background
+        income: this.state.background.income
+        //...this.state.background
       };
 
       sendDataToNetlify("user", user);
@@ -197,6 +198,10 @@ class IndexPage extends Component {
             method="post"
             onSubmit={this.handleUserSubmit}
           >
+            {process.env.GATSBY_ENV !== "production" && (
+              <h2 style={{ backgroundColor: "yellow" }}>TESTING SITE</h2>
+            )}
+
             {page === "home" && <Home scenarios={scenarios} />}
             <Login
               onChange={this.handleLoginChange}
