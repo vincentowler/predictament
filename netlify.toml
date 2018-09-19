@@ -6,3 +6,7 @@
 # will inherit these settings.
 [context.deploy-preview]
   command = "npm run build:test"
+
+# Test context: All deploys of the test branch will inherit these settings.
+[context.branch-deploy]
+  command = "npm run build:test"
