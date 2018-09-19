@@ -64,8 +64,6 @@ class IndexPage extends Component {
     this.getScenario();
   }
 
-  getNetlifyFormNamesForEnvironment;
-
   // Get the relevant scenario (and associated profiles) based on the querystring (if provided).
   getScenario() {
     const querystring = getQuerystring();
