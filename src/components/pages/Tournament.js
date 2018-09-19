@@ -1,6 +1,6 @@
 import React from "react";
 import TournamentForm from "../TournamentForm";
-import { sendDataToNetlify } from "../../utils/netlify";
+import { sendDataToNetlify, formNames } from "../../utils/netlify";
 
 class Tournament extends React.Component {
   state = {
@@ -70,7 +70,7 @@ class Tournament extends React.Component {
         bonusQuestion: bonusQuestionValue
       };
 
-      sendDataToNetlify("wager", data);
+      sendDataToNetlify(formNames.wager, data);
       const anotherProfileExists = this.props.profiles[profileNumber];
       anotherProfileExists
         ? this.showNextProfile()
