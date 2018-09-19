@@ -23,10 +23,9 @@ export function sendDataToNetlify(formName, data) {
 // Returns the relevant form names based on the current environment.
 // This way we can write data to test forms in Netlify non-prod environments.
 function getEnvironmentFormNames() {
-  return { user: "user", wager: "wager" };
-  // return process.env.GATSBY_ENV === "production"
-  //   ? { user: "user", wager: "wager" }
-  //   : { user: "testuser", wager: "testwager" };
+  return process.env.GATSBY_ENV === "production"
+    ? { user: "user", wager: "wager" }
+    : { user: "testuser", wager: "testwager" };
 }
 
-export const formNames = getEnvironmentFormNames();
+export const formNames = { user: "user", wager: "wager" }; // getEnvironmentFormNames();
