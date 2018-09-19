@@ -28,4 +28,4 @@ function getEnvironmentFormNames() {
     : { user: "testuser", wager: "testwager" };
 }
 
-export const formNames = { user: "user", wager: "wager" }; // getEnvironmentFormNames();
+export const formNames = getEnvironmentFormNames();
