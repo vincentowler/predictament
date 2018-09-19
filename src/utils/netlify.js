@@ -10,8 +10,11 @@ function encode(data) {
 // Example: https://github.com/imorente/gatsby-netlify-form-example
 export function sendDataToNetlify(formName, data) {
   // In non-prod environments, write to forms that begin with the word test to avoid polluting prod data.
+  console.log("GATSBY_ENV", GATSBY_ENV);
+  console.log("process.ENV.GATSBY_ENV", process.ENV.GATSBY_ENV);
+
   const envFormName =
-    process.ENV.CONTEXT === "production" ? formName : "test" + formName;
+    GATSBY_ENV === "production" ? formName : "test" + formName;
   fetch("/", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
