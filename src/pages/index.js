@@ -10,7 +10,7 @@ import TournamentInstructions from "../components/pages/TournamentInstructions";
 import Thanks from "../components/pages/Thanks";
 import { validateLogin, validateBackground } from "../utils/validation";
 import { isEmpty } from "../utils/objectUtils";
-import { sendDataToNetlify } from "../utils/netlify";
+import { sendDataToNetlify, formNames } from "../utils/netlify";
 import { generateUUID } from "../utils/uuid";
 import { getQuerystring } from "../utils/querystring";
 import ErrorBoundary from "../components/ErrorBoundary";
@@ -63,6 +63,8 @@ class IndexPage extends Component {
   componentDidMount() {
     this.getScenario();
   }
+
+  getNetlifyFormNamesForEnvironment;
 
   // Get the relevant scenario (and associated profiles) based on the querystring (if provided).
   getScenario() {
@@ -145,11 +147,10 @@ class IndexPage extends Component {
         userId: this.state.userId,
         workerId: this.state.workerId,
         email: this.state.email,
-        income: this.state.background.income
-        //...this.state.background
+        ...this.state.background
       };
 
-      sendDataToNetlify("testuser", user);
+      sendDataToNetlify(formNames.user, user);
       this.showPage("instructions");
     } else {
       window.scrollTo(0, 0);
@@ -194,14 +195,14 @@ class IndexPage extends Component {
         >
           <form
             data-netlify="true"
-            name="testuser"
+            name={formNames.user}
             method="post"
             onSubmit={this.handleUserSubmit}
           >
             {process.env.GATSBY_ENV !== "production" && (
               <h2 style={{ backgroundColor: "yellow" }}>TESTING SITE</h2>
             )}
-            <input type="hidden" name="form-name" value="testuser" />
+            <input type="hidden" name="form-name" value={formNames.user} />
             {page === "home" && <Home scenarios={scenarios} />}
             <Login
               onChange={this.handleLoginChange}
