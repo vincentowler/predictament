@@ -61,6 +61,7 @@ class IndexPage extends Component {
   };
 
   componentDidMount() {
+    console.log(formNames.user);
     this.getScenario();
   }
 
