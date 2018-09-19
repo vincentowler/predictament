@@ -149,7 +149,7 @@ class IndexPage extends Component {
         //...this.state.background
       };
 
-      sendDataToNetlify("user", user);
+      sendDataToNetlify("testuser", user);
       this.showPage("instructions");
     } else {
       window.scrollTo(0, 0);
@@ -194,14 +194,14 @@ class IndexPage extends Component {
         >
           <form
             data-netlify="true"
-            name="user"
+            name="testuser"
             method="post"
             onSubmit={this.handleUserSubmit}
           >
             {process.env.GATSBY_ENV !== "production" && (
               <h2 style={{ backgroundColor: "yellow" }}>TESTING SITE</h2>
             )}
-            <input type="hidden" name="form-name" value="user" />
+            <input type="hidden" name="form-name" value="testuser" />
             {page === "home" && <Home scenarios={scenarios} />}
             <Login
               onChange={this.handleLoginChange}
