@@ -7,6 +7,7 @@ function encode(data) {
 
 // Send data to Netlify to store in their form feature
 // More info at https://www.netlify.com/docs/form-handling/
+// and https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/
 // Example: https://github.com/imorente/gatsby-netlify-form-example
 export function sendDataToNetlify(formName, data) {
   // In non-prod environments, write to forms that begin with the word test to avoid polluting prod data.
