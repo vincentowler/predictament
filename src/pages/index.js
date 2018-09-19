@@ -61,6 +61,8 @@ class IndexPage extends Component {
   };
 
   componentDidMount() {
+    console.log("process.env.GATSBY_ENV", process.env.GATSBY_ENV);
+    // if (GATSBY_ENV) console.log("GATSBY_ENV", GATSBY_ENV);
     this.getScenario();
   }
 
@@ -197,6 +199,10 @@ class IndexPage extends Component {
             method="post"
             onSubmit={this.handleUserSubmit}
           >
+            {process.env.GATSBY_ENV !== "production" && (
+              <h2 style={{ backgroundColor: "yellow" }}>TESTING SITE</h2>
+            )}
+
             {page === "home" && <Home scenarios={scenarios} />}
             <Login
               onChange={this.handleLoginChange}
