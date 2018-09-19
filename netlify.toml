@@ -1,15 +1,15 @@
 # Production context: All deploys from the Production branch set in your site's deploy settings will inherit these settings.
 [context.production]
-  command = "echo 'prod'"
+  environment = { GATSBY_ENV = "production" }
 
 # Deploy Preview context: All Deploy Previews (https://www.netlify.com/blog/2016/07/20/introducing-deploy-previews-in-netlify/)
 # will inherit these settings.
 [context.deploy-preview]
-  command = "npm run build:test"
+  environment = { GATSBY_ENV = "test" }
 
 # Test context: All deploys of the test branch will inherit these settings.
 [context.branch-deploy]
-  command = "npm run build:test"
+  environment = { GATSBY_ENV = "test" }
 
 [context."test"]
-  command = "npm run build:test"
+  environment = { GATSBY_ENV = "test" }
