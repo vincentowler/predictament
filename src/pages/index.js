@@ -149,7 +149,7 @@ class IndexPage extends Component {
         ...this.state.background
       };
 
-      sendDataToNetlify(formNames.user, user);
+      sendDataToNetlify("user", user);
       this.showPage("instructions");
     } else {
       window.scrollTo(0, 0);
