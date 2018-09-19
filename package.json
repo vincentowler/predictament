@@ -5,7 +5,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "gatsby": "^1.9.271",
+    "gatsby": "^1.9.277",
     "gatsby-link": "^1.6.44",
     "gatsby-plugin-react-helmet": "^1.0.8",
     "react-bootstrap": "^0.32.1"
@@ -16,8 +16,8 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "build": "GATSBY_ENV=production gatsby build",
-    "build:test": "GATSBY_ENV=test gatsby build",
+    "build": "gatsby build",
+    "build:test": "gatsby build",
     "start": "gatsby develop",
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
