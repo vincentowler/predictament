@@ -60,14 +60,6 @@ class Login extends React.Component {
           helpBlock="Don't worry. No spam. We'll send your results here."
           error={errors.email}
         />
-        <TextInput
-          label="Eye color"
-          name="eyeColor"
-          autocomplete="off"
-          id="eyeColor"
-          value="brown"
-          onChange={onChange}
-        />
         {/* This is here so we can send it to Netlify */}
         <TextInput
           label="User ID"
@@ -177,7 +169,7 @@ class Login extends React.Component {
           <Button
             className="btn btn-primary center-block"
             bsSize="lg"
-            type="submit"
+            type="button"
           >
             Begin
           </Button>
