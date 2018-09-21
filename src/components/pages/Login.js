@@ -11,6 +11,7 @@ class Login extends React.Component {
     workerId: PropTypes.string,
     email: PropTypes.string.isRequired,
     acceptedTerms: PropTypes.bool.isRequired,
+    onSubmit: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired
   };
 
@@ -166,9 +167,11 @@ class Login extends React.Component {
           </div>
         </div>
         <div>
+          {/* NOTE: This is deliberately a type of button instead of submit */}
           <Button
             className="btn btn-primary center-block"
             bsSize="lg"
+            onClick={this.onSubmit}
             type="button"
           >
             Begin

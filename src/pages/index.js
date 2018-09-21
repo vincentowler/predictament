@@ -211,6 +211,7 @@ class IndexPage extends Component {
               email={email}
               acceptedTerms={acceptedTerms}
               showPage={this.showPage}
+              onSubmit={this.handleUserSubmit}
               visible={page === "login"}
             />
             <Background
