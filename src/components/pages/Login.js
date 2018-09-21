@@ -32,6 +32,7 @@ class Login extends React.Component {
       workerId,
       errors,
       email,
+      onSubmit,
       onChange,
       acceptedTerms,
       visible
@@ -171,7 +172,7 @@ class Login extends React.Component {
           <Button
             className="btn btn-primary center-block"
             bsSize="lg"
-            onClick={this.onSubmit}
+            onClick={onSubmit}
             type="button"
           >
             Begin
