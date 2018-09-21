@@ -296,7 +296,6 @@ class Background extends Component {
             )}
           </ol>
           <div>
-            {/* // TODO: Provide a previous button too? Nope for now per Jeff. */}
             <Button
               className="btn btn-primary center-block"
               bsSize="lg"
