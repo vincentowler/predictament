@@ -146,7 +146,6 @@ class IndexPage extends Component {
         userId: this.state.userId,
         workerId: this.state.workerId,
         email: this.state.email,
-        eyeColor: this.state.eyeColor,
         ...this.state.background
       };
 
