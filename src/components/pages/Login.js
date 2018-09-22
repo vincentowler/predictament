@@ -103,7 +103,40 @@ class Login extends React.Component {
           className="hidden"
         />
 
-        {/* These hidden fields are necessary so Netlify can see the form fields to submit */}
+        <div className={errors.acceptedTerms ? "field has-error" : "field"}>
+          <Checkbox
+            id="acceptedTerms"
+            onChange={onChange}
+            name="acceptedTerms"
+            checked={user.acceptedTerms}
+          >
+            {" "}
+            I accept the{" "}
+            <a href="#terms-and-conditions" onClick={this.toggleTerms}>
+              terms and conditions
+            </a>
+          </Checkbox>
+          {errors.acceptedTerms && (
+            <span className="help-block">
+              You must accept the terms to continue.
+            </span>
+          )}
+          <div className="static-modal">
+            <Modal show={showTerms}>
+              <Modal.Header>
+                <Modal.Title>head</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>test</Modal.Body>
+              <Modal.Footer>
+                <Button bsStyle="primary" onClick={this.toggleTerms}>
+                  Close
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          </div>
+        </div>
+
+        {/* These hidden fields are necessary since we're selectively rendering background questions based on scenario. Netlify must see all the field on page load or they won't submit. */}
         <TextInput
           label="What is your age?"
           id="hiddenage"
@@ -112,6 +145,167 @@ class Login extends React.Component {
           value={user.age}
           onChange={onChange}
           error={errors.age}
+          className="hidden"
+        />
+
+        <RadioButtonList
+          selectedValue={user.race}
+          label="What is your race?"
+          name="race"
+          options={[
+            { value: "Black", label: "Black" },
+            { value: "White", label: "White" },
+            { value: "Asian", label: "Asian" },
+            { value: "Other", label: "Other" }
+          ]}
+          onChange={onChange}
+          error={errors.race}
+          className="hidden"
+        />
+
+        <RadioButtonList
+          selectedValue={user.ethnicity}
+          label="What is your ethnicity?"
+          name="ethnicity"
+          options={[
+            { value: "Hispanic", label: "Hispanic" },
+            { value: "Non-Hispanic", label: "Non-Hispanic" }
+          ]}
+          onChange={onChange}
+          error={errors.ethnicity}
+          className="hidden"
+        />
+
+        <RadioButtonList
+          selectedValue={user.gender}
+          label="What is your gender?"
+          name="gender"
+          options={[
+            { value: "Male", label: "Male" },
+            { value: "Female", label: "Female" }
+          ]}
+          onChange={onChange}
+          error={errors.gender}
+          className="hidden"
+        />
+
+        <RadioButtonList
+          selectedValue={user.education}
+          label="What is your highest level of education completed?"
+          name="education"
+          options={[
+            { value: "High School", label: "High School" },
+            { value: "Bachelors", label: "Bachelors" },
+            { value: "Masters", label: "Masters" },
+            { value: "Doctorate", label: "Doctorate" }
+          ]}
+          onChange={onChange}
+          error={errors.education}
+          className="hidden"
+        />
+
+        <TextInput
+          label="What is your total annual income in dollars, rounded to the nearest thousand?"
+          id="hiddenincome"
+          name="income"
+          type="text"
+          value={user.income}
+          onChange={onChange}
+          error={errors.income}
+          className="hidden"
+        />
+
+        <TextInput
+          label="What is your current industry and occupation?"
+          id="hiddenindustry"
+          name="industry"
+          type="text"
+          value={user.industry}
+          onChange={onChange}
+          error={errors.industry}
+          className="hidden"
+        />
+
+        <TextInput
+          label="How many years of experience do you have in your current job?"
+          id="hiddenyearsJobExperience"
+          name="yearsJobExperience"
+          type="number"
+          value={user.yearsJobExperience}
+          onChange={onChange}
+          error={errors.yearsJobExperience}
+          className="hidden"
+        />
+
+        <SelectInput
+          options={this.getFilteredEarningsOptions(1)}
+          displayLabel={false}
+          id="hiddenearningsDesiredData1"
+          name="earningsDesiredData1"
+          error={errors.earningsDesiredData1}
+          value={user.earningsDesiredData1}
+          onChange={onChange}
+          placeholder="Most important factor"
+          className="hidden"
+        />
+
+        <SelectInput
+          options={this.getFilteredEarningsOptions(2)}
+          displayLabel={false}
+          id="hiddenearningsDesiredData2"
+          name="earningsDesiredData2"
+          error={errors.earningsDesiredData2}
+          value={user.earningsDesiredData2}
+          onChange={onChange}
+          placeholder="Second most important factor"
+          className="hidden"
+        />
+
+        <SelectInput
+          options={this.getFilteredEarningsOptions(3)}
+          displayLabel={false}
+          id="hiddenearningsDesiredData3"
+          name="earningsDesiredData3"
+          error={errors.earningsDesiredData3}
+          value={user.earningsDesiredData3}
+          onChange={onChange}
+          placeholder="Third most important factor"
+          className="hidden"
+        />
+
+        <SelectInput
+          options={this.getFilteredSatisfactionOptions(1)}
+          displayLabel={false}
+          id="hiddensatisfactionDesiredData1"
+          name="satisfactionDesiredData1"
+          error={errors.satisfactionDesiredData1}
+          value={user.satisfactionDesiredData1}
+          onChange={onChange}
+          placeholder="Most important factor"
+          className="hidden"
+        />
+
+        <SelectInput
+          options={this.getFilteredSatisfactionOptions(2)}
+          displayLabel={false}
+          id="hiddensatisfactionDesiredData2"
+          name="satisfactionDesiredData2"
+          error={errors.satisfactionDesiredData2}
+          value={user.satisfactionDesiredData2}
+          onChange={onChange}
+          placeholder="Second most important factor"
+          className="hidden"
+        />
+
+        <SelectInput
+          options={this.getFilteredSatisfactionOptions(3)}
+          displayLabel={false}
+          id="hiddensatisfactionDesiredData3"
+          name="satisfactionDesiredData3"
+          error={errors.satisfactionDesiredData3}
+          value={user.satisfactionDesiredData3}
+          onChange={onChange}
+          placeholder="Third most important factor"
           className="hidden"
         />
 
@@ -334,47 +528,6 @@ class Login extends React.Component {
             </li>
           )}
         </ol>
-        {/* This is here so we can send it to Netlify */}
-        <TextInput
-          label="User ID"
-          name="userId"
-          id="userId"
-          value={user.userId}
-          onChange={() => {}}
-          className="hidden"
-        />
-        <div className={errors.acceptedTerms ? "field has-error" : "field"}>
-          <Checkbox
-            id="acceptedTerms"
-            onChange={onChange}
-            name="acceptedTerms"
-            checked={user.acceptedTerms}
-          >
-            {" "}
-            I accept the{" "}
-            <a href="#terms-and-conditions" onClick={this.toggleTerms}>
-              terms and conditions
-            </a>
-          </Checkbox>
-          {errors.acceptedTerms && (
-            <span className="help-block">
-              You must accept the terms to continue.
-            </span>
-          )}
-          <div className="static-modal">
-            <Modal show={showTerms}>
-              <Modal.Header>
-                <Modal.Title>head</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>test</Modal.Body>
-              <Modal.Footer>
-                <Button bsStyle="primary" onClick={this.toggleTerms}>
-                  Close
-                </Button>
-              </Modal.Footer>
-            </Modal>
-          </div>
-        </div>
         <div>
           <Button
             className="btn btn-primary center-block"
