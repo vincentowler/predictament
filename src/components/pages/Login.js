@@ -14,7 +14,8 @@ class Login extends React.Component {
     backgroundQuestionIds: PropTypes.array.isRequired,
     showPage: PropTypes.func.isRequired,
     earningsOptions: PropTypes.array.isRequired,
-    satisfactionOptions: PropTypes.array.isRequired
+    satisfactionOptions: PropTypes.array.isRequired,
+    visible: PropTypes.bool.isRequired
   };
 
   state = {
