@@ -103,19 +103,33 @@ class Login extends React.Component {
           className="hidden"
         />
 
+        {/* These hidden fields are necessary so Netlify can see the form fields to submit */}
         <TextInput
           label="What is your age?"
-          id="age"
+          id="hiddenage"
           name="age"
           type="number"
           value={user.age}
           onChange={onChange}
           error={errors.age}
+          className="hidden"
         />
 
         <h2>Background</h2>
         <ol>
-          {this.questionEnabled(1) && <li>dur</li>}
+          {this.questionEnabled(1) && (
+            <li>
+              <TextInput
+                label="What is your age?"
+                id="age"
+                name="age"
+                type="number"
+                value={user.age}
+                onChange={onChange}
+                error={errors.age}
+              />
+            </li>
+          )}
 
           {this.questionEnabled(2) && (
             <li>
