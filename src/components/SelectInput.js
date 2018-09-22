@@ -14,10 +14,12 @@ const SelectInput = ({
   onChange,
   displayLabel,
   placeholder,
-  value
+  value,
+  className
 }) => (
   <FormGroup
     controlId={id}
+    className={className}
     validationState={error && error.length > 0 ? "error" : null}
   >
     {displayLabel && <ControlLabel>{label}</ControlLabel>}
