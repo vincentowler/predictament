@@ -234,7 +234,7 @@ class Login extends React.Component {
             { value: "Asian", label: "Asian" },
             { value: "Other", label: "Other" }
           ]}
-          onChange={onChange}
+          onChange={() => {}}
           error={errors.race}
           className="hidden"
         />
@@ -247,7 +247,7 @@ class Login extends React.Component {
             { value: "Hispanic", label: "Hispanic" },
             { value: "Non-Hispanic", label: "Non-Hispanic" }
           ]}
-          onChange={onChange}
+          onChange={() => {}}
           error={errors.ethnicity}
           className="hidden"
         />
@@ -260,7 +260,7 @@ class Login extends React.Component {
             { value: "Male", label: "Male" },
             { value: "Female", label: "Female" }
           ]}
-          onChange={onChange}
+          onChange={() => {}}
           error={errors.gender}
           className="hidden"
         />
@@ -275,7 +275,7 @@ class Login extends React.Component {
             { value: "Masters", label: "Masters" },
             { value: "Doctorate", label: "Doctorate" }
           ]}
-          onChange={onChange}
+          onChange={() => {}}
           error={errors.education}
           className="hidden"
         />
