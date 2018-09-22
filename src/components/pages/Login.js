@@ -225,7 +225,6 @@ class Login extends React.Component {
         />
 
         <RadioButtonList
-          selectedValue={user.race}
           label="What is your race?"
           name="race"
           options={[
@@ -240,7 +239,6 @@ class Login extends React.Component {
         />
 
         <RadioButtonList
-          selectedValue={user.ethnicity}
           label="What is your ethnicity?"
           name="ethnicity"
           options={[
@@ -253,7 +251,6 @@ class Login extends React.Component {
         />
 
         <RadioButtonList
-          selectedValue={user.gender}
           label="What is your gender?"
           name="gender"
           options={[
@@ -266,7 +263,6 @@ class Login extends React.Component {
         />
 
         <RadioButtonList
-          selectedValue={user.education}
           label="What is your highest level of education completed?"
           name="education"
           options={[

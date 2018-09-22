@@ -44,7 +44,7 @@ RadioButtonList.propTypes = {
   name: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
   onChange: PropTypes.func.isRequired,
-  selectedValue: PropTypes.string.isRequired,
+  selectedValue: PropTypes.string,
   error: PropTypes.string
 };
 
