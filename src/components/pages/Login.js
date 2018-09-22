@@ -103,21 +103,19 @@ class Login extends React.Component {
           className="hidden"
         />
 
+        <TextInput
+          label="What is your age?"
+          id="age"
+          name="age"
+          type="number"
+          value={user.age}
+          onChange={onChange}
+          error={errors.age}
+        />
+
         <h2>Background</h2>
         <ol>
-          {this.questionEnabled(1) && (
-            <li>
-              <TextInput
-                label="What is your age?"
-                id="age"
-                name="age"
-                type="number"
-                value={user.age}
-                onChange={onChange}
-                error={errors.age}
-              />
-            </li>
-          )}
+          {this.questionEnabled(1) && <li>dur</li>}
 
           {this.questionEnabled(2) && (
             <li>
@@ -352,87 +350,9 @@ class Login extends React.Component {
           <div className="static-modal">
             <Modal show={showTerms}>
               <Modal.Header>
-                <Modal.Title>
-                  Consent to Participate in an Online Research Study
-                </Modal.Title>
+                <Modal.Title>head</Modal.Title>
               </Modal.Header>
-
-              <Modal.Body>
-                <h2>Project Title: Cornell Expectations Study</h2>
-                <p>
-                  We are asking you to participate in an academic not-for-profit
-                  research study. This form is designed to give you information
-                  about this study. We will describe this study to you and
-                  answer any of your questions.
-                </p>
-                <p>
-                  What the study is about: The purpose of this study is to learn
-                  about people’s expectations regarding education, the labor
-                  market, and quality of life. What we will ask you to do: This
-                  study involves responding to a background survey (5 minutes)
-                  participating making 30 predictions about anonymous workers in
-                  the labor force. This study should take about 30 minutes to
-                  complete.
-                </p>
-                <h4>Risks and discomfort:</h4>
-                <p>
-                  The primary risk associated with this study is a possible
-                  invasion of your privacy. Though every reasonable effort has
-                  been taken, confidentiality during actual Internet
-                  communication procedures cannot be guaranteed.
-                </p>
-                <h4>Benefits:</h4>
-                <p>
-                  You may find participation in the prediction tournament a
-                  useful introspective exercise.
-                </p>
-                <h4>Compensation:</h4>
-                <p>
-                  You will receive $0.50 for completing the background survey
-                  and prediction tournament. You will also receive up to $0.05
-                  for each of the 30 profiles you are asked to make predictions
-                  about, based on the accuracy of your predictions. You will
-                  receive at least $0.50 for completing the study and could earn
-                  up to $1.50 in bonus payments.
-                </p>
-                <h4>Your information will be confidential:</h4>
-                <p>
-                  We will make every reasonable effort to keep your information
-                  private. We will not collect or share any identifying
-                  information about you including your name, phone number,
-                  email, or any other information that will make it possible to
-                  identify you. However, no guarantees can be made regarding the
-                  interception of data sent via the Internet by any third
-                  parties.
-                </p>
-                <h4>Taking part is voluntary:</h4>{" "}
-                <p>
-                  Taking part in this study is completely voluntary. You may
-                  skip any questions that you do not want to answer on the quiz
-                  or survey. If you choose to skip survey and quiz questions or
-                  discontinue the lecture, it will not affect your current or
-                  future relationship with Cornell University. If you decide to
-                  take part, you are free to withdraw at any time. However, you
-                  will only be compensated once you have fully completed the
-                  survey and prediction tournament questions.
-                </p>
-                <h4>If you have questions:</h4>
-                <p>
-                  The researchers conducting this study is Jeffrey Swigert and
-                  Mike Lovenheim. Please direct any questions to Jeff Swigert at
-                  jms858@cornell.edu or 435-865-8239. If you have any questions
-                  or concerns regarding your rights as a subject in this study,
-                  you may contact the Institutional Review Board (IRB) at
-                  607-255-5138 or access their website at
-                  http://www.irb.cornell.edu. You may also report your concerns
-                  or complaints anonymously through www.hotline.cornell.edu or
-                  by calling toll free at 1-866-293-3077. Ethicspoint is an
-                  independent organization that serves as a liaison between the
-                  University and the person bringing the complaint so that
-                  anonymity can be ensured.
-                </p>
-              </Modal.Body>
-
+              <Modal.Body>test</Modal.Body>
               <Modal.Footer>
                 <Button bsStyle="primary" onClick={this.toggleTerms}>
                   Close
