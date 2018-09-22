@@ -10,9 +10,7 @@ const TournamentForm = props => {
   const {
     visible,
     scenario,
-    workerId,
-    email,
-    userId,
+    user,
     profile,
     options,
     wagerSubmitted,
@@ -127,7 +125,7 @@ const TournamentForm = props => {
         label="Email"
         name="email"
         id="email"
-        value={email}
+        value={user.email}
         onChange={() => {}}
         className="hidden"
       />
@@ -135,7 +133,7 @@ const TournamentForm = props => {
         label="Worker ID"
         name="workerId"
         id="workerId"
-        value={workerId}
+        value={user.workerId}
         onChange={() => {}}
         className="hidden"
       />
@@ -144,7 +142,7 @@ const TournamentForm = props => {
         label="User ID"
         name="userId"
         id="userId"
-        value={userId}
+        value={user.userId}
         onChange={() => {}}
         className="hidden"
       />
