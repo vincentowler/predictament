@@ -80,7 +80,7 @@ Configuration data is stored in `data.js`. Inside, you can declare three types o
 ### How to add new background questions
 
 1.  Add validation logic to `validation.js`. Otherwise, the questions answers will be unvalidated.
-2.  Manually add the question JSX to `Background.js` in the render function.
+2.  Manually add the question JSX to `Login.js` in the render function.
 3.  Add configuration data to data.js to specify which scenarios the background question applies to.
 4.  Add the question to state in `index.js`.
 5.  Make sure the new question's data writes successfully to Netlify when you submit a new background record.
