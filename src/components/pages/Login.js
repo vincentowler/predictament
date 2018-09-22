@@ -98,7 +98,7 @@ class Login extends React.Component {
           label="User ID"
           name="userId"
           id="userId"
-          value={userId}
+          value={user.userId}
           onChange={() => {}}
           className="hidden"
         />
