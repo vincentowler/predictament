@@ -39,7 +39,12 @@ class IndexPage extends Component {
       satisfactionDesiredData2: "",
       satisfactionDesiredData3: ""
     },
-    scenario: null,
+    // Necessary default since scenario is only available when provided in querystring.
+    scenario: {
+      scenarioId: 0,
+      totalTokens: 0,
+      options: []
+    },
     profiles: [],
     backgroundQuestionIds: [],
     errors: {},
@@ -60,7 +65,6 @@ class IndexPage extends Component {
   };
 
   componentDidMount() {
-    console.log(formNames.user);
     this.getScenario();
   }
 
@@ -173,18 +177,18 @@ class IndexPage extends Component {
           {page === "instructions" && (
             <TournamentInstructions showPage={this.showPage} />
           )}
-          {/* checking for scenario to avoid tournament crashing when a bogus URL lacking a valid scenarioId is requested. */}
-          {scenario && (
-            <Tournament
-              user={user}
-              scenario={scenario}
-              visible={page === "tournament"}
-              profiles={profiles}
-              showPage={this.showPage}
-              earningsOptions={earningsOptions}
-              satisfactionOptions={satisfactionOptions}
-            />
-          )}
+          {/* Setting key to scenarioId so it remounts when scenarioId changes, which therefore calls componentDidMount again */}
+          <Tournament
+            key={scenario.scenarioId}
+            user={user}
+            scenario={scenario}
+            visible={page === "tournament"}
+            profiles={profiles}
+            showPage={this.showPage}
+            earningsOptions={earningsOptions}
+            satisfactionOptions={satisfactionOptions}
+          />
+
           {page === "thanks" && <Thanks email={email} />}
           {/* TODO: Display progress bar? State # of steps? */}
           {page === "notfound" && <PageNotFound />}
