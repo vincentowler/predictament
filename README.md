@@ -17,8 +17,7 @@ The commands below will install dependencies and run the app on your local machi
 - Database: [Netlify Forms](https://app.netlify.com/sites/predictament-dev/forms) - **Note:** Data is only written to forms when hosted on Netlify. Data is **not** written to Netlify forms when the app is run locally.
 - Hosting: Netlify
   - [Prod environment](https://predictament.com/)
-
-TODO: Set up test environment. For now, testing is local only.
+  - [Test environment](http://test--predictament.netlify.com)
 
 ## Writes to Netlify
 
@@ -33,9 +32,7 @@ TODO: Set up test environment. For now, testing is local only.
 
 To test work before moving to production:
 
-1.  Commit your work to the `test` branch. Each commit triggers an auto deploy to the test URL: [http://test--predictament.netlify.com](http://test--predictament.netlify.com). You can [monitor deploy status here](https://app.netlify.com/sites/predictament/deploys)
-
-Alternatively, you can create a pull request of any branch, and it will be available at a URL like this:
+1.  Commit your work to the `test` branch. Each commit triggers an auto deploy to the test URL: [http://test--predictament.netlify.com](http://test--predictament.netlify.com). You can [monitor deploy status here](https://app.netlify.com/sites/predictament/deploys). Alternatively, you can create a pull request of any branch, and it will be available at a URL like this:
 http://deploy-preview-42--predictament.netlify.com. The 42 represents the pull request number. You can easily access any of these by clicking on the deploy in the [list of deploys](https://app.netlify.com/sites/predictament/deploys).
 
 2.  All non-prod URLs write data to `testuser` and `testwager` instead. This avoids polluting production data when testing.
