@@ -37,7 +37,8 @@ class IndexPage extends Component {
       earningsDesiredData3: "",
       satisfactionDesiredData1: "",
       satisfactionDesiredData2: "",
-      satisfactionDesiredData3: ""
+      satisfactionDesiredData3: "",
+      wellbeing: ""
     },
     // Necessary default since scenario is only available when provided in querystring.
     scenario: {

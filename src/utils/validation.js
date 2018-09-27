@@ -96,6 +96,16 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
       errors.satisfactionDesiredData3 =
         "Please enter the third most important factor.";
     }
+    if (enabledBackgroundQuestionIds.includes(11)) {
+      if (
+      !user.wellbeing ||
+      parseInt(user.wellbeing) < 0 ||
+      parseInt(user.wellbeing) > 80
+    ) {
+      errors.wellbeing =
+        "Please enter your self perceived level of well being.";
+    }
+    }
   }
 
   return errors;
