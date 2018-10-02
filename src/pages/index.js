@@ -144,7 +144,8 @@ class IndexPage extends Component {
       profiles,
       backgroundQuestionIds,
       earningsOptions,
-      satisfactionOptions
+      satisfactionOptions,
+      wellbeing
     } = this.state;
 
     return (

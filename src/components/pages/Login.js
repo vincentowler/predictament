@@ -210,7 +210,8 @@ class Login extends React.Component {
         <SelectInput options={this.getFilteredSatisfactionOptions(2)} displayLabel={false} id="hiddensatisfactionDesiredData2" name="satisfactionDesiredData2" error={errors.satisfactionDesiredData2} value={user.satisfactionDesiredData2} onChange={onChange} placeholder="Second most important factor" className="hidden" />
 
         <SelectInput options={this.getFilteredSatisfactionOptions(3)} displayLabel={false} id="hiddensatisfactionDesiredData3" name="satisfactionDesiredData3" error={errors.satisfactionDesiredData3} value={user.satisfactionDesiredData3} onChange={onChange} placeholder="Third most important factor" className="hidden" />
-
+        
+        <TextInput label="What is your own level of well being?" id="hiddenwellbeing" name="wellbeing" type="number" value={user.wellbeing} onChange={onChange} error={errors.wellbeing} className="hidden" />
         <h2>Background</h2>
         <ol>
           {this.questionEnabled(1) && <li>
@@ -272,7 +273,7 @@ class Login extends React.Component {
                   {errors.satisfactionDesiredData}
                 </span>}
               {this.questionEnabled(11) && <li>
-                  <TextInput label="On a scale of 1-100, what is your level of well-being?" id="wellbeing" name="wellbeing" type="number" value={user.wellbeing} onChange={onChange} error={errors.wellbeing} />
+                  <TextInput label="On a scale of 1-100, what is your own level of well-being?" id="wellbeing" name="wellbeing" type="number" value={user.wellbeing} onChange={onChange} error={errors.wellbeing} />
                 </li>}
             </li>}
         </ol>
