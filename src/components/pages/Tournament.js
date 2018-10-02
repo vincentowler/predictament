@@ -119,7 +119,7 @@ class Tournament extends React.Component {
     return (
       <TournamentForm
         user={this.props.user}
-        topic={topic.toLowerCase()}
+        topic={topic}
         tokensLeft={this.getTokensLeft()}
         background={this.props.background}
         profile={{ ...profile, profileNumber }}

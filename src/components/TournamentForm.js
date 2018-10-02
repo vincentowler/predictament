@@ -30,7 +30,7 @@ const TournamentForm = props => {
       data-netlify="true"
     >
       <input type="hidden" name="form-name" value={formNames.wager} />
-      <h2>What is this person's {scenario.topic.toLowerCase()}?</h2>
+      <h2>What is this person's {scenario.topic}?</h2>
       <p>
         Move the range sliders below to place wagers on this person's {scenario.topic}.
       </p>
