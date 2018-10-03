@@ -1,6 +1,6 @@
 # Predictament
 
-Prediction tournament app for economic research at Cornell Univsersity
+Prediction tournament app for economic research at Cornell University
 
 ## Quick Start for development
 
