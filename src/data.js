@@ -3,7 +3,7 @@ export const scenarios = [
     scenarioId: 1,
     topic: "Income",
     options: [
-     "<$5K",
+      "<$5K",
       "$5K-$6K",
       "$7K-$9K",
       "$10K-$11K",
@@ -56,7 +56,8 @@ export const backgroundQuestions = [
   { id: 7, scenarioIds: [1, 2] },
   { id: 8, scenarioIds: [1, 2] },
   { id: 9, scenarioIds: [1, 2] },
-  { id: 10, scenarioIds: [1, 2] }
+  { id: 10, scenarioIds: [1, 2] },
+  { id: 11, scenarioIds: [1, 2] }
 ];
 
 export const profiles = [
