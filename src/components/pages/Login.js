@@ -212,6 +212,8 @@ class Login extends React.Component {
         <SelectInput options={this.getFilteredSatisfactionOptions(3)} displayLabel={false} id="hiddensatisfactionDesiredData3" name="satisfactionDesiredData3" error={errors.satisfactionDesiredData3} value={user.satisfactionDesiredData3} onChange={onChange} placeholder="Third most important factor" className="hidden" />
         
         <TextInput label="What is your own level of well being?" id="hiddenwellbeing" name="wellbeing" type="number" value={user.wellbeing} onChange={onChange} error={errors.wellbeing} className="hidden" />
+
+        <TextInput label="How healthy are you from 1-100?" id="hiddenhealth" name="health" type="number" value={user.health} onChange={onChange} error={errors.health} className="hidden" />
         <h2>Background</h2>
         <ol>
           {this.questionEnabled(1) && <li>
