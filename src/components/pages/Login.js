@@ -213,7 +213,7 @@ class Login extends React.Component {
         
         <TextInput label="What is your own level of well being?" id="hiddenwellbeing" name="wellbeing" type="number" value={user.wellbeing} onChange={onChange} error={errors.wellbeing} className="hidden" />
 
-        <TextInput label="How healthy are you from 1-100?" id="hiddenhealth" name="health" type="number" value={user.health} onChange={onChange} error={errors.health} className="hidden" />
+        <TextInput label="On a scale of 1-100, how healthy are you?" id="hiddenhealth" name="health" type="number" value={user.health} onChange={onChange} error={errors.health} className="hidden" />
         <h2>Background</h2>
         <ol>
           {this.questionEnabled(1) && <li>
@@ -276,6 +276,9 @@ class Login extends React.Component {
                 </span>}
               {this.questionEnabled(11) && <li>
                   <TextInput label="On a scale of 1-100, what is your own level of well-being?" id="wellbeing" name="wellbeing" type="number" value={user.wellbeing} onChange={onChange} error={errors.wellbeing} />
+                </li>}
+              {this.questionEnabled(12) && <li>
+                  <TextInput label="On a scale of 1-100, how healthy are you?" id="health" name="health" type="number" value={user.health} onChange={onChange} error={errors.health} />
                 </li>}
             </li>}
         </ol>

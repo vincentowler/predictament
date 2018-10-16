@@ -96,8 +96,6 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
       errors.satisfactionDesiredData3 =
         "Please enter the third most important factor.";
     }
-    
-    
     if (enabledBackgroundQuestionIds.includes(11)) {
       if (
       !user.wellbeing ||
@@ -106,9 +104,18 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
     ) {
       errors.wellbeing =
         "Please enter your self perceived level of well being.";
-    }
-    }
+    } 
   }
-
+  }
+if (enabledBackgroundQuestionIds.includes(12)) {
+  if (
+    !user.health ||
+    parseInt(user.health) < 0 ||
+    parseInt(user.health) > 100
+  ) {
+    errors.health =
+    "Please enter your self perceived health score from 1-100.";
+  }
+}
   return errors;
 }
