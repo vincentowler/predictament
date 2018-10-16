@@ -38,7 +38,8 @@ class IndexPage extends Component {
       satisfactionDesiredData1: "",
       satisfactionDesiredData2: "",
       satisfactionDesiredData3: "",
-      wellbeing: ""
+      wellbeing: "",
+      health:""
     },
     // Necessary default since scenario is only available when provided in querystring.
     scenario: {
@@ -145,7 +146,8 @@ class IndexPage extends Component {
       backgroundQuestionIds,
       earningsOptions,
       satisfactionOptions,
-      wellbeing
+      wellbeing,
+      health
     } = this.state;
 
     return (
@@ -189,6 +191,8 @@ class IndexPage extends Component {
             showPage={this.showPage}
             earningsOptions={earningsOptions}
             satisfactionOptions={satisfactionOptions}
+            health={health}
+            wellbeing={wellbeing}
           />
 
           {page === "thanks" && <Thanks email={email} />}
