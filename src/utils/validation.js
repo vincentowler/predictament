@@ -39,17 +39,23 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
   // TODO: Should this only be allowed to be a number?
   // Depends on IRB policy. May have to switch to ranges.
   // leave as is for now per Jeff.
-  if (enabledBackgroundQuestionIds.includes(6) && !user.income) {
+  if (enabledBackgroundQuestionIds.includes(6) && !user.momeducation) {
+    errors.momeducation = "Please select your mother's education.";
+  }
+  if (enabledBackgroundQuestionIds.includes(6) && !user.dadeducation) {
+    errors.dadeducation = "Please select your mother's education.";
+  }
+  if (enabledBackgroundQuestionIds.includes(8) && !user.income) {
     errors.income =
       "Please enter your annual income in dollars, rounded to the nearest thousand dollars.";
   }
 
   // TODO: Should these be dropdowns? Single input?
-  if (enabledBackgroundQuestionIds.includes(7) && !user.industry) {
+  if (enabledBackgroundQuestionIds.includes(9) && !user.industry) {
     errors.industry = "Please enter the industry in which you work.";
   }
 
-  if (enabledBackgroundQuestionIds.includes(8)) {
+  if (enabledBackgroundQuestionIds.includes(10)) {
     if (
       !user.yearsJobExperience ||
       parseInt(user.yearsJobExperience) < 0 ||
@@ -65,7 +71,7 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
     }
   }
 
-  if (enabledBackgroundQuestionIds.includes(9)) {
+  if (enabledBackgroundQuestionIds.includes(11)) {
     if (!user.earningsDesiredData1) {
       errors.earningsDesiredData1 = "Please enter the most important factor.";
     }
@@ -81,7 +87,7 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
     }
   }
 
-  if (enabledBackgroundQuestionIds.includes(10)) {
+  if (enabledBackgroundQuestionIds.includes(12)) {
     if (!user.satisfactionDesiredData1) {
       errors.satisfactionDesiredData1 =
         "Please enter the most important factor.";
@@ -96,26 +102,26 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
       errors.satisfactionDesiredData3 =
         "Please enter the third most important factor.";
     }
-    if (enabledBackgroundQuestionIds.includes(11)) {
+    if (enabledBackgroundQuestionIds.includes(13)) {
       if (
-      !user.wellbeing ||
-      parseInt(user.wellbeing) < 0 ||
-      parseInt(user.wellbeing) > 100
+        !user.wellbeing ||
+        parseInt(user.wellbeing) < 0 ||
+        parseInt(user.wellbeing) > 100
+      ) {
+        errors.wellbeing =
+          "Please enter your self perceived level of well being.";
+      }
+    }
+  }
+  if (enabledBackgroundQuestionIds.includes(14)) {
+    if (
+      !user.health ||
+      parseInt(user.health) < 0 ||
+      parseInt(user.health) > 100
     ) {
-      errors.wellbeing =
-        "Please enter your self perceived level of well being.";
-    } 
+      errors.health =
+        "Please enter your self perceived health score from 1-100.";
+    }
   }
-  }
-if (enabledBackgroundQuestionIds.includes(12)) {
-  if (
-    !user.health ||
-    parseInt(user.health) < 0 ||
-    parseInt(user.health) > 100
-  ) {
-    errors.health =
-    "Please enter your self perceived health score from 1-100.";
-  }
-}
   return errors;
 }

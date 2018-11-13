@@ -470,7 +470,7 @@ class Login extends React.Component {
             <li>
               <RadioButtonList
                 selectedValue={user.education}
-                label="What is your highest level of education completed?"
+                label="Which category represents your household’s (or just you if you are supporting yourself) total combined income during the past 12 months? This includes money from jobs, net income from business, farm or rent, pensions, dividends, interest, social security payments and any other money income received. "
                 name="education"
                 options={[
                   {
@@ -511,6 +511,92 @@ class Login extends React.Component {
           )}
           {this.questionEnabled(6) && (
             <li>
+              <RadioButtonList
+                selectedValue={user.momeducation}
+                label="What is your mother's highest level of education completed?"
+                name="education"
+                options={[
+                  {
+                    value: "Less than High School",
+                    label: "Less than High School"
+                  },
+                  { value: "Some High School", label: "Some High School" },
+                  {
+                    value: "High School Graduate (Diploma or Equivalent)",
+                    label: "High School Graduate (Diploma or Equivalent)"
+                  },
+
+                  {
+                    value: "Some College (2-yr. Associates Degree or less)",
+                    label: "Some College (2-yr. Associates Degree or less)"
+                  },
+                  {
+                    value: "Bachelor's Degree (4-yr. College Graduate)",
+                    label: "Bachelor's Degree (4-yr. College Graduate)"
+                  },
+                  {
+                    value:
+                      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+                    label:
+                      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)"
+                  },
+                  {
+                    value:
+                      "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+                    label:
+                      "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)"
+                  }
+                ]}
+                onChange={onChange}
+                error={errors.education}
+              />
+            </li>
+          )}
+          {this.questionEnabled(7) && (
+            <li>
+              <RadioButtonList
+                selectedValue={user.dadeducation}
+                label="What is your father's highest level of education completed?"
+                name="education"
+                options={[
+                  {
+                    value: "Less than High School",
+                    label: "Less than High School"
+                  },
+                  { value: "Some High School", label: "Some High School" },
+                  {
+                    value: "High School Graduate (Diploma or Equivalent)",
+                    label: "High School Graduate (Diploma or Equivalent)"
+                  },
+
+                  {
+                    value: "Some College (2-yr. Associates Degree or less)",
+                    label: "Some College (2-yr. Associates Degree or less)"
+                  },
+                  {
+                    value: "Bachelor's Degree (4-yr. College Graduate)",
+                    label: "Bachelor's Degree (4-yr. College Graduate)"
+                  },
+                  {
+                    value:
+                      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+                    label:
+                      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)"
+                  },
+                  {
+                    value:
+                      "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+                    label:
+                      "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)"
+                  }
+                ]}
+                onChange={onChange}
+                error={errors.education}
+              />
+            </li>
+          )}
+          {this.questionEnabled(8) && (
+            <li>
               <TextInput
                 label="What is your total annual income in dollars, rounded to the nearest thousand?"
                 id="income"
@@ -522,7 +608,7 @@ class Login extends React.Component {
               />
             </li>
           )}
-          {this.questionEnabled(7) && (
+          {this.questionEnabled(9) && (
             <li>
               <TextInput
                 label="What is your current industry and occupation?"
@@ -535,7 +621,7 @@ class Login extends React.Component {
               />
             </li>
           )}
-          {this.questionEnabled(8) && (
+          {this.questionEnabled(10) && (
             <li>
               <TextInput
                 label="How many years of experience do you have in your current job?"
@@ -548,7 +634,7 @@ class Login extends React.Component {
               />
             </li>
           )}
-          {this.questionEnabled(9) && (
+          {this.questionEnabled(11) && (
             <li>
               <div
                 style={{ paddingBottom: 20 }}
@@ -600,7 +686,7 @@ class Login extends React.Component {
               )}
             </li>
           )}
-          {this.questionEnabled(10) && (
+          {this.questionEnabled(12) && (
             <li>
               <label htmlFor="satisfactionDesiredData">
                 Suppose you are asked to predict the overall life satisfaction
@@ -647,7 +733,7 @@ class Login extends React.Component {
               )}
             </li>
           )}
-          {this.questionEnabled(11) && (
+          {this.questionEnabled(13) && (
             <li>
               <TextInput
                 label="On a scale of 0 (extremely unhappy) to 100 (highest possible happiness), what would you say your current overall level of well-being is?"
@@ -660,7 +746,7 @@ class Login extends React.Component {
               />
             </li>
           )}
-          {this.questionEnabled(12) && (
+          {this.questionEnabled(14) && (
             <li>
               <TextInput
                 label="On a scale of 0 (extremely unhealthy) to 100 (best possible health level), what would you say your level of overall health is?"
