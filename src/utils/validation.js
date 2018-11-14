@@ -48,6 +48,7 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
   if (enabledBackgroundQuestionIds.includes(8) && !user.job) {
     errors.job = "Please enter the job title of your current job.";
   }
+
   // TODO: Should these be dropdowns? Single input?
   if (enabledBackgroundQuestionIds.includes(9) && !user.industry) {
     errors.industry = "Please enter the industry in which you work.";
@@ -146,14 +147,14 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
     if (!user.sat) {
       errors.sat = "Please enter a valid SAT score.";
     }
-    if (enabledBackgroundQuestionIds.includes(8) && !user.income) {
-      errors.income = "Please enter the income rounded to the nearest thousand";
-    }
+
     if (parseInt(user.sat) < 0 || parseInt(user.sat) > 1600) {
       errors.sat = "Please enter a valid SAT score.";
     }
   }
-
+  if (enabledBackgroundQuestionIds.includes(18) && !user.income) {
+    errors.income = "Please enter the income rounded to the nearest thousand";
+  }
   if (enabledBackgroundQuestionIds.includes(19) && !user.houseincome) {
     errors.houseincome = "Please select the income of your house";
   }
