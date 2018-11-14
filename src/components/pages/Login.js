@@ -554,9 +554,9 @@ class Login extends React.Component {
           {this.questionEnabled(7) && (
             <li>
               <RadioButtonList
-                selectedValue={user.houseincome}
+                selectedValue={user.dadeducation}
                 label="What is your father's highest level of education completed?"
-                name="houseincome"
+                name="dadeducation"
                 options={[
                   {
                     value: "Less than High School",
@@ -590,7 +590,7 @@ class Login extends React.Component {
                   }
                 ]}
                 onChange={onChange}
-                error={errors.education}
+                error={errors.dadeducation}
               />
             </li>
           )}
@@ -788,12 +788,12 @@ class Login extends React.Component {
             <li>
               <TextInput
                 label="What, as best as you can remember, was your most recent SAT score? (if you did not take it, insert a 0)"
-                id="sat"
-                name="sat"
+                id="stantest"
+                name="stantest"
                 type="number"
-                value={user.sat}
+                value={user.stantest}
                 onChange={onChange}
-                error={errors.sat}
+                error={errors.stantest}
               />
             </li>
           )}
@@ -813,9 +813,9 @@ class Login extends React.Component {
           {this.questionEnabled(19) && (
             <li>
               <RadioButtonList
-                selectedValue={user.houseincome}
+                selectedValue={user.houseIncome}
                 label="Which category represents your household’s (or just you if you are supporting yourself) total combined income during the past 12 months? This includes money from jobs, net income from business, farm or rent, pensions, dividends, interest, social security payments and any other money income received. "
-                name="houseincome"
+                name="houseIncome"
                 options={[
                   { value: "<$5K", label: "<$5K" },
 
@@ -855,10 +855,10 @@ class Login extends React.Component {
                   { value: "$150K+", label: "$150K+" }
                 ]}
                 onChange={onChange}
-                error={errors.houseincome}
+                error={errors.houseIncome}
               />
             </li>
-          )}{" "}
+          )}
           {this.questionEnabled(20) && (
             <li>
               <RadioButtonList

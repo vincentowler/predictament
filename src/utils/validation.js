@@ -43,7 +43,7 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
     errors.momeducation = "Please select your mother's education.";
   }
   if (enabledBackgroundQuestionIds.includes(7) && !user.dadeducation) {
-    errors.dadeducation = "Please select your mother's education.";
+    errors.dadeducation = "Please select your father's education.";
   }
   if (enabledBackgroundQuestionIds.includes(8) && !user.job) {
     errors.job = "Please enter the job title of your current job.";
@@ -144,22 +144,22 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
     }
   }
   if (enabledBackgroundQuestionIds.includes(17)) {
-    if (!user.sat) {
-      errors.sat = "Please enter a valid SAT score.";
+    if (!user.stantest) {
+      errors.stantest = "Please enter a valid SAT score.";
     }
-
-    if (parseInt(user.sat) < 0 || parseInt(user.sat) > 1600) {
-      errors.sat = "Please enter a valid SAT score.";
+    if (parseInt(user.stantest) < 0 || parseInt(user.sat) > 1600) {
+      errors.stantest = "Please enter a valid SAT score.";
     }
   }
   if (enabledBackgroundQuestionIds.includes(18) && !user.income) {
     errors.income = "Please enter the income rounded to the nearest thousand";
   }
-  if (enabledBackgroundQuestionIds.includes(19) && !user.houseincome) {
-    errors.houseincome = "Please select the income of your house";
+  if (enabledBackgroundQuestionIds.includes(19) && !user.houseIncome) {
+    errors.houseIncome = "Please select the income of your house";
   }
   if (enabledBackgroundQuestionIds.includes(20) && !user.parenthouseincome) {
-    errors.houseincome = "Please select the income of your parent's house";
+    errors.parenthouseincome =
+      "Please select the income of your parent's house";
   }
 
   return errors;
