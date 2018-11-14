@@ -42,7 +42,7 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
   if (enabledBackgroundQuestionIds.includes(6) && !user.momeducation) {
     errors.momeducation = "Please select your mother's education.";
   }
-  if (enabledBackgroundQuestionIds.includes(6) && !user.dadeducation) {
+  if (enabledBackgroundQuestionIds.includes(7) && !user.dadeducation) {
     errors.dadeducation = "Please select your mother's education.";
   }
   if (enabledBackgroundQuestionIds.includes(8) && !user.income) {
@@ -113,6 +113,7 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
       }
     }
   }
+
   if (enabledBackgroundQuestionIds.includes(14)) {
     if (
       !user.health ||
@@ -121,6 +122,36 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
     ) {
       errors.health =
         "Please enter your self perceived health score from 1-100.";
+    }
+  }
+  if (enabledBackgroundQuestionIds.includes(15)) {
+    if (!user.act) {
+      errors.act = "Please enter a valid ACT score.";
+    }
+
+    if (parseInt(user.act) < 0 || parseInt(user.act) > 36) {
+      errors.act = "Please enter a valid ACT score.";
+    }
+  }
+  if (enabledBackgroundQuestionIds.includes(16)) {
+    if (!user.gpa) {
+      errors.gpa = "Please enter your remembered high school gpa.";
+    }
+
+    if (
+      parseFloat(user.gpa).toFixed(2) < 0 ||
+      parseFloat(user.gpa).toFixed(2) > 4.0
+    ) {
+      errors.gpa = "Please enter a standard GPA measure(between 1.0 and 4.0).";
+    }
+  }
+  if (enabledBackgroundQuestionIds.includes(17)) {
+    if (!user.sat) {
+      errors.sat = "Please enter a valid SAT score.";
+    }
+
+    if (parseInt(user.sat) < 0 || parseInt(user.sat) > 1600) {
+      errors.sat = "Please enter a valid SAT score.";
     }
   }
   return errors;

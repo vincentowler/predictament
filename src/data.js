@@ -61,7 +61,10 @@ export const backgroundQuestions = [
   { id: 12, scenarioIds: [] },
   { id: 13, scenarioIds: [1, 2] },
   { id: 13, scenarioIds: [1, 2] },
-  { id: 14, scenarioIds: [1, 2] }
+  { id: 14, scenarioIds: [1, 2] },
+  { id: 15, scenarioIds: [1, 2] },
+  { id: 16, scenarioIds: [1, 2] },
+  { id: 17, scenarioIds: [1, 2] }
 ];
 
 export const profiles = [
