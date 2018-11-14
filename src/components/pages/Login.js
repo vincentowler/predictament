@@ -470,7 +470,7 @@ class Login extends React.Component {
             <li>
               <RadioButtonList
                 selectedValue={user.education}
-                label="Which category represents your household’s (or just you if you are supporting yourself) total combined income during the past 12 months? This includes money from jobs, net income from business, farm or rent, pensions, dividends, interest, social security payments and any other money income received. "
+                label="What is the highest level of school you have completed or the highest degree you have received?"
                 name="education"
                 options={[
                   {
@@ -514,7 +514,7 @@ class Login extends React.Component {
               <RadioButtonList
                 selectedValue={user.momeducation}
                 label="What is your mother's highest level of education completed?"
-                name="education"
+                name="momeducation"
                 options={[
                   {
                     value: "Less than High School",
@@ -548,7 +548,7 @@ class Login extends React.Component {
                   }
                 ]}
                 onChange={onChange}
-                error={errors.education}
+                error={errors.momeducation}
               />
             </li>
           )}
@@ -557,7 +557,7 @@ class Login extends React.Component {
               <RadioButtonList
                 selectedValue={user.dadeducation}
                 label="What is your father's highest level of education completed?"
-                name="education"
+                name="dadeducation"
                 options={[
                   {
                     value: "Less than High School",
@@ -756,6 +756,45 @@ class Login extends React.Component {
                 value={user.health}
                 onChange={onChange}
                 error={errors.health}
+              />
+            </li>
+          )}
+          {this.questionEnabled(15) && (
+            <li>
+              <TextInput
+                label="What, as best as you can remember, was your most recent ACT score? (if you did not take the ACT please insert a 0)"
+                id="act"
+                name="act"
+                type="number"
+                value={user.act}
+                onChange={onChange}
+                error={errors.act}
+              />
+            </li>
+          )}
+          {this.questionEnabled(16) && (
+            <li>
+              <TextInput
+                label="What, as best as you can remember, was your High School grade point average (GPA)?"
+                id="gpa"
+                name="gpa"
+                type="float"
+                value={user.gpa}
+                onChange={onChange}
+                error={errors.gpa}
+              />
+            </li>
+          )}
+          {this.questionEnabled(17) && (
+            <li>
+              <TextInput
+                label="What, as best as you can remember, was your most recent SAT score? (if you did not take it, insert a 0)"
+                id="sat"
+                name="sat"
+                type="number"
+                value={user.sat}
+                onChange={onChange}
+                error={errors.sat}
               />
             </li>
           )}
