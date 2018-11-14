@@ -598,8 +598,8 @@ class Login extends React.Component {
             <li>
               <TextInput
                 label="What is your current job title/description?"
-                id="income"
-                name="income"
+                id="job"
+                name="job"
                 type="text"
                 value={user.job}
                 onChange={onChange}
@@ -803,7 +803,7 @@ class Login extends React.Component {
                 label="What is your total annual income in dollars, rounded to the nearest thousand?"
                 id="income"
                 name="income"
-                type="text"
+                type="number"
                 value={user.income}
                 onChange={onChange}
                 error={errors.income}
