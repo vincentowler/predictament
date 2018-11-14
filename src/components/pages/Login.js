@@ -418,7 +418,6 @@ class Login extends React.Component {
               />
             </li>
           )}
-
           {this.questionEnabled(2) && (
             <li>
               <RadioButtonList
@@ -555,9 +554,9 @@ class Login extends React.Component {
           {this.questionEnabled(7) && (
             <li>
               <RadioButtonList
-                selectedValue={user.dadeducation}
+                selectedValue={user.houseincome}
                 label="What is your father's highest level of education completed?"
-                name="dadeducation"
+                name="houseincome"
                 options={[
                   {
                     value: "Less than High School",
@@ -598,20 +597,20 @@ class Login extends React.Component {
           {this.questionEnabled(8) && (
             <li>
               <TextInput
-                label="What is your total annual income in dollars, rounded to the nearest thousand?"
+                label="What is your current job title/description?"
                 id="income"
                 name="income"
                 type="text"
-                value={user.income}
+                value={user.job}
                 onChange={onChange}
-                error={errors.income}
+                error={errors.job}
               />
             </li>
           )}
           {this.questionEnabled(9) && (
             <li>
               <TextInput
-                label="What is your current industry and occupation?"
+                label="What industry does your current job fall into. (for example: Automotive, Health Care, Education, etc...)"
                 id="industry"
                 name="industry"
                 type="text"
@@ -795,6 +794,117 @@ class Login extends React.Component {
                 value={user.sat}
                 onChange={onChange}
                 error={errors.sat}
+              />
+            </li>
+          )}
+          {this.questionEnabled(18) && (
+            <li>
+              <TextInput
+                label="What is your total annual income in dollars, rounded to the nearest thousand?"
+                id="income"
+                name="income"
+                type="text"
+                value={user.income}
+                onChange={onChange}
+                error={errors.income}
+              />
+            </li>
+          )}
+          {this.questionEnabled(19) && (
+            <li>
+              <RadioButtonList
+                selectedValue={user.houseincome}
+                label="Which category represents your household’s (or just you if you are supporting yourself) total combined income during the past 12 months? This includes money from jobs, net income from business, farm or rent, pensions, dividends, interest, social security payments and any other money income received. "
+                name="houseincome"
+                options={[
+                  { value: "<$5K", label: "<$5K" },
+
+                  {
+                    value: "$5K-$6K",
+                    label: "$5K-$6K"
+                  },
+                  { value: "$7K-$9K", label: "$7K-$9K" },
+                  {
+                    value: "$10K-$11K",
+                    label: "$10K-$11K"
+                  },
+
+                  {
+                    value: "$12K-$14K",
+                    label: "$12K-$14K"
+                  },
+                  {
+                    value: "$15K-$19K",
+                    label: "$15K-$19K"
+                  },
+                  {
+                    value: "$20K-$24K",
+                    label: "$20K-$24K"
+                  },
+                  {
+                    value: "$25K-$29K",
+                    label: "$25K-$29K"
+                  },
+                  { value: "$30K-$34K", label: "$30K-$34K" },
+                  { value: "$35K-$39K", label: "$35K-$39K" },
+                  { value: "$40K-$49K", label: "$40K-$49K" },
+                  { value: "$50K-$59K", label: "$50K-$59K" },
+                  { value: "$60K-$74K", label: "$60K-$74K" },
+                  { value: "$75K-$99K", label: "$75K-$99K" },
+                  { value: "$100K-$149K", label: "$100K-$149K" },
+                  { value: "$150K+", label: "$150K+" }
+                ]}
+                onChange={onChange}
+                error={errors.houseincome}
+              />
+            </li>
+          )}{" "}
+          {this.questionEnabled(20) && (
+            <li>
+              <RadioButtonList
+                selectedValue={user.parenthouseincome}
+                label="While you were growing up, which category represents your parents’/guardians’ total combined income during a typical year (this could the amount your father made if he was the primary worker, the amount your mother made if she was the primary worker, or, if both worked, their combined annual earnings -- if divorced, select the category of income that reflects the earnings level of the household you spent most of your time living in)? This includes money from jobs, net income from business, farm or rent, pensions, dividends, interest, social security payments and any other money income received. "
+                name="parenthouseincome"
+                options={[
+                  { value: "<$5K", label: "<$5K" },
+
+                  {
+                    value: "$5K-$6K",
+                    label: "$5K-$6K"
+                  },
+                  { value: "$7K-$9K", label: "$7K-$9K" },
+                  {
+                    value: "$10K-$11K",
+                    label: "$10K-$11K"
+                  },
+
+                  {
+                    value: "$12K-$14K",
+                    label: "$12K-$14K"
+                  },
+                  {
+                    value: "$15K-$19K",
+                    label: "$15K-$19K"
+                  },
+                  {
+                    value: "$20K-$24K",
+                    label: "$20K-$24K"
+                  },
+                  {
+                    value: "$25K-$29K",
+                    label: "$25K-$29K"
+                  },
+                  { value: "$30K-$34K", label: "$30K-$34K" },
+                  { value: "$35K-$39K", label: "$35K-$39K" },
+                  { value: "$40K-$49K", label: "$40K-$49K" },
+                  { value: "$50K-$59K", label: "$50K-$59K" },
+                  { value: "$60K-$74K", label: "$60K-$74K" },
+                  { value: "$75K-$99K", label: "$75K-$99K" },
+                  { value: "$100K-$149K", label: "$100K-$149K" },
+                  { value: "$150K+", label: "$150K+" }
+                ]}
+                onChange={onChange}
+                error={errors.parenthouseincome}
               />
             </li>
           )}

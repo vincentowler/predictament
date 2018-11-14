@@ -45,11 +45,9 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
   if (enabledBackgroundQuestionIds.includes(7) && !user.dadeducation) {
     errors.dadeducation = "Please select your mother's education.";
   }
-  if (enabledBackgroundQuestionIds.includes(8) && !user.income) {
-    errors.income =
-      "Please enter your annual income in dollars, rounded to the nearest thousand dollars.";
+  if (enabledBackgroundQuestionIds.includes(8) && !user.job) {
+    errors.job = "Please enter the job title of your current job.";
   }
-
   // TODO: Should these be dropdowns? Single input?
   if (enabledBackgroundQuestionIds.includes(9) && !user.industry) {
     errors.industry = "Please enter the industry in which you work.";
@@ -102,18 +100,17 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
       errors.satisfactionDesiredData3 =
         "Please enter the third most important factor.";
     }
-    if (enabledBackgroundQuestionIds.includes(13)) {
-      if (
-        !user.wellbeing ||
-        parseInt(user.wellbeing) < 0 ||
-        parseInt(user.wellbeing) > 100
-      ) {
-        errors.wellbeing =
-          "Please enter your self perceived level of well being.";
-      }
+  }
+  if (enabledBackgroundQuestionIds.includes(13)) {
+    if (
+      !user.wellbeing ||
+      parseInt(user.wellbeing) < 0 ||
+      parseInt(user.wellbeing) > 100
+    ) {
+      errors.wellbeing =
+        "Please enter your self perceived level of well being from 1-100.";
     }
   }
-
   if (enabledBackgroundQuestionIds.includes(14)) {
     if (
       !user.health ||
@@ -149,10 +146,20 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
     if (!user.sat) {
       errors.sat = "Please enter a valid SAT score.";
     }
-
+    if (enabledBackgroundQuestionIds.includes(8) && !user.income) {
+      errors.income = "Please enter the income rounded to the nearest thousand";
+    }
     if (parseInt(user.sat) < 0 || parseInt(user.sat) > 1600) {
       errors.sat = "Please enter a valid SAT score.";
     }
   }
+
+  if (enabledBackgroundQuestionIds.includes(19) && !user.houseincome) {
+    errors.houseincome = "Please select the income of your house";
+  }
+  if (enabledBackgroundQuestionIds.includes(20) && !user.parenthouseincome) {
+    errors.houseincome = "Please select the income of your parent's house";
+  }
+
   return errors;
 }
