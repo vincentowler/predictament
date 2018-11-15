@@ -492,15 +492,15 @@ class Login extends React.Component {
                   },
                   {
                     value:
-                      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
-                    label:
-                      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)"
-                  },
-                  {
-                    value:
                       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
                     label:
                       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)"
+                  },
+                  {
+                    value:
+                      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+                    label:
+                      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)"
                   }
                 ]}
                 onChange={onChange}
@@ -535,15 +535,15 @@ class Login extends React.Component {
                   },
                   {
                     value:
-                      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
-                    label:
-                      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)"
-                  },
-                  {
-                    value:
                       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
                     label:
                       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)"
+                  },
+                  {
+                    value:
+                      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+                    label:
+                      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)"
                   }
                 ]}
                 onChange={onChange}
@@ -578,15 +578,15 @@ class Login extends React.Component {
                   },
                   {
                     value:
-                      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
-                    label:
-                      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)"
-                  },
-                  {
-                    value:
                       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
                     label:
                       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)"
+                  },
+                  {
+                    value:
+                      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+                    label:
+                      "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)"
                   }
                 ]}
                 onChange={onChange}
