@@ -103,7 +103,6 @@ class Login extends React.Component {
           onChange={() => {}}
           className="hidden"
         />
-
         <div className={errors.acceptedTerms ? "field has-error" : "field"}>
           <Checkbox
             id="acceptedTerms"
@@ -212,8 +211,8 @@ class Login extends React.Component {
             </Modal>
           </div>
         </div>
-
-        {/* These hidden fields are necessary since we're selectively rendering background questions based on scenario. Netlify must see all the fields on page load or they won't submit. */}
+        {/* These hidden fields are necessary since we're selectively rendering background questions based on scenario. 
+      Netlify must see all the fields on page load or they won't submit. */}
         <TextInput
           label="What is your age?"
           id="hiddenage"
@@ -224,7 +223,6 @@ class Login extends React.Component {
           error={errors.age}
           className="hidden"
         />
-
         <RadioButtonList
           label="What is your race?"
           name="race"
@@ -238,7 +236,6 @@ class Login extends React.Component {
           error={errors.race}
           className="hidden"
         />
-
         <RadioButtonList
           label="What is your ethnicity?"
           name="ethnicity"
@@ -250,7 +247,6 @@ class Login extends React.Component {
           error={errors.ethnicity}
           className="hidden"
         />
-
         <RadioButtonList
           label="What is your gender?"
           name="gender"
@@ -262,21 +258,86 @@ class Login extends React.Component {
           error={errors.gender}
           className="hidden"
         />
-
         <RadioButtonList
-          label="What is your highest level of education completed?"
+          selectedValue={user.education}
+          label="What is the highest level of school you have completed or the highest degree you have received?"
           name="education"
           options={[
-            { value: "High School", label: "High School" },
-            { value: "Bachelors", label: "Bachelors" },
-            { value: "Masters", label: "Masters" },
-            { value: "Doctorate", label: "Doctorate" }
+            {
+              value: "Less than High School",
+              label: "Less than High School"
+            },
+            { value: "Some High School", label: "Some High School" },
+            {
+              value: "High School Graduate (Diploma or Equivalent)",
+              label: "High School Graduate (Diploma or Equivalent)"
+            },
+
+            {
+              value: "Some College (2-yr. Associates Degree or less)",
+              label: "Some College (2-yr. Associates Degree or less)"
+            },
+            {
+              value: "Bachelor's Degree (4-yr. College Graduate)",
+              label: "Bachelor's Degree (4-yr. College Graduate)"
+            },
+            {
+              value:
+                "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+              label:
+                "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)"
+            },
+            {
+              value:
+                "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+              label:
+                "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)"
+            }
           ]}
           onChange={() => {}}
           error={errors.education}
           className="hidden"
         />
+        <RadioButtonList
+          label="What is your mother's highest level of education completed?"
+          id="hiddenmomEducation"
+          name="momEducation"
+          options={[
+            {
+              value: "Less than High School",
+              label: "Less than High School"
+            },
+            { value: "Some High School", label: "Some High School" },
+            {
+              value: "High School Graduate (Diploma or Equivalent)",
+              label: "High School Graduate (Diploma or Equivalent)"
+            },
 
+            {
+              value: "Some College (2-yr. Associates Degree or less)",
+              label: "Some College (2-yr. Associates Degree or less)"
+            },
+            {
+              value: "Bachelor's Degree (4-yr. College Graduate)",
+              label: "Bachelor's Degree (4-yr. College Graduate)"
+            },
+            {
+              value:
+                "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+              label:
+                "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)"
+            },
+            {
+              value:
+                "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+              label:
+                "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)"
+            }
+          ]}
+          onChange={() => {}}
+          error={errors.education}
+          className="hidden"
+        />
         <TextInput
           label="What is your total annual income in dollars, rounded to the nearest thousand?"
           id="hiddenincome"
@@ -287,7 +348,6 @@ class Login extends React.Component {
           error={errors.income}
           className="hidden"
         />
-
         <TextInput
           label="What is your current industry and occupation?"
           id="hiddenindustry"
@@ -298,7 +358,6 @@ class Login extends React.Component {
           error={errors.industry}
           className="hidden"
         />
-
         <TextInput
           label="How many years of experience do you have in your current job?"
           id="hiddenyearsJobExperience"
@@ -309,7 +368,6 @@ class Login extends React.Component {
           error={errors.yearsJobExperience}
           className="hidden"
         />
-
         <SelectInput
           options={this.getFilteredEarningsOptions(1)}
           displayLabel={false}
@@ -321,7 +379,6 @@ class Login extends React.Component {
           placeholder="Most important factor"
           className="hidden"
         />
-
         <SelectInput
           options={this.getFilteredEarningsOptions(2)}
           displayLabel={false}
@@ -333,7 +390,6 @@ class Login extends React.Component {
           placeholder="Second most important factor"
           className="hidden"
         />
-
         <SelectInput
           options={this.getFilteredEarningsOptions(3)}
           displayLabel={false}
@@ -345,7 +401,6 @@ class Login extends React.Component {
           placeholder="Third most important factor"
           className="hidden"
         />
-
         <SelectInput
           options={this.getFilteredSatisfactionOptions(1)}
           displayLabel={false}
@@ -357,7 +412,6 @@ class Login extends React.Component {
           placeholder="Most important factor"
           className="hidden"
         />
-
         <SelectInput
           options={this.getFilteredSatisfactionOptions(2)}
           displayLabel={false}
@@ -369,7 +423,6 @@ class Login extends React.Component {
           placeholder="Second most important factor"
           className="hidden"
         />
-
         <SelectInput
           options={this.getFilteredSatisfactionOptions(3)}
           displayLabel={false}
@@ -381,7 +434,6 @@ class Login extends React.Component {
           placeholder="Third most important factor"
           className="hidden"
         />
-
         <TextInput
           label="What is your own level of well being?"
           id="hiddenwellbeing"
@@ -392,7 +444,6 @@ class Login extends React.Component {
           error={errors.wellbeing}
           className="hidden"
         />
-
         <TextInput
           label="On a scale of 1-100, how healthy are you?"
           id="hiddenhealth"
@@ -403,6 +454,8 @@ class Login extends React.Component {
           error={errors.health}
           className="hidden"
         />
+        {/*This is where we will list what is actually shown to the respondent, 
+        so it looks like there are two places where we have each question to keep Netlify happy*/}
         <h2>Background</h2>
         <ol>
           {this.questionEnabled(1) && (
@@ -511,9 +564,9 @@ class Login extends React.Component {
           {this.questionEnabled(6) && (
             <li>
               <RadioButtonList
-                selectedValue={user.momeducation}
+                selectedValue={user.momEducation}
                 label="What is your mother's highest level of education completed?"
-                name="momeducation"
+                name="momEducation"
                 options={[
                   {
                     value: "Less than High School",
@@ -547,7 +600,7 @@ class Login extends React.Component {
                   }
                 ]}
                 onChange={onChange}
-                error={errors.momeducation}
+                error={errors.momEducation}
               />
             </li>
           )}
@@ -866,18 +919,22 @@ class Login extends React.Component {
                 label="While you were growing up, which category represents your parents’/guardians’ total combined income during a typical year (this could the amount your father made if he was the primary worker, the amount your mother made if she was the primary worker, or, if both worked, their combined annual earnings -- if divorced, select the category of income that reflects the earnings level of the household you spent most of your time living in)? This includes money from jobs, net income from business, farm or rent, pensions, dividends, interest, social security payments and any other money income received. "
                 name="parenthouseincome"
                 options={[
-                  { value: "<$5K", label: "<$5K" },
-
+                  {
+                    value: "<$5K",
+                    label: "<$5K"
+                  },
                   {
                     value: "$5K-$6K",
                     label: "$5K-$6K"
                   },
-                  { value: "$7K-$9K", label: "$7K-$9K" },
+                  {
+                    value: "$7K-$9K",
+                    label: "$7K-$9K"
+                  },
                   {
                     value: "$10K-$11K",
                     label: "$10K-$11K"
                   },
-
                   {
                     value: "$12K-$14K",
                     label: "$12K-$14K"
@@ -894,7 +951,10 @@ class Login extends React.Component {
                     value: "$25K-$29K",
                     label: "$25K-$29K"
                   },
-                  { value: "$30K-$34K", label: "$30K-$34K" },
+                  {
+                    value: "$30K-$34K",
+                    label: "$30K-$34K"
+                  },
                   { value: "$35K-$39K", label: "$35K-$39K" },
                   { value: "$40K-$49K", label: "$40K-$49K" },
                   { value: "$50K-$59K", label: "$50K-$59K" },
