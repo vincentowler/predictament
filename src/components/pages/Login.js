@@ -213,7 +213,7 @@ class Login extends React.Component {
           </div>
         </div>
 
-        {/* These hidden fields are necessary since we're selectively rendering background questions based on scenario. Netlify must see all the field on page load or they won't submit. */}
+        {/* These hidden fields are necessary since we're selectively rendering background questions based on scenario. Netlify must see all the fields on page load or they won't submit. */}
         <TextInput
           label="What is your age?"
           id="hiddenage"
