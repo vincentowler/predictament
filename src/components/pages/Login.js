@@ -211,8 +211,14 @@ class Login extends React.Component {
             </Modal>
           </div>
         </div>
+<<<<<<< HEAD
         {/* These hidden fields are necessary since we're selectively rendering background questions based on scenario. 
       Netlify must see all the fields on page load or they won't submit. */}
+=======
+
+        {/* These hidden fields are necessary since we're selectively rendering background questions based on scenario. 
+            Netlify must see all the fields on page load or they won't submit. */}
+>>>>>>> cfafcc710b570ebaf1a93fde65447efe08e7e560
         <TextInput
           label="What is your age?"
           id="hiddenage"
@@ -454,8 +460,9 @@ class Login extends React.Component {
           error={errors.health}
           className="hidden"
         />
-        {/*This is where we will list what is actually shown to the respondent, 
-        so it looks like there are two places where we have each question to keep Netlify happy*/}
+
+        {/* End of the exhaustive list of hidden questions to keep Netlify happy. The questions below are selectively displayed when enabled */}
+
         <h2>Background</h2>
         <ol>
           {this.questionEnabled(1) && (
@@ -534,7 +541,6 @@ class Login extends React.Component {
                     value: "High School Graduate (Diploma or Equivalent)",
                     label: "High School Graduate (Diploma or Equivalent)"
                   },
-
                   {
                     value: "Some College (2-yr. Associates Degree or less)",
                     label: "Some College (2-yr. Associates Degree or less)"
@@ -577,7 +583,6 @@ class Login extends React.Component {
                     value: "High School Graduate (Diploma or Equivalent)",
                     label: "High School Graduate (Diploma or Equivalent)"
                   },
-
                   {
                     value: "Some College (2-yr. Associates Degree or less)",
                     label: "Some College (2-yr. Associates Degree or less)"
@@ -620,7 +625,6 @@ class Login extends React.Component {
                     value: "High School Graduate (Diploma or Equivalent)",
                     label: "High School Graduate (Diploma or Equivalent)"
                   },
-
                   {
                     value: "Some College (2-yr. Associates Degree or less)",
                     label: "Some College (2-yr. Associates Degree or less)"
@@ -871,33 +875,13 @@ class Login extends React.Component {
                 name="houseIncome"
                 options={[
                   { value: "<$5K", label: "<$5K" },
-
-                  {
-                    value: "$5K-$6K",
-                    label: "$5K-$6K"
-                  },
+                  { value: "$5K-$6K", label: "$5K-$6K" },
                   { value: "$7K-$9K", label: "$7K-$9K" },
-                  {
-                    value: "$10K-$11K",
-                    label: "$10K-$11K"
-                  },
-
-                  {
-                    value: "$12K-$14K",
-                    label: "$12K-$14K"
-                  },
-                  {
-                    value: "$15K-$19K",
-                    label: "$15K-$19K"
-                  },
-                  {
-                    value: "$20K-$24K",
-                    label: "$20K-$24K"
-                  },
-                  {
-                    value: "$25K-$29K",
-                    label: "$25K-$29K"
-                  },
+                  { value: "$10K-$11K", label: "$10K-$11K" },
+                  { value: "$12K-$14K", label: "$12K-$14K" },
+                  { value: "$15K-$19K", label: "$15K-$19K" },
+                  { value: "$20K-$24K", label: "$20K-$24K" },
+                  { value: "$25K-$29K", label: "$25K-$29K" },
                   { value: "$30K-$34K", label: "$30K-$34K" },
                   { value: "$35K-$39K", label: "$35K-$39K" },
                   { value: "$40K-$49K", label: "$40K-$49K" },
@@ -919,42 +903,15 @@ class Login extends React.Component {
                 label="While you were growing up, which category represents your parents’/guardians’ total combined income during a typical year (this could the amount your father made if he was the primary worker, the amount your mother made if she was the primary worker, or, if both worked, their combined annual earnings -- if divorced, select the category of income that reflects the earnings level of the household you spent most of your time living in)? This includes money from jobs, net income from business, farm or rent, pensions, dividends, interest, social security payments and any other money income received. "
                 name="parenthouseincome"
                 options={[
-                  {
-                    value: "<$5K",
-                    label: "<$5K"
-                  },
-                  {
-                    value: "$5K-$6K",
-                    label: "$5K-$6K"
-                  },
-                  {
-                    value: "$7K-$9K",
-                    label: "$7K-$9K"
-                  },
-                  {
-                    value: "$10K-$11K",
-                    label: "$10K-$11K"
-                  },
-                  {
-                    value: "$12K-$14K",
-                    label: "$12K-$14K"
-                  },
-                  {
-                    value: "$15K-$19K",
-                    label: "$15K-$19K"
-                  },
-                  {
-                    value: "$20K-$24K",
-                    label: "$20K-$24K"
-                  },
-                  {
-                    value: "$25K-$29K",
-                    label: "$25K-$29K"
-                  },
-                  {
-                    value: "$30K-$34K",
-                    label: "$30K-$34K"
-                  },
+                  { value: "<$5K", label: "<$5K" },
+                  { value: "$5K-$6K", label: "$5K-$6K" },
+                  { value: "$7K-$9K", label: "$7K-$9K" },
+                  { value: "$10K-$11K", label: "$10K-$11K" },
+                  { value: "$12K-$14K", label: "$12K-$14K" },
+                  { value: "$15K-$19K", label: "$15K-$19K" },
+                  { value: "$20K-$24K", label: "$20K-$24K" },
+                  { value: "$25K-$29K", label: "$25K-$29K" },
+                  { value: "$30K-$34K", label: "$30K-$34K" },
                   { value: "$35K-$39K", label: "$35K-$39K" },
                   { value: "$40K-$49K", label: "$40K-$49K" },
                   { value: "$50K-$59K", label: "$50K-$59K" },
