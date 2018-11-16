@@ -203,7 +203,7 @@ class IndexPage extends Component {
             wellbeing={wellbeing}
           />
 
-          {page === "thanks" && <Thanks email={email} />}
+          {page === "thanks" && <Thanks email={email} userId={user.userId} />}
           {/* TODO: Display progress bar? State # of steps? */}
           {page === "notfound" && <PageNotFound />}
           <footer>
