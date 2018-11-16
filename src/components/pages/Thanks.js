@@ -1,6 +1,6 @@
 import React from "react";
 
-const Thanks = ({ email }) => (
+const Thanks = ({ email, userId }) => (
   <div>
     <h1>Thanks for participating!</h1>
     Your responses have been saved so you can safely close your browser.
