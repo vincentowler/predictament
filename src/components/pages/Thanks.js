@@ -6,10 +6,10 @@ const Thanks = ({ email, userId }) => (
     Your responses have been saved so you can safely close your browser.
     {email && ` We'll send the results to the email you provided soon.`} We
     appreciate your input. 😃
-    <h2>
+    <h3>
       Here is your compleation code:
       <h4>{userId}</h4>
-    </h2>
+    </h3>
   </div>
 );
 
