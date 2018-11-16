@@ -25,7 +25,7 @@ class TournamentInstructions extends React.Component {
         <ol>
           <li>
             You have 30 tokens to "bet" on bins(or ranges) on what you expect a
-            given person's outcome to be. The outcome you will be asked to
+            given person&apos;s outcome to be. The outcome you will be asked to
             predict is either their income or reported health.
           </li>
           <li>
