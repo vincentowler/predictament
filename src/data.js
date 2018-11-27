@@ -27,7 +27,7 @@ export const scenarios = [
   },
   {
     scenarioId: 2,
-    topic: "subjective well being",
+    topic: "Subjective Well Being",
     options: [
       "0-10",
       "11-20",
