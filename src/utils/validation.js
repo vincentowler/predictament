@@ -39,10 +39,10 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
   // TODO: Should this only be allowed to be a number?
   // Depends on IRB policy. May have to switch to ranges.
   // leave as is for now per Jeff.
-  if (enabledBackgroundQuestionIds.includes(6) && !user.momeducation) {
+  if (enabledBackgroundQuestionIds.includes(6) && !user.momEducation) {
     errors.momeducation = "Please select your mother's education.";
   }
-  if (enabledBackgroundQuestionIds.includes(7) && !user.dadeducation) {
+  if (enabledBackgroundQuestionIds.includes(7) && !user.dadEducation) {
     errors.dadeducation = "Please select your father's education.";
   }
   if (enabledBackgroundQuestionIds.includes(8) && !user.job) {
@@ -144,8 +144,8 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
     }
   }
   if (enabledBackgroundQuestionIds.includes(17)) {
-    if (!user.stantest) {
-      errors.stantest = "Please enter a valid SAT score.";
+    if (!user.stanTest) {
+      errors.stanTest = "Please enter a valid SAT score.";
     }
     if (parseInt(user.stantest) < 0 || parseInt(user.sat) > 1600) {
       errors.stantest = "Please enter a valid SAT score.";
@@ -157,8 +157,8 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
   if (enabledBackgroundQuestionIds.includes(19) && !user.houseIncome) {
     errors.houseIncome = "Please select the income of your house";
   }
-  if (enabledBackgroundQuestionIds.includes(20) && !user.parenthouseincome) {
-    errors.parenthouseincome =
+  if (enabledBackgroundQuestionIds.includes(20) && !user.parentHouseIncome) {
+    errors.parentHouseIncome =
       "Please select the income of your parent's house";
   }
 
