@@ -28,8 +28,8 @@ class IndexPage extends Component {
       ethnicity: "",
       gender: "",
       education: "",
-      momeducation: "",
-      dadeducation: "",
+      momEducation: "",
+      dadEducation: "",
       job: "",
       industry: "",
       yearsJobExperience: "",
@@ -37,10 +37,10 @@ class IndexPage extends Component {
       health: "",
       act: "",
       gpa: "",
-      stantest: "",
+      stanTest: "",
       income: "",
-      houseincome: "",
-      parenthouseincome: "",
+      houseIncome: "",
+      parentHouseIncome: "",
       occupation: "",
       earningsDesiredData1: "",
       earningsDesiredData2: "",
@@ -153,9 +153,7 @@ class IndexPage extends Component {
       profiles,
       backgroundQuestionIds,
       earningsOptions,
-      satisfactionOptions,
-      wellbeing,
-      health
+      satisfactionOptions
     } = this.state;
 
     return (
@@ -199,8 +197,6 @@ class IndexPage extends Component {
             showPage={this.showPage}
             earningsOptions={earningsOptions}
             satisfactionOptions={satisfactionOptions}
-            health={health}
-            wellbeing={wellbeing}
           />
 
           {page === "thanks" && <Thanks email={email} userId={user.userId} />}

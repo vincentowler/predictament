@@ -191,7 +191,7 @@ class Login extends React.Component {
                 <p>
                   The researchers conducting this study are Jeffrey Swigert and
                   Mike Lovenheim. Please direct any questions to Jeff Swigert at
-                  jms858@cornell.edu or 435-865-8239. If you have any questions
+                  jms858@cornell.edu or 801-898-4130. If you have any questions
                   or concerns regarding your rights as a subject in this study,
                   you may contact the Institutional Review Board (IRB) at
                   607-255-5138 or access their website at
@@ -211,14 +211,9 @@ class Login extends React.Component {
             </Modal>
           </div>
         </div>
-<<<<<<< HEAD
-        {/* These hidden fields are necessary since we're selectively rendering background questions based on scenario. 
-      Netlify must see all the fields on page load or they won't submit. */}
-=======
 
         {/* These hidden fields are necessary since we're selectively rendering background questions based on scenario. 
             Netlify must see all the fields on page load or they won't submit. */}
->>>>>>> cfafcc710b570ebaf1a93fde65447efe08e7e560
         <TextInput
           label="What is your age?"
           id="hiddenage"
@@ -231,6 +226,7 @@ class Login extends React.Component {
         />
         <RadioButtonList
           label="What is your race?"
+          id="hiddenrace"
           name="race"
           options={[
             { value: "Black", label: "Black" },
@@ -245,6 +241,7 @@ class Login extends React.Component {
         <RadioButtonList
           label="What is your ethnicity?"
           name="ethnicity"
+          id="hiddenethnicity"
           options={[
             { value: "Hispanic", label: "Hispanic" },
             { value: "Non-Hispanic", label: "Non-Hispanic" }
@@ -255,6 +252,7 @@ class Login extends React.Component {
         />
         <RadioButtonList
           label="What is your gender?"
+          id="hiddengender"
           name="gender"
           options={[
             { value: "Male", label: "Male" },
@@ -267,6 +265,7 @@ class Login extends React.Component {
         <RadioButtonList
           selectedValue={user.education}
           label="What is the highest level of school you have completed or the highest degree you have received?"
+          id="hiddeneducation"
           name="education"
           options={[
             {
@@ -341,7 +340,47 @@ class Login extends React.Component {
             }
           ]}
           onChange={() => {}}
-          error={errors.education}
+          error={errors.momEducation}
+          className="hidden"
+        />
+        <RadioButtonList
+          label="What is father's highest level of education completed?"
+          id="hiddendadEducation"
+          name="dadEducation"
+          options={[
+            {
+              value: "Less than High School",
+              label: "Less than High School"
+            },
+            { value: "Some High School", label: "Some High School" },
+            {
+              value: "High School Graduate (Diploma or Equivalent)",
+              label: "High School Graduate (Diploma or Equivalent)"
+            },
+
+            {
+              value: "Some College (2-yr. Associates Degree or less)",
+              label: "Some College (2-yr. Associates Degree or less)"
+            },
+            {
+              value: "Bachelor's Degree (4-yr. College Graduate)",
+              label: "Bachelor's Degree (4-yr. College Graduate)"
+            },
+            {
+              value:
+                "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
+              label:
+                "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)"
+            },
+            {
+              value:
+                "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
+              label:
+                "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)"
+            }
+          ]}
+          onChange={() => {}}
+          error={errors.dadEducation}
           className="hidden"
         />
         <TextInput
@@ -355,7 +394,17 @@ class Login extends React.Component {
           className="hidden"
         />
         <TextInput
-          label="What is your current industry and occupation?"
+          label="What is your current job title/description?"
+          id="hiddenJob"
+          name="job"
+          type="text"
+          value={user.job}
+          onChange={onChange}
+          error={errors.job}
+          className="hidden"
+        />
+        <TextInput
+          label="What industry does your current job fall into (for example: Automotive, Health Care, Education, etc...)?"
           id="hiddenindustry"
           name="industry"
           type="text"
@@ -441,7 +490,7 @@ class Login extends React.Component {
           className="hidden"
         />
         <TextInput
-          label="What is your own level of well being?"
+          label="On a scale of 0 (extremely unhappy) to 100 (highest possible happiness), what would you say your current overall level of well-being is?"
           id="hiddenwellbeing"
           name="wellbeing"
           type="number"
@@ -451,7 +500,7 @@ class Login extends React.Component {
           className="hidden"
         />
         <TextInput
-          label="On a scale of 1-100, how healthy are you?"
+          label="On a scale of 0 (extremely unhealthy) to 100 (best possible health level), what would you say your level of overall health is?"
           id="hiddenhealth"
           name="health"
           type="number"
@@ -460,7 +509,88 @@ class Login extends React.Component {
           error={errors.health}
           className="hidden"
         />
-
+        <TextInput
+          label="What, as best as you can remember, was your High School grade point average (GPA)?"
+          id="gpa"
+          name="gpa"
+          type="float"
+          value={user.gpa}
+          onChange={onChange}
+          error={errors.gpa}
+          className="hidden"
+        />
+        <TextInput
+          label="What, as best as you can remember, was your most recent ACT score? (if you did not take the ACT please insert a 0)"
+          id="hiddenact"
+          name="act"
+          type="number"
+          value={user.act}
+          onChange={onChange}
+          error={errors.act}
+          className="hidden"
+        />
+        <TextInput
+          label="What, as best as you can remember, was your most recent SAT score? (if you did not take it, insert a 0)"
+          id="hiddenstanTest"
+          name="stanTest"
+          type="number"
+          value={user.stanTest}
+          onChange={onChange}
+          error={errors.stanTest}
+          className="hidden"
+        />
+        <RadioButtonList
+          label="Which category represents your household’s (or just you if you are supporting yourself) total combined income during the past 12 months? This includes money from jobs, net income from business, farm or rent, pensions, dividends, interest, social security payments and any other money income received. "
+          id="hiddenhouseIncome"
+          name="houseIncome"
+          options={[
+            { value: "<$5K", label: "<$5K" },
+            { value: "$5K-$6K", label: "$5K-$6K" },
+            { value: "$7K-$9K", label: "$7K-$9K" },
+            { value: "$10K-$11K", label: "$10K-$11K" },
+            { value: "$12K-$14K", label: "$12K-$14K" },
+            { value: "$15K-$19K", label: "$15K-$19K" },
+            { value: "$20K-$24K", label: "$20K-$24K" },
+            { value: "$25K-$29K", label: "$25K-$29K" },
+            { value: "$30K-$34K", label: "$30K-$34K" },
+            { value: "$35K-$39K", label: "$35K-$39K" },
+            { value: "$40K-$49K", label: "$40K-$49K" },
+            { value: "$50K-$59K", label: "$50K-$59K" },
+            { value: "$60K-$74K", label: "$60K-$74K" },
+            { value: "$75K-$99K", label: "$75K-$99K" },
+            { value: "$100K-$149K", label: "$100K-$149K" },
+            { value: "$150K+", label: "$150K+" }
+          ]}
+          onChange={() => {}}
+          error={errors.parentHouseIncome}
+          className="hidden"
+        />
+        <RadioButtonList
+          id="hiddenparentHouseIncome"
+          label="While you were growing up, which category represents your parents’/guardians’ total combined income during a typical year (this could the amount your father made if he was the primary worker, the amount your mother made if she was the primary worker, or, if both worked, their combined annual earnings -- if divorced, select the category of income that reflects the earnings level of the household you spent most of your time living in)? This includes money from jobs, net income from business, farm or rent, pensions, dividends, interest, social security payments and any other money income received. "
+          name="parentHouseIncome"
+          options={[
+            { value: "<$5K", label: "<$5K" },
+            { value: "$5K-$6K", label: "$5K-$6K" },
+            { value: "$7K-$9K", label: "$7K-$9K" },
+            { value: "$10K-$11K", label: "$10K-$11K" },
+            { value: "$12K-$14K", label: "$12K-$14K" },
+            { value: "$15K-$19K", label: "$15K-$19K" },
+            { value: "$20K-$24K", label: "$20K-$24K" },
+            { value: "$25K-$29K", label: "$25K-$29K" },
+            { value: "$30K-$34K", label: "$30K-$34K" },
+            { value: "$35K-$39K", label: "$35K-$39K" },
+            { value: "$40K-$49K", label: "$40K-$49K" },
+            { value: "$50K-$59K", label: "$50K-$59K" },
+            { value: "$60K-$74K", label: "$60K-$74K" },
+            { value: "$75K-$99K", label: "$75K-$99K" },
+            { value: "$100K-$149K", label: "$100K-$149K" },
+            { value: "$150K+", label: "$150K+" }
+          ]}
+          onChange={() => {}}
+          error={errors.parentHouseIncome}
+          className="hidden"
+        />
         {/* End of the exhaustive list of hidden questions to keep Netlify happy. The questions below are selectively displayed when enabled */}
 
         <h2>Background</h2>
@@ -612,9 +742,9 @@ class Login extends React.Component {
           {this.questionEnabled(7) && (
             <li>
               <RadioButtonList
-                selectedValue={user.dadeducation}
+                selectedValue={user.dadEducation}
                 label="What is your father's highest level of education completed?"
-                name="dadeducation"
+                name="dadEducation"
                 options={[
                   {
                     value: "Less than High School",
@@ -647,7 +777,7 @@ class Login extends React.Component {
                   }
                 ]}
                 onChange={onChange}
-                error={errors.dadeducation}
+                error={errors.dadEducation}
               />
             </li>
           )}
@@ -667,7 +797,7 @@ class Login extends React.Component {
           {this.questionEnabled(9) && (
             <li>
               <TextInput
-                label="What industry does your current job fall into. (for example: Automotive, Health Care, Education, etc...)"
+                label="What industry does your current job fall into (for example: Automotive, Health Care, Education, etc...)?"
                 id="industry"
                 name="industry"
                 type="text"
@@ -845,12 +975,12 @@ class Login extends React.Component {
             <li>
               <TextInput
                 label="What, as best as you can remember, was your most recent SAT score? (if you did not take it, insert a 0)"
-                id="stantest"
-                name="stantest"
+                id="stanTest"
+                name="stanTest"
                 type="number"
-                value={user.stantest}
+                value={user.stanTest}
                 onChange={onChange}
-                error={errors.stantest}
+                error={errors.stanTest}
               />
             </li>
           )}
@@ -899,9 +1029,9 @@ class Login extends React.Component {
           {this.questionEnabled(20) && (
             <li>
               <RadioButtonList
-                selectedValue={user.parenthouseincome}
+                selectedValue={user.parentHouseIncome}
                 label="While you were growing up, which category represents your parents’/guardians’ total combined income during a typical year (this could the amount your father made if he was the primary worker, the amount your mother made if she was the primary worker, or, if both worked, their combined annual earnings -- if divorced, select the category of income that reflects the earnings level of the household you spent most of your time living in)? This includes money from jobs, net income from business, farm or rent, pensions, dividends, interest, social security payments and any other money income received. "
-                name="parenthouseincome"
+                name="parentHouseIncome"
                 options={[
                   { value: "<$5K", label: "<$5K" },
                   { value: "$5K-$6K", label: "$5K-$6K" },
@@ -921,7 +1051,7 @@ class Login extends React.Component {
                   { value: "$150K+", label: "$150K+" }
                 ]}
                 onChange={onChange}
-                error={errors.parenthouseincome}
+                error={errors.parentHouseIncome}
               />
             </li>
           )}
