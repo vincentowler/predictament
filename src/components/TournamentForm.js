@@ -54,7 +54,7 @@ const TournamentForm = props => {
           onChange={onWagerChange}
         />
         <div style={{ clear: "both" }} />
-        <p style={tokensLeft < 1 ? { color: "red" } : {}}>
+        <p style={tokensLeft < 1 ? { color: "blue" } : {}}>
           {tokensLeft} tokens left.
         </p>
 

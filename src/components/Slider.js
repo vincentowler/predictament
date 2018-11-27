@@ -14,7 +14,13 @@ const Slider = ({ max, option, onChange }) => {
         value={option.tokens}
         max={max}
       />
-      <span style={{ color: option.tokens > 0 ? "green" : null }}>
+      <span
+        style={{
+          color: option.tokens > 0 ? "green" : null,
+          textOrientation: "mixed",
+          writingMode: "vertical-rl"
+        }}
+      >
         {option.label}
       </span>
     </span>
