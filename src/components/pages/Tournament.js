@@ -16,15 +16,14 @@ class Tournament extends React.Component {
   }
 
   getOptions() {
-    if (this.props.scenario.options.length === 0) return []; // Necessary since the placeholder scenario has 0 tokens.
+    if (this.props.scenario.options.length === 0) return [];
     return this.props.scenario.options.map(option => {
       return { label: option, tokens: 0 };
     });
   }
 
   getTokensLeft = () => {
-    if (this.state.options.length === 0) return 0; // Necessary since the placeholder scenario has 0 options.
-
+    if (this.state.options.length === 0) return 0;
     return (
       this.props.scenario.totalTokens -
       this.state.options
