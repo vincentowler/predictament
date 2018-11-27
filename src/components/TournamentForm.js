@@ -32,7 +32,7 @@ const TournamentForm = props => {
       <input type="hidden" name="form-name" value={formNames.wager} />
       <h2>What is this person&apos;s {scenario.topic}?</h2>
       <p>
-        Move the range sliders below to place wagers on this person's{" "}
+        Move the range sliders below to place wagers on this person&apos;s{" "}
         {scenario.topic}.
       </p>
       <p>You have {scenario.totalTokens} "confidence tokens" to assign.</p>

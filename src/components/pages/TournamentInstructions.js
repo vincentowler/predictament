@@ -19,9 +19,9 @@ class TournamentInstructions extends React.Component {
     return (
       <div>
         <h2>Prediction Tournament Instructions</h2>
-        Thanks for letting us know a bit about yourself. We’ll now ask you to
-        make some predictions about other people. We’ll display their profile
-        information and based on this information, ask you to:
+        Thanks for letting us know a bit about yourself. We&apos;ll now ask you
+        to make some predictions about other people. We&apos;ll display their
+        profile information and based on this information, ask you to:
         <ol>
           <li>
             You have 30 tokens to "bet" on bins (or ranges) on what you expect a
@@ -47,7 +47,7 @@ class TournamentInstructions extends React.Component {
         </ol>
         Still curious?{" "}
         <a href="#bonus-calc" onClick={this.toggleBonusCalc}>
-          Here's how the bonus is calculated
+          Here&apos;s how the bonus is calculated
         </a>.
         <div className="static-modal">
           <Modal show={this.state.showBonusCalc}>

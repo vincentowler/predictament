@@ -138,12 +138,12 @@ class Login extends React.Component {
                 </p>
                 <p>
                   What the study is about: The purpose of this study is to learn
-                  about people’s expectations regarding education, the labor
-                  market, and quality of life. What we will ask you to do: This
-                  study involves responding to a background survey (5 minutes)
-                  participating making 30 predictions about anonymous workers in
-                  the labor force. This study should take about 30 minutes to
-                  complete.
+                  about people&apos;s expectations regarding education, the
+                  labor market, and quality of life. What we will ask you to do:
+                  This study involves responding to a background survey (5
+                  minutes) participating making 30 predictions about anonymous
+                  workers in the labor force. This study should take about 30
+                  minutes to complete.
                 </p>
                 <h4>Risks and discomfort:</h4>
                 <p>

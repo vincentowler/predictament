@@ -6,8 +6,9 @@ const Thanks = ({ email, userId }) => (
     Your responses have been saved so you can safely close your browser. We
     appreciate your input. 😃
     <h3>
-      Here is your compleation code:
-      <h4>{userId}</h4>
+      Here is your completion code:
+      <br />
+      <strong>{userId}</strong>
       Copy this code and paste it into the Amazon MTurk form to complete the
       HIT.
     </h3>
