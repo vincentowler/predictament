@@ -200,7 +200,7 @@ class IndexPage extends Component {
           />
 
           {page === "thanks" && <Thanks email={email} userId={user.userId} />}
-          {/* TODO: Display progress bar? State # of steps? */}
+
           {page === "notfound" && <PageNotFound />}
           <footer>
             <hr />&copy; 2018 Cornell University

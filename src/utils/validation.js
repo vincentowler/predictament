@@ -36,9 +36,6 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
     errors.education = "Please select your education.";
   }
 
-  // TODO: Should this only be allowed to be a number?
-  // Depends on IRB policy. May have to switch to ranges.
-  // leave as is for now per Jeff.
   if (enabledBackgroundQuestionIds.includes(6) && !user.momEducation) {
     errors.momeducation = "Please select your mother's education.";
   }
@@ -49,7 +46,6 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
     errors.job = "Please enter the job title of your current job.";
   }
 
-  // TODO: Should these be dropdowns? Single input?
   if (enabledBackgroundQuestionIds.includes(9) && !user.industry) {
     errors.industry = "Please enter the industry in which you work.";
   }
