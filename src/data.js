@@ -22,7 +22,6 @@ export const scenarios = [
     ],
     bonusQuestion:
       "Predict this person's yearly income based on the following profile information:",
-    // TODO: Are total tokens tied to a scenario?
     totalTokens: 30
   },
   {

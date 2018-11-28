@@ -147,7 +147,7 @@ export function CoinStackBar(o) {
   this.shadow.style.width = this.shadowwidth + "px";
   this.shadow.style.height = this.coinimgheight * this.stacksize * 2 + "px";
   this.shadow.style.top =
-    this.containerheight - this.coinimgheight * this.stacksize * 1.5 + "px"; //Todo for other images?
+    this.containerheight - this.coinimgheight * this.stacksize * 1.5 + "px";
   this.shadow.style.left = -(this.shadowwidth / 4) + "px";
   this.shadow.style.opacity = 0; //Always start invisible.
   //The shadow is dependent on CSS radial gradients: Won't work in IE8 or lower.
@@ -405,7 +405,7 @@ CoinStackBar.prototype.update = function() {
           coin.ypos + coin.ystart * animframe * this.stacksize + "px";
         coin.element.style.left =
           coin.xpos + coin.xstart * (1.0 - animframe) * this.stacksize + "px";
-        coin.element.style.opacity = 1.0 - animframe; //TODO?
+        coin.element.style.opacity = 1.0 - animframe;
         if (animframe >= 1) {
           this.removeCoin(key);
         }

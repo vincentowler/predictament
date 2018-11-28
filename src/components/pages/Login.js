@@ -74,7 +74,7 @@ class Login extends React.Component {
       <div className={visible ? null : "hidden"}>
         <h1>Cornell University Expectations Study</h1>
         {errors.login && <p style={{ color: "#a94442" }}>{errors.login}</p>}
-        {/* TODO: Can I look this up to validate? */}
+
         <TextInput
           label="MTurk Worker ID"
           name="workerId"
