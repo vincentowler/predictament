@@ -531,12 +531,12 @@ class Login extends React.Component {
         />
         <TextInput
           label="What, as best as you can remember, was your most recent SAT score? (if you did not take it, insert a 0)"
-          id="hiddenstanTest"
-          name="stanTest"
+          id="hiddensat"
+          name="sat"
           type="number"
-          value={user.stanTest}
+          value={user.sat}
           onChange={onChange}
-          error={errors.stanTest}
+          error={errors.sat}
           className="hidden"
         />
         <RadioButtonList
@@ -975,12 +975,12 @@ class Login extends React.Component {
             <li>
               <TextInput
                 label="What, as best as you can remember, was your most recent SAT score? (if you did not take it, insert a 0)"
-                id="stanTest"
-                name="stanTest"
+                id="sat"
+                name="sat"
                 type="number"
-                value={user.stanTest}
+                value={user.sat}
                 onChange={onChange}
-                error={errors.stanTest}
+                error={errors.sat}
               />
             </li>
           )}
