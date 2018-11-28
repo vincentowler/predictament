@@ -143,7 +143,7 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
     if (!user.sat) {
       errors.sat = "Please enter a valid SAT score.";
     }
-    if (parseInt(user.stantest) < 0 || parseInt(user.sat) > 1600) {
+    if (parseInt(user.sat) < 0 || parseInt(user.sat) > 1600) {
       errors.sat = "Please enter a valid SAT score.";
     }
   }
