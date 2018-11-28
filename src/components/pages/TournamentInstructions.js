@@ -32,7 +32,6 @@ class TournamentInstructions extends React.Component {
             Make an informed "best guess" estimate afterwards for the exact
             value of their score on their self-reported score.
           </li>
-
           <li>
             You will get a base payment for completion of the survey, and a
             bonus payment for each profile you look at based on the accuracy of

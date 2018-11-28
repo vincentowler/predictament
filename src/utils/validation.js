@@ -37,10 +37,10 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
   }
 
   if (enabledBackgroundQuestionIds.includes(6) && !user.momEducation) {
-    errors.momeducation = "Please select your mother's education.";
+    errors.momEducation = "Please select your mother's education.";
   }
   if (enabledBackgroundQuestionIds.includes(7) && !user.dadEducation) {
-    errors.dadeducation = "Please select your father's education.";
+    errors.dadEducation = "Please select your father's education.";
   }
   if (enabledBackgroundQuestionIds.includes(8) && !user.job) {
     errors.job = "Please enter the job title of your current job.";
@@ -129,33 +129,34 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
   }
   if (enabledBackgroundQuestionIds.includes(16)) {
     if (!user.gpa) {
-      errors.gpa = "Please enter your remembered high school gpa.";
+      errors.gpa = "Please enter your high school GPA.";
     }
 
     if (
       parseFloat(user.gpa).toFixed(2) < 0 ||
       parseFloat(user.gpa).toFixed(2) > 4.0
     ) {
-      errors.gpa = "Please enter a standard GPA measure(between 1.0 and 4.0).";
+      errors.gpa = "Please enter a standard GPA measure(between 0 and 4.0).";
     }
   }
   if (enabledBackgroundQuestionIds.includes(17)) {
-    if (!user.stanTest) {
-      errors.stanTest = "Please enter a valid SAT score.";
+    if (!user.sat) {
+      errors.sat = "Please enter a valid SAT score.";
     }
     if (parseInt(user.stantest) < 0 || parseInt(user.sat) > 1600) {
-      errors.stantest = "Please enter a valid SAT score.";
+      errors.sat = "Please enter a valid SAT score.";
     }
   }
   if (enabledBackgroundQuestionIds.includes(18) && !user.income) {
-    errors.income = "Please enter the income rounded to the nearest thousand";
+    errors.income =
+      "Please enter your income rounded to the nearest thousand dollars.";
   }
   if (enabledBackgroundQuestionIds.includes(19) && !user.houseIncome) {
-    errors.houseIncome = "Please select the income of your house";
+    errors.houseIncome = "Please select the income of your household.";
   }
   if (enabledBackgroundQuestionIds.includes(20) && !user.parentHouseIncome) {
     errors.parentHouseIncome =
-      "Please select the income of your parent's house";
+      "Please select the income of your parent's household.";
   }
 
   return errors;

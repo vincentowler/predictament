@@ -37,7 +37,7 @@ class IndexPage extends Component {
       health: "",
       act: "",
       gpa: "",
-      stanTest: "",
+      sat: "",
       income: "",
       houseIncome: "",
       parentHouseIncome: "",
