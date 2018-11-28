@@ -3,23 +3,25 @@ export const scenarios = [
     scenarioId: 1,
     topic: "Income",
     options: [
-      "$50,000",
-      "$55,000",
-      "$60,000",
-      "$65,000",
-      "$70,000",
-      "$75,000",
-      "$80,000",
-      "$85,000",
-      "$90,000",
-      "$95,000",
-      "$100,000",
-      "$150,000",
-      "$200,000"
+      "--Below $5K",
+      "----$5K-$6K",
+      "----$7K-$9K",
+      "--$10K-$11K",
+      "--$12K-$14K",
+      "--$15K-$19K",
+      "--$20K-$24K",
+      "--$25K-$29K",
+      "--$30K-$34K",
+      "--$35K-$39K",
+      "--$40K-$49K",
+      "--$50K-$59K",
+      "--$60K-$74K",
+      "--$75K-$99K",
+      "$100K-$149K",
+      "-----$150K+"
     ],
     bonusQuestion:
       "Predict this person's yearly income based on the following profile information:",
-    // TODO: Are total tokens tied to a scenario?
     totalTokens: 30
   },
   {
@@ -53,7 +55,18 @@ export const backgroundQuestions = [
   { id: 7, scenarioIds: [1, 2] },
   { id: 8, scenarioIds: [1, 2] },
   { id: 9, scenarioIds: [1, 2] },
-  { id: 10, scenarioIds: [1, 2] }
+  { id: 10, scenarioIds: [1, 2] },
+  { id: 11, scenarioIds: [] },
+  { id: 12, scenarioIds: [] },
+  { id: 13, scenarioIds: [1, 2] },
+  { id: 13, scenarioIds: [1, 2] },
+  { id: 14, scenarioIds: [1, 2] },
+  { id: 15, scenarioIds: [1, 2] },
+  { id: 16, scenarioIds: [1, 2] },
+  { id: 17, scenarioIds: [1, 2] },
+  { id: 18, scenarioIds: [1, 2] },
+  { id: 19, scenarioIds: [1, 2] },
+  { id: 20, scenarioIds: [1, 2] }
 ];
 
 export const profiles = [
@@ -64,7 +77,7 @@ export const profiles = [
   //       of the original profile (71 represents the full-info version of 1), since we don't exceed 60 profiles.
   {
     profileId: 1,
-    scenarioIds: [1],
+    scenarioIds: [1, 2],
     education: "Less than High School",
     experience: "Less than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -74,7 +87,7 @@ export const profiles = [
   },
   {
     profileId: 71,
-    scenarioIds: [1],
+    scenarioIds: [1, 2],
     education: "Less than High School",
     experience: "Less than 10 years",
     race: "Black",
@@ -102,6 +115,7 @@ export const profiles = [
   },
   {
     profileId: 10,
+    scenarioIds: [1, 2],
     education: "Bachelor's Degree (4-yr. College Graduate)",
     experience: "More than 10 years",
     race: "Black",
@@ -111,6 +125,7 @@ export const profiles = [
   },
   {
     profileId: 710,
+    scenarioIds: [1, 2],
     education: "Bachelor's Degree (4-yr. College Graduate)",
     experience: "More than 10 years",
     race: "Black",
@@ -119,6 +134,7 @@ export const profiles = [
   },
   {
     profileId: 27,
+    scenarioIds: [1, 2],
     education:
       "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "Less than 10 years",
@@ -129,6 +145,7 @@ export const profiles = [
   },
   {
     profileId: 727,
+    scenarioIds: [1, 2],
     education:
       "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "Less than 10 years",
@@ -138,6 +155,7 @@ export const profiles = [
   },
   {
     profileId: 29,
+    scenarioIds: [1, 2],
     education: "Less than High School",
     experience: "Less than 10 years",
     race: "Black",
@@ -147,6 +165,7 @@ export const profiles = [
   },
   {
     profileId: 729,
+    scenarioIds: [1, 2],
     education: "Less than High School",
     experience: "Less than 10 years",
     race: "Black",
@@ -155,6 +174,7 @@ export const profiles = [
   },
   {
     profileId: 21,
+    scenarioIds: [1, 2],
     education: "Some College (2-yr. Associates Degree or less)",
     experience: "Less than 10 years",
     race: "White",
@@ -164,6 +184,7 @@ export const profiles = [
   },
   {
     profileId: 721,
+    scenarioIds: [1, 2],
     education: "Some College (2-yr. Associates Degree or less)",
     experience: "Less than 10 years",
     race: "White",
@@ -172,6 +193,7 @@ export const profiles = [
   },
   {
     profileId: 32,
+    scenarioIds: [1, 2],
     education: "Some High School",
     experience: "More than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -181,6 +203,7 @@ export const profiles = [
   },
   {
     profileId: 732,
+    scenarioIds: [1, 2],
     education: "Some High School",
     experience: "More than 10 years",
     race: "Black",
@@ -189,6 +212,7 @@ export const profiles = [
   },
   {
     profileId: 42,
+    scenarioIds: [1, 2],
     education:
       "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "More than 10 years",
@@ -199,6 +223,7 @@ export const profiles = [
   },
   {
     profileId: 742,
+    scenarioIds: [1, 2],
     education:
       "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "More than 10 years",
@@ -208,6 +233,7 @@ export const profiles = [
   },
   {
     profileId: 53,
+    scenarioIds: [1, 2],
     education:
       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "Less than 10 years",
@@ -218,6 +244,7 @@ export const profiles = [
   },
   {
     profileId: 753,
+    scenarioIds: [1, 2],
     education:
       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "Less than 10 years",
@@ -228,6 +255,7 @@ export const profiles = [
   },
   {
     profileId: 7,
+    scenarioIds: [1, 2],
     education: "Some College (2-yr. Associates Degree or less)",
     experience: "Less than 10 years",
     race: "Black",
@@ -237,6 +265,7 @@ export const profiles = [
   },
   {
     profileId: 77,
+    scenarioIds: [1, 2],
     education: "Some College (2-yr. Associates Degree or less)",
     experience: "Less than 10 years",
     race: "Black",
@@ -245,6 +274,7 @@ export const profiles = [
   },
   {
     profileId: 2,
+    scenarioIds: [1, 2],
     education: "Less than High School",
     experience: "More than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -254,6 +284,7 @@ export const profiles = [
   },
   {
     profileId: 72,
+    scenarioIds: [1, 2],
     education: "Less than High School",
     experience: "More than 10 years",
     race: "Black",
@@ -262,6 +293,7 @@ export const profiles = [
   },
   {
     profileId: 19,
+    scenarioIds: [1, 2],
     education: "High School Graduate (Diploma or Equivalent)",
     experience: "Less than 10 years",
     race: "White",
@@ -271,6 +303,7 @@ export const profiles = [
   },
   {
     profileId: 719,
+    scenarioIds: [1, 2],
     education: "High School Graduate (Diploma or Equivalent)",
     experience: "Less than 10 years",
     race: "White",
@@ -279,6 +312,7 @@ export const profiles = [
   },
   {
     profileId: 31,
+    scenarioIds: [1, 2],
     education: "Some High School",
     experience: "Less than 10 years",
     race: "Black",
@@ -288,6 +322,7 @@ export const profiles = [
   },
   {
     profileId: 731,
+    scenarioIds: [1, 2],
     education: "Some High School",
     experience: "Less than 10 years",
     race: "Black",
@@ -296,6 +331,7 @@ export const profiles = [
   },
   {
     profileId: 56,
+    scenarioIds: [1, 2],
     education:
       "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "More than 10 years",
@@ -306,6 +342,7 @@ export const profiles = [
   },
   {
     profileId: 756,
+    scenarioIds: [1, 2],
     education:
       "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "More than 10 years",
@@ -315,6 +352,7 @@ export const profiles = [
   },
   {
     profileId: 18,
+    scenarioIds: [1, 2],
     education: "Some High School",
     experience: "More than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -324,6 +362,7 @@ export const profiles = [
   },
   {
     profileId: 718,
+    scenarioIds: [1, 2],
     education: "Some High School",
     experience: "More than 10 years",
     race: "White",
@@ -332,6 +371,7 @@ export const profiles = [
   },
   {
     profileId: 41,
+    scenarioIds: [1, 2],
     education:
       "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "Less than 10 years",
@@ -342,6 +382,7 @@ export const profiles = [
   },
   {
     profileId: 741,
+    scenarioIds: [1, 2],
     education:
       "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "Less than 10 years",
@@ -351,6 +392,7 @@ export const profiles = [
   },
   {
     profileId: 20,
+    scenarioIds: [1, 2],
     education: "High School Graduate (Diploma or Equivalent)",
     experience: "More than 10 years",
     race: "White",
@@ -360,6 +402,7 @@ export const profiles = [
   },
   {
     profileId: 720,
+    scenarioIds: [1, 2],
     education: "High School Graduate (Diploma or Equivalent)",
     experience: "More than 10 years",
     race: "White",
@@ -368,6 +411,7 @@ export const profiles = [
   },
   {
     profileId: 14,
+    scenarioIds: [1, 2],
     education:
       "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "More than 10 years",
@@ -378,6 +422,7 @@ export const profiles = [
   },
   {
     profileId: 714,
+    scenarioIds: [1, 2],
     education:
       "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "More than 10 years",
@@ -387,6 +432,7 @@ export const profiles = [
   },
   {
     profileId: 3,
+    scenarioIds: [1, 2],
     education: "Some High School",
     experience: "Less than 10 years",
     race: "Black",
@@ -396,6 +442,7 @@ export const profiles = [
   },
   {
     profileId: 73,
+    scenarioIds: [1, 2],
     education: "Some High School",
     experience: "Less than 10 years",
     race: "Black",
@@ -404,6 +451,7 @@ export const profiles = [
   },
   {
     profileId: 39,
+    scenarioIds: [1, 2],
     education:
       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "Less than 10 years",
@@ -414,6 +462,7 @@ export const profiles = [
   },
   {
     profileId: 739,
+    scenarioIds: [1, 2],
     education:
       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "Less than 10 years",
@@ -423,6 +472,7 @@ export const profiles = [
   },
   {
     profileId: 25,
+    scenarioIds: [1, 2],
     education:
       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "Less than 10 years",
@@ -433,6 +483,7 @@ export const profiles = [
   },
   {
     profileId: 725,
+    scenarioIds: [1, 2],
     education:
       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "Less than 10 years",
@@ -442,6 +493,7 @@ export const profiles = [
   },
   {
     profileId: 40,
+    scenarioIds: [1, 2],
     education:
       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "More than 10 years",
@@ -452,6 +504,7 @@ export const profiles = [
   },
   {
     profileId: 740,
+    scenarioIds: [1, 2],
     education:
       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "More than 10 years",
@@ -461,6 +514,7 @@ export const profiles = [
   },
   {
     profileId: 6,
+    scenarioIds: [1, 2],
     education: "High School Graduate (Diploma or Equivalent)",
     experience: "More than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -470,6 +524,7 @@ export const profiles = [
   },
   {
     profileId: 76,
+    scenarioIds: [1, 2],
     education: "High School Graduate (Diploma or Equivalent)",
     experience: "More than 10 years",
     race: "Black",
@@ -478,6 +533,7 @@ export const profiles = [
   },
   {
     profileId: 28,
+    scenarioIds: [1, 2],
     education:
       "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "More than 10 years",
@@ -488,6 +544,7 @@ export const profiles = [
   },
   {
     profileId: 728,
+    scenarioIds: [1, 2],
     education:
       "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "More than 10 years",
@@ -497,6 +554,7 @@ export const profiles = [
   },
   {
     profileId: 9,
+    scenarioIds: [1, 2],
     education: "Bachelor's Degree (4-yr. College Graduate)",
     experience: "Less than 10 years",
     race: "Black",
@@ -506,6 +564,7 @@ export const profiles = [
   },
   {
     profileId: 79,
+    scenarioIds: [1, 2],
     education: "Bachelor's Degree (4-yr. College Graduate)",
     experience: "Less than 10 years",
     race: "Black",
@@ -515,6 +574,7 @@ export const profiles = [
 
   {
     profileId: 13,
+    scenarioIds: [1, 2],
     education:
       "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "Less than 10 years",
@@ -525,6 +585,7 @@ export const profiles = [
   },
   {
     profileId: 713,
+    scenarioIds: [1, 2],
     education:
       "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "Less than 10 years",
@@ -534,6 +595,7 @@ export const profiles = [
   },
   {
     profileId: 38,
+    scenarioIds: [1, 2],
     education: "Bachelor's Degree (4-yr. College Graduate)",
     experience: "More than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -543,6 +605,7 @@ export const profiles = [
   },
   {
     profileId: 738,
+    scenarioIds: [1, 2],
     education: "Bachelor's Degree (4-yr. College Graduate)",
     experience: "More than 10 years",
     race: "Black",
@@ -551,6 +614,7 @@ export const profiles = [
   },
   {
     profileId: 48,
+    scenarioIds: [1, 2],
     education: "High School Graduate (Diploma or Equivalent)",
     experience: "More than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -560,6 +624,7 @@ export const profiles = [
   },
   {
     profileId: 748,
+    scenarioIds: [1, 2],
     education: "High School Graduate (Diploma or Equivalent)",
     experience: "More than 10 years",
     race: "White",
@@ -568,6 +633,7 @@ export const profiles = [
   },
   {
     profileId: 16,
+    scenarioIds: [1, 2],
     education: "Less than High School",
     experience: "More than 10 years",
     race: "White",
@@ -577,6 +643,7 @@ export const profiles = [
   },
   {
     profileId: 716,
+    scenarioIds: [1, 2],
     education: "Less than High School",
     experience: "More than 10 years",
     race: "White",
@@ -585,6 +652,7 @@ export const profiles = [
   },
   {
     profileId: 29,
+    scenarioIds: [1, 2],
     education: "Less than High School",
     experience: "Less than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -594,6 +662,7 @@ export const profiles = [
   },
   {
     profileId: 729,
+    scenarioIds: [1, 2],
     education: "Less than High School",
     experience: "Less than 10 years",
     race: "Black",
@@ -602,6 +671,7 @@ export const profiles = [
   },
   {
     profileId: 45,
+    scenarioIds: [1, 2],
     education: "Some High School",
     experience: "Less than 10 years",
     race: "White",
@@ -611,6 +681,7 @@ export const profiles = [
   },
   {
     profileId: 745,
+    scenarioIds: [1, 2],
     education: "Some High School",
     experience: "Less than 10 years",
     race: "White",
@@ -619,6 +690,7 @@ export const profiles = [
   },
   {
     profileId: 30,
+    scenarioIds: [1, 2],
     education: "Less than High School",
     experience: "More than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -628,6 +700,7 @@ export const profiles = [
   },
   {
     profileId: 730,
+    scenarioIds: [1, 2],
     education: "Less than High School",
     experience: "More than 10 years",
     race: "Black",
@@ -636,6 +709,7 @@ export const profiles = [
   },
   {
     profileId: 22,
+    scenarioIds: [1, 2],
     education: "Some College (2-yr. Associates Degree or less)",
     experience: "More than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -645,6 +719,7 @@ export const profiles = [
   },
   {
     profileId: 722,
+    scenarioIds: [1, 2],
     education: "Some College (2-yr. Associates Degree or less)",
     experience: "More than 10 years",
     race: "White",
@@ -653,6 +728,7 @@ export const profiles = [
   },
   {
     profileId: 4,
+    scenarioIds: [1, 2],
     education: "Some High School",
     experience: "More than 10 years",
     race: "Black",
@@ -662,6 +738,7 @@ export const profiles = [
   },
   {
     profileId: 74,
+    scenarioIds: [1, 2],
     education: "Some High School",
     experience: "More than 10 years",
     race: "Black",
@@ -670,6 +747,7 @@ export const profiles = [
   },
   {
     profileId: 33,
+    scenarioIds: [1, 2],
     education: "High School Graduate (Diploma or Equivalent)",
     experience: "Less than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -679,6 +757,7 @@ export const profiles = [
   },
   {
     profileId: 733,
+    scenarioIds: [1, 2],
     education: "High School Graduate (Diploma or Equivalent)",
     experience: "Less than 10 years",
     race: "Black",
@@ -687,6 +766,7 @@ export const profiles = [
   },
   {
     profileId: 35,
+    scenarioIds: [1, 2],
     education: "Some College (2-yr. Associates Degree or less)",
     experience: "Less than 10 years",
     race: "Black",
@@ -696,6 +776,7 @@ export const profiles = [
   },
   {
     profileId: 735,
+    scenarioIds: [1, 2],
     education: "Some College (2-yr. Associates Degree or less)",
     experience: "Less than 10 years",
     race: "Black",
@@ -704,6 +785,7 @@ export const profiles = [
   },
   {
     profileId: 49,
+    scenarioIds: [1, 2],
     education: "Some College (2-yr. Associates Degree or less)",
     experience: "Less than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -713,6 +795,7 @@ export const profiles = [
   },
   {
     profileId: 749,
+    scenarioIds: [1, 2],
     education: "Some College (2-yr. Associates Degree or less)",
     experience: "Less than 10 years",
     race: "White",
@@ -721,6 +804,7 @@ export const profiles = [
   },
   {
     profileId: 12,
+    scenarioIds: [1, 2],
     education:
       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "More than 10 years",
@@ -731,6 +815,7 @@ export const profiles = [
   },
   {
     profileId: 712,
+    scenarioIds: [1, 2],
     education:
       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "More than 10 years",
@@ -740,6 +825,7 @@ export const profiles = [
   },
   {
     profileId: 55,
+    scenarioIds: [1, 2],
     education:
       "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "Less than 10 years",
@@ -750,6 +836,7 @@ export const profiles = [
   },
   {
     profileId: 755,
+    scenarioIds: [1, 2],
     education:
       "Professional school degree or doctorate (for example: MD, DDS, DVM, LLB, JD, PHD, etc.)",
     experience: "Less than 10 years",
@@ -759,6 +846,7 @@ export const profiles = [
   },
   {
     profileId: 44,
+    scenarioIds: [1, 2],
     education: "Less than High School",
     experience: "More than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -768,6 +856,7 @@ export const profiles = [
   },
   {
     profileId: 744,
+    scenarioIds: [1, 2],
     education: "Less than High School",
     experience: "More than 10 years",
     race: "White",
@@ -776,6 +865,7 @@ export const profiles = [
   },
   {
     profileId: 8,
+    scenarioIds: [1, 2],
     education: "Some College (2-yr. Associates Degree or less)",
     experience: "More than 10 years",
     race: "Black",
@@ -785,6 +875,7 @@ export const profiles = [
   },
   {
     profileId: 78,
+    scenarioIds: [1, 2],
     education: "Some College (2-yr. Associates Degree or less)",
     experience: "More than 10 years",
     race: "Black",
@@ -793,6 +884,7 @@ export const profiles = [
   },
   {
     profileId: 24,
+    scenarioIds: [1, 2],
     education: "Bachelor's Degree (4-yr. College Graduate)",
     experience: "More than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -802,6 +894,7 @@ export const profiles = [
   },
   {
     profileId: 724,
+    scenarioIds: [1, 2],
     education: "Bachelor's Degree (4-yr. College Graduate)",
     experience: "More than 10 years",
     race: "White",
@@ -810,6 +903,7 @@ export const profiles = [
   },
   {
     profileId: 15,
+    scenarioIds: [1, 2],
     education: "Less than High School",
     experience: "Less than 10 years",
     race: "White",
@@ -819,6 +913,7 @@ export const profiles = [
   },
   {
     profileId: 715,
+    scenarioIds: [1, 2],
     education: "Less than High School",
     experience: "Less than 10 years",
     race: "White",
@@ -827,6 +922,7 @@ export const profiles = [
   },
   {
     profileId: 36,
+    scenarioIds: [1, 2],
     education: "Some College (2-yr. Associates Degree or less)",
     experience: "More than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -836,6 +932,7 @@ export const profiles = [
   },
   {
     profileId: 736,
+    scenarioIds: [1, 2],
     education: "Some College (2-yr. Associates Degree or less)",
     experience: "More than 10 years",
     race: "Black",
@@ -844,6 +941,7 @@ export const profiles = [
   },
   {
     profileId: 46,
+    scenarioIds: [1, 2],
     education: "Some High School",
     experience: "More than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -853,6 +951,7 @@ export const profiles = [
   },
   {
     profileId: 746,
+    scenarioIds: [1, 2],
     education: "Some High School",
     experience: "More than 10 years",
     race: "White",
@@ -861,6 +960,7 @@ export const profiles = [
   },
   {
     profileId: 11,
+    scenarioIds: [1, 2],
     education:
       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "Less than 10 years",
@@ -871,6 +971,7 @@ export const profiles = [
   },
   {
     profileId: 711,
+    scenarioIds: [1, 2],
     education:
       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "Less than 10 years",
@@ -880,6 +981,7 @@ export const profiles = [
   },
   {
     profileId: 37,
+    scenarioIds: [1, 2],
     education: "Bachelor's Degree (4-yr. College Graduate)",
     experience: "Less than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -889,6 +991,7 @@ export const profiles = [
   },
   {
     profileId: 737,
+    scenarioIds: [1, 2],
     education: "Bachelor's Degree (4-yr. College Graduate)",
     experience: "Less than 10 years",
     race: "Black",
@@ -897,6 +1000,7 @@ export const profiles = [
   },
   {
     profileId: 5,
+    scenarioIds: [1, 2],
     education: "High School Graduate (Diploma or Equivalent)",
     experience: "Less than 10 years",
     race: "Black",
@@ -906,6 +1010,7 @@ export const profiles = [
   },
   {
     profileId: 75,
+    scenarioIds: [1, 2],
     education: "High School Graduate (Diploma or Equivalent)",
     experience: "Less than 10 years",
     race: "Black",
@@ -914,6 +1019,7 @@ export const profiles = [
   },
   {
     profileId: 17,
+    scenarioIds: [1, 2],
     education: "Some High School",
     experience: "Less than 10 years",
     race: "White",
@@ -923,6 +1029,7 @@ export const profiles = [
   },
   {
     profileId: 717,
+    scenarioIds: [1, 2],
     education: "Some High School",
     experience: "Less than 10 years",
     race: "White",
@@ -931,6 +1038,7 @@ export const profiles = [
   },
   {
     profileId: 47,
+    scenarioIds: [1, 2],
     education: "High School Graduate (Diploma or Equivalent)",
     experience: "Less than 10 years",
     race: "White",
@@ -940,6 +1048,7 @@ export const profiles = [
   },
   {
     profileId: 747,
+    scenarioIds: [1, 2],
     education: "High School Graduate (Diploma or Equivalent)",
     experience: "Less than 10 years",
     race: "White",
@@ -948,6 +1057,7 @@ export const profiles = [
   },
   {
     profileId: 54,
+    scenarioIds: [1, 2],
     education:
       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "More than 10 years",
@@ -958,6 +1068,7 @@ export const profiles = [
   },
   {
     profileId: 754,
+    scenarioIds: [1, 2],
     education:
       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "More than 10 years",
@@ -967,6 +1078,7 @@ export const profiles = [
   },
   {
     profileId: 34,
+    scenarioIds: [1, 2],
     education: "High School Graduate (Diploma or Equivalent)",
     experience: "More than 10 years",
     race: "Black",
@@ -976,6 +1088,7 @@ export const profiles = [
   },
   {
     profileId: 734,
+    scenarioIds: [1, 2],
     education: "High School Graduate (Diploma or Equivalent)",
     experience: "More than 10 years",
     race: "Black",
@@ -984,6 +1097,7 @@ export const profiles = [
   },
   {
     profileId: 23,
+    scenarioIds: [1, 2],
     education: "Bachelor's Degree (4-yr. College Graduate)",
     experience: "Less than 10 years",
     race: "White",
@@ -993,6 +1107,7 @@ export const profiles = [
   },
   {
     profileId: 723,
+    scenarioIds: [1, 2],
     education: "Bachelor's Degree (4-yr. College Graduate)",
     experience: "Less than 10 years",
     race: "White",
@@ -1001,6 +1116,7 @@ export const profiles = [
   },
   {
     profileId: 51,
+    scenarioIds: [1, 2],
     education: "Bachelor's Degree (4-yr. College Graduate)",
     experience: "Less than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -1010,6 +1126,7 @@ export const profiles = [
   },
   {
     profileId: 751,
+    scenarioIds: [1, 2],
     education: "Bachelor's Degree (4-yr. College Graduate)",
     experience: "Less than 10 years",
     race: "White",
@@ -1018,6 +1135,7 @@ export const profiles = [
   },
   {
     profileId: 43,
+    scenarioIds: [1, 2],
     education: "Less than High School",
     experience: "Less than 10 years",
     race: "White",
@@ -1027,6 +1145,7 @@ export const profiles = [
   },
   {
     profileId: 743,
+    scenarioIds: [1, 2],
     education: "Less than High School",
     experience: "Less than 10 years",
     race: "White",
@@ -1035,6 +1154,7 @@ export const profiles = [
   },
   {
     profileId: 26,
+    scenarioIds: [1, 2],
     education:
       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "More than 10 years",
@@ -1045,6 +1165,7 @@ export const profiles = [
   },
   {
     profileId: 726,
+    scenarioIds: [1, 2],
     education:
       "Master's degree (for example: MA,MS,MENG,MED,MSW,MBA,MSN, etc.)",
     experience: "More than 10 years",
@@ -1054,6 +1175,7 @@ export const profiles = [
   },
   {
     profileId: 52,
+    scenarioIds: [1, 2],
     education: "Bachelor's Degree (4-yr. College Graduate)",
     experience: "More than 10 years",
     race: "UNKNOWN - SAVE WAGER TO REVEAL",
@@ -1063,6 +1185,7 @@ export const profiles = [
   },
   {
     profileId: 752,
+    scenarioIds: [1, 2],
     education: "Bachelor's Degree (4-yr. College Graduate)",
     experience: "More than 10 years",
     race: "White",

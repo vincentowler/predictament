@@ -10,9 +10,7 @@ const TournamentForm = props => {
   const {
     visible,
     scenario,
-    workerId,
-    email,
-    userId,
+    user,
     profile,
     options,
     wagerSubmitted,
@@ -32,9 +30,10 @@ const TournamentForm = props => {
       data-netlify="true"
     >
       <input type="hidden" name="form-name" value={formNames.wager} />
-      <h2>What is this person's income?</h2>
+      <h2>What is this person&apos;s {scenario.topic}?</h2>
       <p>
-        Move the range sliders below to place wagers on this person's income.
+        Move the range sliders below to place wagers on this person&apos;s{" "}
+        {scenario.topic}.
       </p>
       <p>You have {scenario.totalTokens} "confidence tokens" to assign.</p>
       <div className="token-wrapper">
@@ -55,7 +54,7 @@ const TournamentForm = props => {
           onChange={onWagerChange}
         />
         <div style={{ clear: "both" }} />
-        <p style={tokensLeft < 1 ? { color: "red" } : {}}>
+        <p style={tokensLeft < 1 ? { color: "blue" } : {}}>
           {tokensLeft} tokens left.
         </p>
 
@@ -127,7 +126,7 @@ const TournamentForm = props => {
         label="Email"
         name="email"
         id="email"
-        value={email}
+        value={user.email}
         onChange={() => {}}
         className="hidden"
       />
@@ -135,7 +134,7 @@ const TournamentForm = props => {
         label="Worker ID"
         name="workerId"
         id="workerId"
-        value={workerId}
+        value={user.workerId}
         onChange={() => {}}
         className="hidden"
       />
@@ -144,7 +143,7 @@ const TournamentForm = props => {
         label="User ID"
         name="userId"
         id="userId"
-        value={userId}
+        value={user.userId}
         onChange={() => {}}
         className="hidden"
       />

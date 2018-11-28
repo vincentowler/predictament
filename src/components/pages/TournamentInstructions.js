@@ -19,16 +19,34 @@ class TournamentInstructions extends React.Component {
     return (
       <div>
         <h2>Prediction Tournament Instructions</h2>
-        Thanks for letting us know a bit about yourself. We’ll now ask you to
-        make some predictions about people. We’ll display profile information
-        and based on this information, ask you to:
+        Thanks for letting us know a bit about yourself. We&apos;ll now ask you
+        to make some predictions about other people. We&apos;ll display their
+        profile information and based on this information, ask you to:
         <ol>
-          <li>Make an informed "best guess".</li>
-          <li>Place wagers across possible values of a given outcome.</li>
+          <li>
+            You have 30 tokens to "bet" on bins (or ranges) on what you expect a
+            given person&apos;s outcome to be. The outcome you will be asked to
+            predict is either their income or reported health.
+          </li>
+          <li>
+            Make an informed "best guess" estimate afterwards for the exact
+            value of their score on their self-reported score.
+          </li>
+          <li>
+            You will get a base payment for completion of the survey, and a
+            bonus payment for each profile you look at based on the accuracy of
+            your predictions.
+          </li>
+          <li>
+            Pro-Tip: A good strategy for wagering with your 30 tokens is to
+            imagine 30 different hypothetical worlds. Place tokens according to
+            the number of worlds where you would reasonably expect their outcome
+            to lie in one of the given ranges.{" "}
+          </li>
         </ol>
         Still curious?{" "}
         <a href="#bonus-calc" onClick={this.toggleBonusCalc}>
-          Here's how the bonus is calculated
+          Here&apos;s how the bonus is calculated
         </a>.
         <div className="static-modal">
           <Modal show={this.state.showBonusCalc}>
@@ -39,10 +57,10 @@ class TournamentInstructions extends React.Component {
             <Modal.Body>
               <p>
                 You will receive bonus points based on how close your best guess
-                is to the actual value of the outcome for the profile you are making 
-                predictions about, where you receive less and less the further your
-                guess is from the truth, where the bonus is equal to the following
-                “squared loss” formula:
+                is to the actual value of the outcome for the profile you are
+                making predictions about, where you receive less and less the
+                further your guess is from the truth, where the bonus is equal
+                to the following “squared loss” formula:
                 <img src="/equation.png" alt="Bonus equation" />
               </p>{" "}
             </Modal.Body>

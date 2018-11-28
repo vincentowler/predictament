@@ -9,39 +9,42 @@ const RadioButtonList = ({
   options,
   name,
   error,
-  selectedValue
-}) => (
-  <div
-    style={{ paddingBottom: 20 }}
-    className={error ? "field has-error" : "field"}
-  >
-    <label>{label}</label>
+  selectedValue,
+  className
+}) => {
+  let theClass = className ? "field " + className : "field";
+  if (error) theClass += " has-error";
+  return (
+    <div style={{ paddingBottom: 20 }} className={theClass}>
+      <label>{label}</label>
 
-    <FormGroup>
-      {options.map(({ label, value }) => {
-        return (
-          <Radio
-            onChange={onChange}
-            checked={value === selectedValue}
-            key={value}
-            name={name}
-            value={value}
-          >
-            {label}
-          </Radio>
-        );
-      })}
-    </FormGroup>
-    <span className="help-block">{error}</span>
-  </div>
-);
+      <FormGroup>
+        {options.map(({ label, value }) => {
+          return (
+            <Radio
+              onChange={onChange}
+              checked={value === selectedValue}
+              key={value}
+              name={name}
+              value={value}
+            >
+              {label}
+            </Radio>
+          );
+        })}
+      </FormGroup>
+      <span className="help-block">{error}</span>
+    </div>
+  );
+};
 
 RadioButtonList.propTypes = {
   label: PropTypes.string.isRequired,
+  className: PropTypes.string,
   name: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
   onChange: PropTypes.func.isRequired,
-  selectedValue: PropTypes.string.isRequired,
+  selectedValue: PropTypes.string,
   error: PropTypes.string
 };
 
