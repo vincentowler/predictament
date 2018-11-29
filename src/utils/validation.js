@@ -162,6 +162,10 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
     errors.collegeMajor =
       "Please enter your major if you attended or are attending college. If not applicable please put: N/A";
   }
+  if (enabledBackgroundQuestionIds.includes(22) && !user.demographic) {
+    errors.demographic =
+      "Please select the choice that best descibes the area you grew up in";
+  }
 
   return errors;
 }
