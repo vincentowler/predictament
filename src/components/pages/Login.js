@@ -591,6 +591,16 @@ class Login extends React.Component {
           error={errors.parentHouseIncome}
           className="hidden"
         />
+        <TextInput
+          label="What was/is your college major? (If you have not or did not attend put N/A)"
+          id="collegeMajor"
+          name="collegeMajor"
+          type="text"
+          value={user.collegeMajor}
+          onChange={() => {}}
+          error={errors.collegeMajor}
+          className="hidden"
+        />
         {/* End of the exhaustive list of hidden questions to keep Netlify happy. The questions below are selectively displayed when enabled */}
 
         <h2>Background</h2>
@@ -1052,6 +1062,19 @@ class Login extends React.Component {
                 ]}
                 onChange={onChange}
                 error={errors.parentHouseIncome}
+              />
+            </li>
+          )}
+          {this.questionEnabled(21) && (
+            <li>
+              <TextInput
+                label="What was/is your college major? (If you have not or did not attend put N/A)"
+                id="collegeMajor"
+                name="collegeMajor"
+                type="text"
+                value={user.collegeMajor}
+                onChange={onChange}
+                error={errors.collegeMajor}
               />
             </li>
           )}
