@@ -160,11 +160,11 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
   }
   if (enabledBackgroundQuestionIds.includes(21) && !user.collegeMajor) {
     errors.collegeMajor =
-      "Please enter your major if you attended or are attending college. If not applicable please put: N/A";
+      "Please enter your major if you attended or are attending college. If not applicable please put: N/A.";
   }
   if (enabledBackgroundQuestionIds.includes(22) && !user.demographic) {
     errors.demographic =
-      "Please select the choice that best descibes the area you grew up in";
+      "Please select the choice that best descibes the area you grew up in.";
   }
 
   return errors;
