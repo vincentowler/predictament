@@ -105,7 +105,7 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
       parseInt(user.wellbeing) > 100
     ) {
       errors.wellbeing =
-        "Please enter your self perceived level of well being from 1-100.";
+        "Please enter your self perceived level of well being from 0-100.";
     }
   }
   if (enabledBackgroundQuestionIds.includes(14)) {
@@ -115,7 +115,7 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
       parseInt(user.health) > 100
     ) {
       errors.health =
-        "Please enter your self perceived health score from 1-100.";
+        "Please enter your self perceived health score from 0-100.";
     }
   }
   if (enabledBackgroundQuestionIds.includes(15)) {
@@ -157,6 +157,14 @@ export function validateLogin(user, enabledBackgroundQuestionIds) {
   if (enabledBackgroundQuestionIds.includes(20) && !user.parentHouseIncome) {
     errors.parentHouseIncome =
       "Please select the income of your parent's household.";
+  }
+  if (enabledBackgroundQuestionIds.includes(21) && !user.collegeMajor) {
+    errors.collegeMajor =
+      "Please enter your major if you attended or are attending college. If not applicable please put: N/A.";
+  }
+  if (enabledBackgroundQuestionIds.includes(22) && !user.demographic) {
+    errors.demographic =
+      "Please select the choice that best descibes the area you grew up in.";
   }
 
   return errors;

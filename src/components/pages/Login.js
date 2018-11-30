@@ -591,6 +591,38 @@ class Login extends React.Component {
           error={errors.parentHouseIncome}
           className="hidden"
         />
+        <TextInput
+          label="What was/is your college major? (If you have not or did not attend put N/A)"
+          id="hiddencollegeMajor"
+          name="collegeMajor"
+          type="text"
+          value={user.collegeMajor}
+          onChange={() => {}}
+          error={errors.collegeMajor}
+          className="hidden"
+        />
+        <RadioButtonList
+          label="Which of the following best describes the area you grew up in?"
+          id="hiddendemographic"
+          name="demographic"
+          options={[
+            {
+              value: "Urban (in or around a city)",
+              label: "Urban (in or around a city)"
+            },
+            {
+              value: "Suburban (very close to, or bordering, a city)",
+              label: "Suburban (very close to, or bordering, a city)"
+            },
+            {
+              value: "Rural (small town or village, agricultural based)",
+              label: "Rural (small town or village, agricultural based)"
+            }
+          ]}
+          onChange={() => {}}
+          error={errors.demographic}
+          className="hidden"
+        />
         {/* End of the exhaustive list of hidden questions to keep Netlify happy. The questions below are selectively displayed when enabled */}
 
         <h2>Background</h2>
@@ -1052,6 +1084,45 @@ class Login extends React.Component {
                 ]}
                 onChange={onChange}
                 error={errors.parentHouseIncome}
+              />
+            </li>
+          )}
+          {this.questionEnabled(21) && (
+            <li>
+              <TextInput
+                label="What was/is your college major? (If you have not or did not attend put N/A)"
+                id="collegeMajor"
+                name="collegeMajor"
+                type="text"
+                value={user.collegeMajor}
+                onChange={onChange}
+                error={errors.collegeMajor}
+              />
+            </li>
+          )}
+
+          {this.questionEnabled(22) && (
+            <li>
+              <RadioButtonList
+                selectedValue={user.demographic}
+                label="Which of the following best describes the area you grew up in?"
+                name="demographic"
+                options={[
+                  {
+                    value: "Urban (in or around a city)",
+                    label: "Urban (in or around a city)"
+                  },
+                  {
+                    value: "Suburban (very close to, or bordering, a city)",
+                    label: "Suburban (very close to, or bordering, a city)"
+                  },
+                  {
+                    value: "Rural (small town or village, agricultural based)",
+                    label: "Rural (small town or village, agricultural based)"
+                  }
+                ]}
+                onChange={onChange}
+                error={errors.demographic}
               />
             </li>
           )}
