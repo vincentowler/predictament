@@ -21,7 +21,7 @@ export const scenarios = [
       "-----$150K+"
     ],
     bonusQuestion:
-      "Predict this person's yearly income based on the following profile information:",
+      "Predict this person's yearly income based on the profile information:",
     totalTokens: 30
   },
   {
